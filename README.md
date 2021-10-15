@@ -1,4 +1,4 @@
-# <p align="center" width="100%"> <img src="./logo.png" width="250" height="250"> </p> 
+# <p align="center" width="100%"> <img src="https://cdn.iconscout.com/icon/free/png-256/jira-282222.png" width="250" height="250"> </p> 
 # <p align="center" width="100%"> The Jira Cloud platform REST API OIH Connector </p>
 
 ## Description
