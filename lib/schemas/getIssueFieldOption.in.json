@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "fieldKey": {
+            "required": true,
+            "type": "string"
+        },
+        "optionId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        }
+    }
+}

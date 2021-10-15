@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "fieldName": {
+            "type": "string",
+            "example": "reporter"
+        },
+        "fieldValue": {
+            "type": "string"
+        },
+        "predicateName": {
+            "type": "string"
+        },
+        "predicateValue": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "type": "object",
+    "properties": {
+        "filterName": {
+            "type": "string"
+        },
+        "accountId": {
+            "maxLength": 128,
+            "type": "string"
+        },
+        "owner": {
+            "type": "string"
+        },
+        "groupname": {
+            "type": "string"
+        },
+        "projectId": {
+            "type": "integer",
+            "format": "int64"
+        },
+        "id": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "type": "integer",
+                "format": "int64"
+            }
+        },
+        "orderBy": {
+            "type": "string",
+            "enum": [
+                "description",
+                "-description",
+                "+description",
+                "favorite_count",
+                "-favorite_count",
+                "+favorite_count",
+                "id",
+                "-id",
+                "+id",
+                "is_favorite",
+                "-is_favorite",
+                "+is_favorite",
+                "name",
+                "-name",
+                "+name",
+                "owner",
+                "-owner",
+                "+owner"
+            ],
+            "default": "name"
+        },
+        "startAt": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 50
+        },
+        "expand": {
+            "type": "string"
+        }
+    }
+}

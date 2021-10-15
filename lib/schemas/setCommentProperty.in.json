@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "commentId": {
+            "required": true,
+            "type": "string"
+        },
+        "propertyKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {}
+    }
+}

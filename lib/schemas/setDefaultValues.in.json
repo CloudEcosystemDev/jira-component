@@ -1,0 +1,285 @@
+{
+    "type": "object",
+    "properties": {
+        "fieldId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "defaultValues": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "discriminator": {
+                            "propertyName": "type",
+                            "mapping": {
+                                "option.cascading": "#/components/schemas/CustomFieldContextDefaultValueCascadingOption",
+                                "option.multiple": "#/components/schemas/CustomFieldContextDefaultValueMultipleOption",
+                                "option.single": "#/components/schemas/CustomFieldContextDefaultValueSingleOption",
+                                "single.user.select": "#/components/schemas/CustomFieldContextSingleUserPickerDefaults",
+                                "multi.user.select": "#/components/schemas/CustomFieldContextDefaultValueMultiUserPicker",
+                                "grouppicker.single": "#/components/schemas/CustomFieldContextDefaultValueSingleGroupPicker",
+                                "grouppicker.multiple": "#/components/schemas/CustomFieldContextDefaultValueMultipleGroupPicker",
+                                "datepicker": "#/components/schemas/CustomFieldContextDefaultValueDate",
+                                "datetimepicker": "#/components/schemas/CustomFieldContextDefaultValueDateTime"
+                            }
+                        },
+                        "oneOf": [
+                            {
+                                "required": [
+                                    "contextId",
+                                    "optionId",
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "contextId": {
+                                        "type": "string",
+                                        "description": "The ID of the context."
+                                    },
+                                    "optionId": {
+                                        "type": "string",
+                                        "description": "The ID of the default option."
+                                    },
+                                    "cascadingOptionId": {
+                                        "type": "string",
+                                        "description": "The ID of the default cascading option."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "Default value for a cascading select custom field."
+                            },
+                            {
+                                "required": [
+                                    "contextId",
+                                    "optionIds",
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "contextId": {
+                                        "type": "string",
+                                        "description": "The ID of the context."
+                                    },
+                                    "optionIds": {
+                                        "type": "array",
+                                        "description": "The list of IDs of the default options.",
+                                        "items": {
+                                            "type": "string",
+                                            "description": "The list of IDs of the default options."
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "Default value for a multi-select custom field."
+                            },
+                            {
+                                "required": [
+                                    "contextId",
+                                    "optionId",
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "contextId": {
+                                        "type": "string",
+                                        "description": "The ID of the context."
+                                    },
+                                    "optionId": {
+                                        "type": "string",
+                                        "description": "The ID of the default option."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "Default value for a single select custom field."
+                            },
+                            {
+                                "required": [
+                                    "accountId",
+                                    "contextId",
+                                    "type",
+                                    "userFilter"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "contextId": {
+                                        "type": "string",
+                                        "description": "The ID of the context."
+                                    },
+                                    "accountId": {
+                                        "type": "string",
+                                        "description": "The ID of the default user."
+                                    },
+                                    "userFilter": {
+                                        "required": [
+                                            "enabled"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "enabled": {
+                                                "type": "boolean",
+                                                "description": "Whether the filter is enabled."
+                                            },
+                                            "groups": {
+                                                "uniqueItems": true,
+                                                "type": "array",
+                                                "description": "User groups autocomplete suggestion users must belong to. If not provided, the default values are used. A maximum of 10 groups can be provided.",
+                                                "items": {
+                                                    "type": "string",
+                                                    "description": "User groups autocomplete suggestion users must belong to. If not provided, the default values are used. A maximum of 10 groups can be provided."
+                                                }
+                                            },
+                                            "roleIds": {
+                                                "uniqueItems": true,
+                                                "type": "array",
+                                                "description": "Roles that autocomplete suggestion users must belong to. If not provided, the default values are used. A maximum of 10 roles can be provided.",
+                                                "items": {
+                                                    "type": "integer",
+                                                    "description": "Roles that autocomplete suggestion users must belong to. If not provided, the default values are used. A maximum of 10 roles can be provided.",
+                                                    "format": "int64"
+                                                }
+                                            }
+                                        },
+                                        "description": "Filter for a User Picker (single) custom field."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "Defaults for a User Picker (single) custom field."
+                            },
+                            {
+                                "required": [
+                                    "accountIds",
+                                    "contextId",
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "contextId": {
+                                        "type": "string",
+                                        "description": "The ID of the context."
+                                    },
+                                    "accountIds": {
+                                        "type": "array",
+                                        "description": "The IDs of the default users.",
+                                        "items": {
+                                            "type": "string",
+                                            "description": "The IDs of the default users."
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "The default value for a User Picker (multiple) custom field."
+                            },
+                            {
+                                "required": [
+                                    "contextId",
+                                    "groupId",
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "contextId": {
+                                        "type": "string",
+                                        "description": "The ID of the context."
+                                    },
+                                    "groupId": {
+                                        "type": "string",
+                                        "description": "The ID of the the default group."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "Default value for a group picker custom field."
+                            },
+                            {
+                                "required": [
+                                    "contextId",
+                                    "groupIds",
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "contextId": {
+                                        "type": "string",
+                                        "description": "The ID of the context."
+                                    },
+                                    "groupIds": {
+                                        "uniqueItems": true,
+                                        "type": "array",
+                                        "description": "The IDs of the default groups.",
+                                        "items": {
+                                            "type": "string",
+                                            "description": "The IDs of the default groups."
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "Default value for a multiple group picker custom field."
+                            },
+                            {
+                                "required": [
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "description": "The default date. Ignored if `useCurrent` is true."
+                                    },
+                                    "useCurrent": {
+                                        "type": "boolean",
+                                        "description": "Whether to use the current date.",
+                                        "default": false
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "The default value for a Date custom field."
+                            },
+                            {
+                                "required": [
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "dateTime": {
+                                        "type": "string",
+                                        "description": "The default date-time. Ignored if `useCurrent` is true."
+                                    },
+                                    "useCurrent": {
+                                        "type": "boolean",
+                                        "description": "Whether to use the current date.",
+                                        "default": false
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "The default value for a date time custom field."
+                            }
+                        ]
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "Default values to update."
+        }
+    }
+}

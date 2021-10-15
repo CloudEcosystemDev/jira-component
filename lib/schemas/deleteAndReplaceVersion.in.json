@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "moveFixIssuesTo": {
+                    "type": "integer",
+                    "description": "The ID of the version to update `fixVersion` to when the field contains the deleted version.",
+                    "format": "int64"
+                },
+                "moveAffectedIssuesTo": {
+                    "type": "integer",
+                    "description": "The ID of the version to update `affectedVersion` to when the field contains the deleted version.",
+                    "format": "int64"
+                },
+                "customFieldReplacementList": {
+                    "type": "array",
+                    "description": "An array of custom field IDs (`customFieldId`) and version IDs (`moveTo`) to update when the fields contain the deleted version.",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "customFieldId": {
+                                "type": "integer",
+                                "description": "The ID of the custom field in which to replace the version number.",
+                                "format": "int64"
+                            },
+                            "moveTo": {
+                                "type": "integer",
+                                "description": "The version number to use as a replacement for the deleted version.",
+                                "format": "int64"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "Details about the replacement for a deleted version."
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

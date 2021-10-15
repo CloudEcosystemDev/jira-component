@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "entityType": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "IssueProperty",
+                "CommentProperty",
+                "DashboardItemProperty",
+                "IssueTypeProperty",
+                "ProjectProperty",
+                "UserProperty",
+                "WorklogProperty",
+                "BoardProperty",
+                "SprintProperty"
+            ]
+        },
+        "requestBody": {
+            "maxItems": 50,
+            "minItems": 1,
+            "type": "array",
+            "items": {
+                "required": [
+                    "entityId",
+                    "key",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "entityId": {
+                        "type": "number",
+                        "description": "The entity property ID.",
+                        "example": 123
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The entity property key.",
+                        "example": "mykey"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "The new value of the entity property.",
+                        "example": "newValue"
+                    }
+                }
+            }
+        },
+        "Atlassian_Transfer_Id": {
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+        },
+        "Atlassian_Account_Id": {
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+        }
+    }
+}

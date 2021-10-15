@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "key": {
+            "type": "string",
+            "description": "The key of the property. Required on create and update."
+        },
+        "value": {
+            "description": "The value of the property. Required on create and update."
+        }
+    }
+}

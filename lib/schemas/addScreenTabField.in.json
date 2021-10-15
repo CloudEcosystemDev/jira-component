@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "screenId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "tabId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "requestBody": {
+            "required": [
+                "fieldId"
+            ],
+            "type": "object",
+            "properties": {
+                "fieldId": {
+                    "type": "string",
+                    "description": "The ID of the field to add."
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

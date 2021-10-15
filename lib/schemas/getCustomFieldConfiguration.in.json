@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "fieldIdOrKey": {
+            "required": true,
+            "type": "string"
+        },
+        "contextId": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "type": "integer",
+                "format": "int64"
+            }
+        },
+        "issueId": {
+            "type": "integer",
+            "format": "int64"
+        },
+        "projectKeyOrId": {
+            "type": "string"
+        },
+        "issueTypeId": {
+            "type": "string"
+        },
+        "startAt": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 100
+        }
+    }
+}

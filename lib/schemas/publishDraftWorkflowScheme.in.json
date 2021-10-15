@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "validateOnly": {
+            "type": "boolean",
+            "default": false
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "statusMappings": {
+                    "uniqueItems": true,
+                    "type": "array",
+                    "description": "Mappings of statuses to new statuses for issue types.",
+                    "items": {
+                        "required": [
+                            "issueTypeId",
+                            "newStatusId",
+                            "statusId"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "issueTypeId": {
+                                "type": "string",
+                                "description": "The ID of the issue type."
+                            },
+                            "statusId": {
+                                "type": "string",
+                                "description": "The ID of the status."
+                            },
+                            "newStatusId": {
+                                "type": "string",
+                                "description": "The ID of the new status."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "Details about the mapping from a status to a new status for an issue type."
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "Details about the status mappings for publishing a draft workflow scheme."
+        }
+    }
+}

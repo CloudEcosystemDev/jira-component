@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "required": [
+                "name"
+            ],
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The unique name for the issue type. The maximum length is 60 characters."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the issue type."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Deprecated. Use `hierarchyLevel` instead.\n\nWhether the issue type is `subtype` or `standard`. Defaults to `standard`.",
+                    "enum": [
+                        "subtask",
+                        "standard"
+                    ]
+                },
+                "hierarchyLevel": {
+                    "type": "integer",
+                    "description": "The hierarchy level of the issue type. Use:\n\n *  `-1` for Subtask.\n *  `0` for Base.\n\nDefaults to `0`.",
+                    "format": "int32"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

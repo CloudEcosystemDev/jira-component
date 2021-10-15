@@ -1,0 +1,69 @@
+{
+    "type": "object",
+    "properties": {
+        "self": {
+            "type": "string",
+            "description": "The URL of the page.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "nextPage": {
+            "type": "string",
+            "description": "If there is another page of results, the URL of the next page.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of items that could be returned.",
+            "format": "int32",
+            "readOnly": true
+        },
+        "startAt": {
+            "type": "integer",
+            "description": "The index of the first item returned.",
+            "format": "int64",
+            "readOnly": true
+        },
+        "total": {
+            "type": "integer",
+            "description": "The number of items returned.",
+            "format": "int64",
+            "readOnly": true
+        },
+        "isLast": {
+            "type": "boolean",
+            "description": "Whether this is the last page.",
+            "readOnly": true
+        },
+        "values": {
+            "type": "array",
+            "description": "The list of items.",
+            "readOnly": true,
+            "items": {
+                "required": [
+                    "contextId",
+                    "issueTypeId",
+                    "projectId"
+                ],
+                "type": "object",
+                "properties": {
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the project."
+                    },
+                    "issueTypeId": {
+                        "type": "string",
+                        "description": "The ID of the issue type."
+                    },
+                    "contextId": {
+                        "type": "string",
+                        "description": "The ID of the custom field context."
+                    }
+                },
+                "additionalProperties": false,
+                "description": "The project and issue type mapping with a matching custom field context."
+            }
+        }
+    }
+}

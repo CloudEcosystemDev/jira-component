@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "projectIds": {
+                    "type": "array",
+                    "description": "List of project IDs used to filter the visible field details returned.",
+                    "items": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                },
+                "includeCollapsedFields": {
+                    "type": "boolean",
+                    "description": "Include collapsed fields for fields that have non-unique names.",
+                    "default": false
+                }
+            },
+            "additionalProperties": false,
+            "description": "Details of how to filter and list search auto complete information."
+        }
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "required": [
+                "name",
+                "screens"
+            ],
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the screen scheme. The name must be unique. The maximum length is 255 characters.",
+                    "writeOnly": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the screen scheme. The maximum length is 255 characters.",
+                    "writeOnly": true
+                },
+                "screens": {
+                    "description": "The IDs of the screens for the screen types of the screen scheme. Only screens used in classic projects are accepted.",
+                    "allOf": [
+                        {
+                            "required": [
+                                "defaultScreen"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "edit": {
+                                    "type": "integer",
+                                    "description": "The ID of the edit screen.",
+                                    "format": "int64"
+                                },
+                                "create": {
+                                    "type": "integer",
+                                    "description": "The ID of the create screen.",
+                                    "format": "int64"
+                                },
+                                "view": {
+                                    "type": "integer",
+                                    "description": "The ID of the view screen.",
+                                    "format": "int64"
+                                },
+                                "default": {
+                                    "type": "integer",
+                                    "description": "The ID of the default screen. Required when creating a screen scheme.",
+                                    "format": "int64"
+                                }
+                            },
+                            "additionalProperties": false,
+                            "description": "The IDs of the screens for the screen types of the screen scheme.",
+                            "writeOnly": true
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "description": "Details of a screen scheme."
+        }
+    }
+}

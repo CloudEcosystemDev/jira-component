@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "type": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "project",
+                "issuetype"
+            ]
+        },
+        "entityId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

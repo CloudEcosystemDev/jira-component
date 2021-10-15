@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "transitionId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "key": {
+            "required": true,
+            "type": "string"
+        },
+        "workflowName": {
+            "required": true,
+            "type": "string"
+        },
+        "workflowMode": {
+            "type": "string",
+            "enum": [
+                "live",
+                "draft"
+            ]
+        },
+        "requestBody": {
+            "required": [
+                "value"
+            ],
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key of the transition property. Also known as the name of the transition property.",
+                    "readOnly": true
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the transition property."
+                },
+                "id": {
+                    "type": "string",
+                    "description": "The ID of the transition property.",
+                    "readOnly": true
+                }
+            },
+            "additionalProperties": true,
+            "description": "Details about the server Jira is running on."
+        }
+    }
+}

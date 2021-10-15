@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "self": {
+            "type": "string",
+            "description": "The URL for this count of issues for a component.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "issueCount": {
+            "type": "integer",
+            "description": "The count of issues assigned to a component.",
+            "format": "int64",
+            "readOnly": true
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "keys": {
+            "type": "array",
+            "description": "Property key details.",
+            "readOnly": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "self": {
+                        "type": "string",
+                        "description": "The URL of the property.",
+                        "readOnly": true
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The key of the property.",
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Property key details."
+            }
+        }
+    }
+}

@@ -1,0 +1,339 @@
+{
+    "type": "object",
+    "properties": {
+        "startAt": {
+            "type": "integer",
+            "description": "The index of the first item returned on the page.",
+            "format": "int32",
+            "readOnly": true
+        },
+        "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of results that could be on the page.",
+            "format": "int32",
+            "readOnly": true
+        },
+        "total": {
+            "type": "integer",
+            "description": "The number of results on the page.",
+            "format": "int32",
+            "readOnly": true
+        },
+        "histories": {
+            "type": "array",
+            "description": "The list of changelogs.",
+            "readOnly": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the changelog.",
+                        "readOnly": true
+                    },
+                    "author": {
+                        "description": "The user who made the change.",
+                        "readOnly": true,
+                        "allOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "self": {
+                                        "type": "string",
+                                        "description": "The URL of the user.",
+                                        "readOnly": true
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+                                        "readOnly": true
+                                    },
+                                    "key": {
+                                        "type": "string",
+                                        "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+                                        "readOnly": true
+                                    },
+                                    "accountId": {
+                                        "maxLength": 128,
+                                        "type": "string",
+                                        "description": "The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*."
+                                    },
+                                    "emailAddress": {
+                                        "type": "string",
+                                        "description": "The email address of the user. Depending on the user’s privacy settings, this may be returned as null.",
+                                        "readOnly": true
+                                    },
+                                    "avatarUrls": {
+                                        "description": "The avatars of the user.",
+                                        "readOnly": true,
+                                        "allOf": [
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "16x16": {
+                                                        "type": "string",
+                                                        "description": "The URL of the item's 16x16 pixel avatar.",
+                                                        "format": "uri"
+                                                    },
+                                                    "24x24": {
+                                                        "type": "string",
+                                                        "description": "The URL of the item's 24x24 pixel avatar.",
+                                                        "format": "uri"
+                                                    },
+                                                    "32x32": {
+                                                        "type": "string",
+                                                        "description": "The URL of the item's 32x32 pixel avatar.",
+                                                        "format": "uri"
+                                                    },
+                                                    "48x48": {
+                                                        "type": "string",
+                                                        "description": "The URL of the item's 48x48 pixel avatar.",
+                                                        "format": "uri"
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        ]
+                                    },
+                                    "displayName": {
+                                        "type": "string",
+                                        "description": "The display name of the user. Depending on the user’s privacy settings, this may return an alternative value.",
+                                        "readOnly": true
+                                    },
+                                    "active": {
+                                        "type": "boolean",
+                                        "description": "Whether the user is active.",
+                                        "readOnly": true
+                                    },
+                                    "timeZone": {
+                                        "type": "string",
+                                        "description": "The time zone specified in the user's profile. Depending on the user’s privacy settings, this may be returned as null.",
+                                        "readOnly": true
+                                    },
+                                    "accountType": {
+                                        "type": "string",
+                                        "description": "The type of account represented by this user. This will be one of 'atlassian' (normal users), 'app' (application user) or 'customer' (Jira Service Desk customer user)",
+                                        "readOnly": true
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "description": "User details permitted by the user's Atlassian Account privacy settings. However, be aware of these exceptions:\n\n *  User record deleted from Atlassian: This occurs as the result of a right to be forgotten request. In this case, `displayName` provides an indication and other parameters have default values or are blank (for example, email is blank).\n *  User record corrupted: This occurs as a results of events such as a server import and can only happen to deleted users. In this case, `accountId` returns *unknown* and all other parameters have fallback values.\n *  User record unavailable: This usually occurs due to an internal service outage. In this case, all parameters have fallback values."
+                            }
+                        ]
+                    },
+                    "created": {
+                        "type": "string",
+                        "description": "The date on which the change took place.",
+                        "format": "date-time",
+                        "readOnly": true
+                    },
+                    "items": {
+                        "type": "array",
+                        "description": "The list of items changed.",
+                        "readOnly": true,
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "field": {
+                                    "type": "string",
+                                    "description": "The name of the field changed.",
+                                    "readOnly": true
+                                },
+                                "fieldtype": {
+                                    "type": "string",
+                                    "description": "The type of the field changed.",
+                                    "readOnly": true
+                                },
+                                "fieldId": {
+                                    "type": "string",
+                                    "description": "The ID of the field changed.",
+                                    "readOnly": true
+                                },
+                                "from": {
+                                    "type": "string",
+                                    "description": "The details of the original value.",
+                                    "readOnly": true
+                                },
+                                "fromString": {
+                                    "type": "string",
+                                    "description": "The details of the original value as a string.",
+                                    "readOnly": true
+                                },
+                                "to": {
+                                    "type": "string",
+                                    "description": "The details of the new value.",
+                                    "readOnly": true
+                                },
+                                "toString": {
+                                    "type": "string",
+                                    "description": "The details of the new value as a string.",
+                                    "readOnly": true
+                                }
+                            },
+                            "additionalProperties": false,
+                            "description": "A change item."
+                        }
+                    },
+                    "historyMetadata": {
+                        "description": "The history metadata associated with the changed.",
+                        "readOnly": true,
+                        "allOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "description": "The type of the history record."
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "The description of the history record."
+                                    },
+                                    "descriptionKey": {
+                                        "type": "string",
+                                        "description": "The description key of the history record."
+                                    },
+                                    "activityDescription": {
+                                        "type": "string",
+                                        "description": "The activity described in the history record."
+                                    },
+                                    "activityDescriptionKey": {
+                                        "type": "string",
+                                        "description": "The key of the activity described in the history record."
+                                    },
+                                    "emailDescription": {
+                                        "type": "string",
+                                        "description": "The description of the email address associated the history record."
+                                    },
+                                    "emailDescriptionKey": {
+                                        "type": "string",
+                                        "description": "The description key of the email address associated the history record."
+                                    },
+                                    "actor": {
+                                        "description": "Details of the user whose action created the history record.",
+                                        "allOf": [
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "description": "The ID of the user or system associated with a history record."
+                                                    },
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "The display name of the user or system associated with a history record."
+                                                    },
+                                                    "displayNameKey": {
+                                                        "type": "string",
+                                                        "description": "The key of the display name of the user or system associated with a history record."
+                                                    },
+                                                    "type": {
+                                                        "type": "string",
+                                                        "description": "The type of the user or system associated with a history record."
+                                                    },
+                                                    "avatarUrl": {
+                                                        "type": "string",
+                                                        "description": "The URL to an avatar for the user or system associated with a history record."
+                                                    },
+                                                    "url": {
+                                                        "type": "string",
+                                                        "description": "The URL of the user or system associated with a history record."
+                                                    }
+                                                },
+                                                "additionalProperties": true,
+                                                "description": "Details of user or system associated with a issue history metadata item."
+                                            }
+                                        ]
+                                    },
+                                    "generator": {
+                                        "description": "Details of the system that generated the history record.",
+                                        "allOf": [
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "description": "The ID of the user or system associated with a history record."
+                                                    },
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "The display name of the user or system associated with a history record."
+                                                    },
+                                                    "displayNameKey": {
+                                                        "type": "string",
+                                                        "description": "The key of the display name of the user or system associated with a history record."
+                                                    },
+                                                    "type": {
+                                                        "type": "string",
+                                                        "description": "The type of the user or system associated with a history record."
+                                                    },
+                                                    "avatarUrl": {
+                                                        "type": "string",
+                                                        "description": "The URL to an avatar for the user or system associated with a history record."
+                                                    },
+                                                    "url": {
+                                                        "type": "string",
+                                                        "description": "The URL of the user or system associated with a history record."
+                                                    }
+                                                },
+                                                "additionalProperties": true,
+                                                "description": "Details of user or system associated with a issue history metadata item."
+                                            }
+                                        ]
+                                    },
+                                    "cause": {
+                                        "description": "Details of the cause that triggered the creation the history record.",
+                                        "allOf": [
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string",
+                                                        "description": "The ID of the user or system associated with a history record."
+                                                    },
+                                                    "displayName": {
+                                                        "type": "string",
+                                                        "description": "The display name of the user or system associated with a history record."
+                                                    },
+                                                    "displayNameKey": {
+                                                        "type": "string",
+                                                        "description": "The key of the display name of the user or system associated with a history record."
+                                                    },
+                                                    "type": {
+                                                        "type": "string",
+                                                        "description": "The type of the user or system associated with a history record."
+                                                    },
+                                                    "avatarUrl": {
+                                                        "type": "string",
+                                                        "description": "The URL to an avatar for the user or system associated with a history record."
+                                                    },
+                                                    "url": {
+                                                        "type": "string",
+                                                        "description": "The URL of the user or system associated with a history record."
+                                                    }
+                                                },
+                                                "additionalProperties": true,
+                                                "description": "Details of user or system associated with a issue history metadata item."
+                                            }
+                                        ]
+                                    },
+                                    "extraData": {
+                                        "type": "object",
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        },
+                                        "description": "Additional arbitrary information about the history record."
+                                    }
+                                },
+                                "additionalProperties": true,
+                                "description": "Details of issue history metadata."
+                            }
+                        ]
+                    }
+                },
+                "additionalProperties": false,
+                "description": "A changelog."
+            }
+        }
+    }
+}

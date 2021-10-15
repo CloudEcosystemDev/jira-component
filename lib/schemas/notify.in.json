@@ -1,0 +1,217 @@
+{
+    "type": "object",
+    "properties": {
+        "issueIdOrKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "subject": {
+                    "type": "string",
+                    "description": "The subject of the email notification for the issue. If this is not specified, then the subject is set to the issue key and summary."
+                },
+                "textBody": {
+                    "type": "string",
+                    "description": "The plain text body of the email notification for the issue."
+                },
+                "htmlBody": {
+                    "type": "string",
+                    "description": "The HTML body of the email notification for the issue."
+                },
+                "to": {
+                    "description": "The recipients of the email notification for the issue.",
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "reporter": {
+                                    "type": "boolean",
+                                    "description": "Whether the notification should be sent to the issue's reporter."
+                                },
+                                "assignee": {
+                                    "type": "boolean",
+                                    "description": "Whether the notification should be sent to the issue's assignees."
+                                },
+                                "watchers": {
+                                    "type": "boolean",
+                                    "description": "Whether the notification should be sent to the issue's watchers."
+                                },
+                                "voters": {
+                                    "type": "boolean",
+                                    "description": "Whether the notification should be sent to the issue's voters."
+                                },
+                                "users": {
+                                    "type": "array",
+                                    "description": "List of users to receive the notification.",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "self": {
+                                                "type": "string",
+                                                "description": "The URL of the user.",
+                                                "readOnly": true
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+                                                "readOnly": true
+                                            },
+                                            "key": {
+                                                "type": "string",
+                                                "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+                                                "readOnly": true
+                                            },
+                                            "accountId": {
+                                                "maxLength": 128,
+                                                "type": "string",
+                                                "description": "The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*."
+                                            },
+                                            "emailAddress": {
+                                                "type": "string",
+                                                "description": "The email address of the user. Depending on the user’s privacy settings, this may be returned as null.",
+                                                "readOnly": true
+                                            },
+                                            "avatarUrls": {
+                                                "description": "The avatars of the user.",
+                                                "readOnly": true,
+                                                "allOf": [
+                                                    {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "16x16": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 16x16 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "24x24": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 24x24 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "32x32": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 32x32 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "48x48": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 48x48 pixel avatar.",
+                                                                "format": "uri"
+                                                            }
+                                                        },
+                                                        "additionalProperties": false
+                                                    }
+                                                ]
+                                            },
+                                            "displayName": {
+                                                "type": "string",
+                                                "description": "The display name of the user. Depending on the user’s privacy settings, this may return an alternative value.",
+                                                "readOnly": true
+                                            },
+                                            "active": {
+                                                "type": "boolean",
+                                                "description": "Whether the user is active.",
+                                                "readOnly": true
+                                            },
+                                            "timeZone": {
+                                                "type": "string",
+                                                "description": "The time zone specified in the user's profile. Depending on the user’s privacy settings, this may be returned as null.",
+                                                "readOnly": true
+                                            },
+                                            "accountType": {
+                                                "type": "string",
+                                                "description": "The type of account represented by this user. This will be one of 'atlassian' (normal users), 'app' (application user) or 'customer' (Jira Service Desk customer user)",
+                                                "readOnly": true
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "description": "User details permitted by the user's Atlassian Account privacy settings. However, be aware of these exceptions:\n\n *  User record deleted from Atlassian: This occurs as the result of a right to be forgotten request. In this case, `displayName` provides an indication and other parameters have default values or are blank (for example, email is blank).\n *  User record corrupted: This occurs as a results of events such as a server import and can only happen to deleted users. In this case, `accountId` returns *unknown* and all other parameters have fallback values.\n *  User record unavailable: This usually occurs due to an internal service outage. In this case, all parameters have fallback values."
+                                    }
+                                },
+                                "groups": {
+                                    "type": "array",
+                                    "description": "List of groups to receive the notification.",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "description": "The name of group."
+                                            },
+                                            "self": {
+                                                "type": "string",
+                                                "description": "The URL for these group details.",
+                                                "format": "uri",
+                                                "readOnly": true
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "description": "Details about a group name."
+                                    }
+                                }
+                            },
+                            "additionalProperties": true,
+                            "description": "Details of the users and groups to receive the notification."
+                        }
+                    ]
+                },
+                "restrict": {
+                    "description": "Restricts the notifications to users with the specified permissions.",
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "groups": {
+                                    "type": "array",
+                                    "description": "List of group memberships required to receive the notification.",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "description": "The name of group."
+                                            },
+                                            "self": {
+                                                "type": "string",
+                                                "description": "The URL for these group details.",
+                                                "format": "uri",
+                                                "readOnly": true
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "description": "Details about a group name."
+                                    }
+                                },
+                                "permissions": {
+                                    "type": "array",
+                                    "description": "List of permissions required to receive the notification.",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "description": "The ID of the permission. Either `id` or `key` must be specified. Use [Get all permissions](#api-rest-api-3-permissions-get) to get the list of permissions."
+                                            },
+                                            "key": {
+                                                "type": "string",
+                                                "description": "The key of the permission. Either `id` or `key` must be specified. Use [Get all permissions](#api-rest-api-3-permissions-get) to get the list of permissions."
+                                            }
+                                        },
+                                        "additionalProperties": true,
+                                        "description": "Details of the permission."
+                                    }
+                                }
+                            },
+                            "additionalProperties": false,
+                            "description": "Details of the group membership or permissions needed to receive the notification."
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": true,
+            "description": "Details about a notification."
+        }
+    }
+}

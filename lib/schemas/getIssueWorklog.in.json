@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "issueIdOrKey": {
+            "required": true,
+            "type": "string"
+        },
+        "startAt": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 1048576
+        },
+        "startedAfter": {
+            "type": "integer",
+            "format": "int64"
+        },
+        "expand": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

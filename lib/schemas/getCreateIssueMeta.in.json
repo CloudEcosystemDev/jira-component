@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "projectIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "projectKeys": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "issuetypeIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "issuetypeNames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "expand": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "fieldId": {
+            "required": true,
+            "type": "string"
+        },
+        "contextId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        }
+    }
+}

@@ -1,0 +1,97 @@
+{
+    "type": "object",
+    "properties": {
+        "results": {
+            "type": "array",
+            "description": "The results of Jira expressions analysis.",
+            "items": {
+                "required": [
+                    "expression",
+                    "valid"
+                ],
+                "type": "object",
+                "properties": {
+                    "expression": {
+                        "type": "string",
+                        "description": "The analysed expression."
+                    },
+                    "errors": {
+                        "type": "array",
+                        "description": "A list of validation errors. Not included if the expression is valid.",
+                        "items": {
+                            "required": [
+                                "message",
+                                "type"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "line": {
+                                    "type": "integer",
+                                    "description": "The text line in which the error occurred.",
+                                    "format": "int32"
+                                },
+                                "column": {
+                                    "type": "integer",
+                                    "description": "The text column in which the error occurred.",
+                                    "format": "int32"
+                                },
+                                "expression": {
+                                    "type": "string",
+                                    "description": "The part of the expression in which the error occurred."
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "Details about the error.",
+                                    "example": "!, -, typeof, (, IDENTIFIER, null, true, false, NUMBER, STRING, TEMPLATE_LITERAL, new, [ or { expected, > encountered."
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "The error type.",
+                                    "enum": [
+                                        "syntax",
+                                        "type",
+                                        "other"
+                                    ]
+                                }
+                            },
+                            "additionalProperties": false,
+                            "description": "Details about syntax and type errors. The error details apply to the entire expression, unless the object includes:\n\n *  `line` and `column`\n *  `expression`"
+                        }
+                    },
+                    "valid": {
+                        "type": "boolean",
+                        "description": "Whether the expression is valid and the interpreter will evaluate it. Note that the expression may fail at runtime (for example, if it executes too many expensive operations)."
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "EXPERIMENTAL. The inferred type of the expression."
+                    },
+                    "complexity": {
+                        "required": [
+                            "expensiveOperations"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "expensiveOperations": {
+                                "type": "string",
+                                "description": "Information that can be used to determine how many [expensive operations](https://developer.atlassian.com/cloud/jira/platform/jira-expressions/#expensive-operations) the evaluation of the expression will perform. This information may be a formula or number. For example:\n\n *  `issues.map(i => i.comments)` performs as many expensive operations as there are issues on the issues list. So this parameter returns `N`, where `N` is the size of issue list.\n *  `new Issue(10010).comments` gets comments for one issue, so its complexity is `2` (`1` to retrieve issue 10010 from the database plus `1` to get its comments)."
+                            },
+                            "variables": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string",
+                                    "description": "Variables used in the formula, mapped to the parts of the expression they refer to."
+                                },
+                                "description": "Variables used in the formula, mapped to the parts of the expression they refer to."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "Details about the complexity of the analysed Jira expression."
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Details about the analysed Jira expression."
+            }
+        }
+    }
+}

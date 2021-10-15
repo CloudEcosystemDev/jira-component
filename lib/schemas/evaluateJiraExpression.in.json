@@ -1,0 +1,141 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "type": "string"
+        },
+        "requestBody": {
+            "required": [
+                "expression"
+            ],
+            "type": "object",
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "The Jira expression to evaluate.",
+                    "example": "{ key: issue.key, type: issue.issueType.name, links: issue.links.map(link => link.linkedIssue.id) }"
+                },
+                "context": {
+                    "description": "The context in which the Jira expression is evaluated.",
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "issue": {
+                                    "description": "The issue that is available under the `issue` variable when evaluating the expression.",
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "description": "The ID of the referenced item.",
+                                                    "format": "int64"
+                                                },
+                                                "key": {
+                                                    "type": "string",
+                                                    "description": "The key of the referenced item."
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "issues": {
+                                    "description": "The collection of issues that is available under the `issues` variable when evaluating the expression.",
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "jql": {
+                                                    "description": "The JQL query that specifies the set of issues available in the Jira expression.",
+                                                    "allOf": [
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "query": {
+                                                                    "type": "string",
+                                                                    "description": "The JQL query."
+                                                                },
+                                                                "startAt": {
+                                                                    "type": "integer",
+                                                                    "description": "The index of the first issue to return from the JQL query.",
+                                                                    "format": "int64"
+                                                                },
+                                                                "maxResults": {
+                                                                    "type": "integer",
+                                                                    "description": "The maximum number of issues to return from the JQL query. Inspect `meta.issues.jql.maxResults` in the response to ensure the maximum value has not been exceeded.",
+                                                                    "format": "int32"
+                                                                },
+                                                                "validation": {
+                                                                    "type": "string",
+                                                                    "description": "Determines how to validate the JQL query and treat the validation results.",
+                                                                    "enum": [
+                                                                        "strict",
+                                                                        "warn",
+                                                                        "none"
+                                                                    ],
+                                                                    "default": "strict"
+                                                                }
+                                                            },
+                                                            "additionalProperties": false,
+                                                            "description": "The JQL specifying the issues available in the evaluated Jira expression under the `issues` context variable. Not all issues returned by the JQL query are loaded, only those described by the `startAt` and `maxResults` properties. To determine whether it is necessary to iterate to ensure all the issues returned by the JQL query are evaluated, inspect `meta.issues.jql.count` in the response."
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "additionalProperties": false,
+                                            "description": "The JQL specifying the issues available in the evaluated Jira expression under the `issues` context variable."
+                                        }
+                                    ]
+                                },
+                                "project": {
+                                    "description": "The project that is available under the `project` variable when evaluating the expression.",
+                                    "allOf": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer",
+                                                    "description": "The ID of the referenced item.",
+                                                    "format": "int64"
+                                                },
+                                                "key": {
+                                                    "type": "string",
+                                                    "description": "The key of the referenced item."
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    ]
+                                },
+                                "sprint": {
+                                    "type": "integer",
+                                    "description": "The ID of the sprint that is available under the `sprint` variable when evaluating the expression.",
+                                    "format": "int64"
+                                },
+                                "board": {
+                                    "type": "integer",
+                                    "description": "The ID of the board that is available under the `board` variable when evaluating the expression.",
+                                    "format": "int64"
+                                },
+                                "serviceDesk": {
+                                    "type": "integer",
+                                    "description": "The ID of the service desk that is available under the `serviceDesk` variable when evaluating the expression.",
+                                    "format": "int64"
+                                },
+                                "customerRequest": {
+                                    "type": "integer",
+                                    "description": "The ID of the customer request that is available under the `customerRequest` variable when evaluating the expression. This is the same as the ID of the underlying Jira issue, but the customer request context variable will have a different type.",
+                                    "format": "int64"
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

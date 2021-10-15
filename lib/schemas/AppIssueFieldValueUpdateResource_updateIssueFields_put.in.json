@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "updateValueList": {
+                    "type": "array",
+                    "description": "The list of custom field update details.",
+                    "items": {
+                        "required": [
+                            "_type",
+                            "fieldID",
+                            "issueID"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "_type": {
+                                "type": "string",
+                                "description": "The type of custom field.",
+                                "writeOnly": true,
+                                "enum": [
+                                    "StringIssueField",
+                                    "NumberIssueField",
+                                    "RichTextIssueField",
+                                    "SingleSelectIssueField",
+                                    "MultiSelectIssueField",
+                                    "TextIssueField"
+                                ]
+                            },
+                            "issueID": {
+                                "type": "integer",
+                                "description": "The issue ID.",
+                                "writeOnly": true
+                            },
+                            "fieldID": {
+                                "type": "integer",
+                                "description": "The custom field ID.",
+                                "writeOnly": true
+                            },
+                            "string": {
+                                "type": "string",
+                                "description": "The value of string type custom field when `_type` is `StringIssueField`."
+                            },
+                            "number": {
+                                "type": "number",
+                                "description": "The value of number type custom field when `_type` is `NumberIssueField`."
+                            },
+                            "richText": {
+                                "type": "string",
+                                "description": "The value of richText type custom field when `_type` is `RichTextIssueField`."
+                            },
+                            "optionID": {
+                                "type": "string",
+                                "description": "The value of single select and multiselect custom field type when `_type` is `SingleSelectIssueField` or `MultiSelectIssueField`."
+                            },
+                            "text": {
+                                "type": "string",
+                                "description": "The value of of text custom field type when `_type` is `TextIssueField`."
+                            }
+                        },
+                        "description": "A list of custom field details.",
+                        "writeOnly": true
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "Details of updates for a custom field.",
+            "writeOnly": true
+        },
+        "Atlassian_Transfer_Id": {
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+        },
+        "Atlassian_Account_Id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

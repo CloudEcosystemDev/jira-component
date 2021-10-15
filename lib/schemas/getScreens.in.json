@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "startAt": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 100
+        },
+        "id": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "type": "integer",
+                "format": "int64"
+            }
+        }
+    }
+}

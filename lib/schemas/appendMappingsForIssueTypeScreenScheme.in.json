@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "issueTypeScreenSchemeId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "required": [
+                "issueTypeMappings"
+            ],
+            "type": "object",
+            "properties": {
+                "issueTypeMappings": {
+                    "type": "array",
+                    "description": "The list of issue type to screen scheme mappings. A *default* entry cannot be specified because a default entry is added when an issue type screen scheme is created.",
+                    "writeOnly": true,
+                    "items": {
+                        "required": [
+                            "issueTypeId",
+                            "screenSchemeId"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "issueTypeId": {
+                                "type": "string",
+                                "description": "The ID of the issue type or *default*. Only issue types used in classic projects are accepted. An entry for *default* must be provided and defines the mapping for all issue types without a screen scheme.",
+                                "writeOnly": true
+                            },
+                            "screenSchemeId": {
+                                "type": "string",
+                                "description": "The ID of the screen scheme. Only screen schemes used in classic projects are accepted.",
+                                "writeOnly": true
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "The IDs of the screen schemes for the issue type IDs.",
+                        "writeOnly": true
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "A list of issue type screen scheme mappings."
+        }
+    }
+}

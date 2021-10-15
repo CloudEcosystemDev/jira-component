@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "startAt": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 10
+        },
+        "username": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "key": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "accountId": {
+            "required": true,
+            "maxLength": 128,
+            "type": "array",
+            "example": "5b10ac8d82e05b22cc7d4ef5",
+            "items": {
+                "maxLength": 128,
+                "type": "string",
+                "example": "5b10ac8d82e05b22cc7d4ef5"
+            }
+        }
+    }
+}

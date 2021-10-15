@@ -1,0 +1,56 @@
+{
+    "type": "object",
+    "properties": {
+        "fieldId": {
+            "required": true,
+            "type": "string"
+        },
+        "startAt": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 50
+        },
+        "requestBody": {
+            "required": [
+                "mappings"
+            ],
+            "type": "object",
+            "properties": {
+                "mappings": {
+                    "type": "array",
+                    "description": "The project and issue type mappings.",
+                    "writeOnly": true,
+                    "items": {
+                        "required": [
+                            "issueTypeId",
+                            "projectId"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "projectId": {
+                                "type": "string",
+                                "description": "The ID of the project.",
+                                "writeOnly": true
+                            },
+                            "issueTypeId": {
+                                "type": "string",
+                                "description": "The ID of the issue type.",
+                                "writeOnly": true
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "The project and issue type mapping.",
+                        "writeOnly": true
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "The project and issue type mappings."
+        }
+    }
+}

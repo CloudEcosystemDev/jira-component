@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "groupname": {
+            "required": true,
+            "type": "string"
+        },
+        "swapGroup": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "projectId": {
+            "required": true,
+            "maxItems": 100,
+            "minItems": 1,
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "type": "integer",
+                "format": "int64",
+                "example": 10010
+            }
+        }
+    }
+}

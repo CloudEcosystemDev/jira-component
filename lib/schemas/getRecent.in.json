@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "type": "string"
+        },
+        "properties": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false
+            }
+        }
+    }
+}

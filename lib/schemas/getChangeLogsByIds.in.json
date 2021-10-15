@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "issueIdOrKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "required": [
+                "changelogIds"
+            ],
+            "type": "object",
+            "properties": {
+                "changelogIds": {
+                    "uniqueItems": true,
+                    "type": "array",
+                    "description": "The list of changelog IDs.",
+                    "items": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "A list of changelog IDs."
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "type": "string"
+        },
+        "recent": {
+            "type": "integer",
+            "format": "int32"
+        },
+        "properties": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

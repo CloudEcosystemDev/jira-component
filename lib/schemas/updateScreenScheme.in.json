@@ -1,0 +1,59 @@
+{
+    "type": "object",
+    "properties": {
+        "screenSchemeId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the screen scheme. The name must be unique. The maximum length is 255 characters.",
+                    "writeOnly": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the screen scheme. The maximum length is 255 characters.",
+                    "writeOnly": true
+                },
+                "screens": {
+                    "description": "The IDs of the screens for the screen types of the screen scheme. Only screens used in classic projects are accepted.",
+                    "allOf": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "edit": {
+                                    "type": "string",
+                                    "description": "The ID of the edit screen. To remove the screen association, pass a null.",
+                                    "writeOnly": true
+                                },
+                                "create": {
+                                    "type": "string",
+                                    "description": "The ID of the create screen. To remove the screen association, pass a null.",
+                                    "writeOnly": true
+                                },
+                                "view": {
+                                    "type": "string",
+                                    "description": "The ID of the view screen. To remove the screen association, pass a null.",
+                                    "writeOnly": true
+                                },
+                                "default": {
+                                    "type": "string",
+                                    "description": "The ID of the default screen. When specified, must include a screen ID as a default screen is required.",
+                                    "writeOnly": true
+                                }
+                            },
+                            "additionalProperties": false,
+                            "description": "The IDs of the screens for the screen types of the screen scheme.",
+                            "writeOnly": true
+                        }
+                    ]
+                }
+            },
+            "additionalProperties": false,
+            "description": "Details of a screen scheme."
+        }
+    }
+}

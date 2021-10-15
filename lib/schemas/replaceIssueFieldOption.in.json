@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "replaceWith": {
+            "type": "integer",
+            "format": "int64"
+        },
+        "jql": {
+            "type": "string"
+        },
+        "overrideScreenSecurity": {
+            "type": "boolean",
+            "default": false
+        },
+        "overrideEditableFlag": {
+            "type": "boolean",
+            "default": false
+        },
+        "fieldKey": {
+            "required": true,
+            "type": "string"
+        },
+        "optionId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        }
+    }
+}

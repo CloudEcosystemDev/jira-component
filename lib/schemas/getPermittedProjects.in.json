@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "required": [
+                "permissions"
+            ],
+            "type": "object",
+            "properties": {
+                "permissions": {
+                    "type": "array",
+                    "description": "A list of permission keys.",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

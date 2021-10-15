@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "projectPermissions": {
+                    "uniqueItems": true,
+                    "type": "array",
+                    "description": "Project permissions with associated projects and issues to look up.",
+                    "items": {
+                        "required": [
+                            "permissions"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "issues": {
+                                "uniqueItems": true,
+                                "type": "array",
+                                "description": "List of issue IDs.",
+                                "items": {
+                                    "type": "integer",
+                                    "format": "int64"
+                                }
+                            },
+                            "projects": {
+                                "uniqueItems": true,
+                                "type": "array",
+                                "description": "List of project IDs.",
+                                "items": {
+                                    "type": "integer",
+                                    "format": "int64"
+                                }
+                            },
+                            "permissions": {
+                                "uniqueItems": true,
+                                "type": "array",
+                                "description": "List of project permissions.",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "Details of project permissions and associated issues and projects to look up."
+                    }
+                },
+                "globalPermissions": {
+                    "uniqueItems": true,
+                    "type": "array",
+                    "description": "Global permissions to look up.",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "accountId": {
+                    "type": "string",
+                    "description": "The account ID of a user."
+                }
+            },
+            "additionalProperties": false,
+            "description": "Details of global permissions to look up and project permissions with associated projects and issues to look up."
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "projectKey": {
+            "type": "string"
+        },
+        "projectId": {
+            "type": "string"
+        },
+        "issueKey": {
+            "type": "string"
+        },
+        "issueId": {
+            "type": "string"
+        },
+        "permissions": {
+            "type": "string",
+            "example": "BROWSE_PROJECTS,EDIT_ISSUES"
+        },
+        "projectUuid": {
+            "type": "string"
+        },
+        "projectConfigurationUuid": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "query": {
+            "required": true,
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 50
+        },
+        "showAvatar": {
+            "type": "boolean",
+            "default": false
+        },
+        "exclude": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "excludeAccountIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "avatarSize": {
+            "type": "string"
+        },
+        "excludeConnectUsers": {
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

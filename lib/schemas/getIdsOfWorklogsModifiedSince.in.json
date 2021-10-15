@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "since": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        },
+        "expand": {
+            "type": "string",
+            "default": ""
+        }
+    }
+}

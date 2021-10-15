@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "issueType": {
+            "required": true,
+            "type": "string"
+        },
+        "returnDraftIfExists": {
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

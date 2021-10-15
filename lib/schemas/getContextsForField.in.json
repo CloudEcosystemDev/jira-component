@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "fieldId": {
+            "required": true,
+            "type": "string"
+        },
+        "isAnyIssueType": {
+            "type": "boolean"
+        },
+        "isGlobalContext": {
+            "type": "boolean"
+        },
+        "contextId": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+                "type": "integer",
+                "format": "int64"
+            }
+        },
+        "startAt": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 50
+        }
+    }
+}

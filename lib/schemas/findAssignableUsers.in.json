@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "query": {
+            "type": "string",
+            "example": "query"
+        },
+        "sessionId": {
+            "type": "string"
+        },
+        "username": {
+            "type": "string"
+        },
+        "accountId": {
+            "maxLength": 128,
+            "type": "string"
+        },
+        "project": {
+            "type": "string"
+        },
+        "issueKey": {
+            "type": "string"
+        },
+        "startAt": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 50
+        },
+        "actionDescriptorId": {
+            "type": "integer",
+            "format": "int32"
+        },
+        "recommend": {
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

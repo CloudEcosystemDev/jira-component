@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "queryStrings": {
+                    "type": "array",
+                    "description": "A list of queries with user identifiers. Maximum of 100 queries.",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "The JQL queries to be converted."
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "screenSchemeId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

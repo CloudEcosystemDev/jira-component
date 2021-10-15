@@ -1,0 +1,104 @@
+{
+    "type": "object",
+    "properties": {
+        "self": {
+            "type": "string",
+            "description": "The URL of the page.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "nextPage": {
+            "type": "string",
+            "description": "If there is another page of results, the URL of the next page.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of items that could be returned.",
+            "format": "int32",
+            "readOnly": true
+        },
+        "startAt": {
+            "type": "integer",
+            "description": "The index of the first item returned.",
+            "format": "int64",
+            "readOnly": true
+        },
+        "total": {
+            "type": "integer",
+            "description": "The number of items returned.",
+            "format": "int64",
+            "readOnly": true
+        },
+        "isLast": {
+            "type": "boolean",
+            "description": "Whether this is the last page.",
+            "readOnly": true
+        },
+        "values": {
+            "type": "array",
+            "description": "The list of items.",
+            "readOnly": true,
+            "items": {
+                "required": [
+                    "events",
+                    "id",
+                    "jqlFilter"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "The ID of the webhook.",
+                        "format": "int64"
+                    },
+                    "jqlFilter": {
+                        "type": "string",
+                        "description": "The JQL filter that specifies which issues the webhook is sent for."
+                    },
+                    "fieldIdsFilter": {
+                        "type": "array",
+                        "description": "A list of field IDs. When the issue changelog contains any of the fields, the webhook `jira:issue_updated` is sent. If this parameter is not present, the app is notified about all field updates.",
+                        "items": {
+                            "type": "string",
+                            "description": "A list of field IDs. When the issue changelog contains any of the fields, the webhook <code>jira:issue_updated</code> is sent. If this parameter is not present, the app is notified about all field updates."
+                        }
+                    },
+                    "issuePropertyKeysFilter": {
+                        "type": "array",
+                        "description": "A list of issue property keys. A change of those issue properties triggers the `issue_property_set` or `issue_property_deleted` webhooks. If this parameter is not present, the app is notified about all issue property updates.",
+                        "items": {
+                            "type": "string",
+                            "description": "A list of issue property keys. A change of those issue properties triggers the <code>issue_property_set</code> or <code>issue_property_deleted</code> webhooks. If this parameter is not present, the app is notified about all issue property updates."
+                        }
+                    },
+                    "events": {
+                        "type": "array",
+                        "description": "The Jira events that trigger the webhook.",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "jira:issue_created",
+                                "jira:issue_updated",
+                                "jira:issue_deleted",
+                                "comment_created",
+                                "comment_updated",
+                                "comment_deleted",
+                                "issue_property_set",
+                                "issue_property_deleted"
+                            ]
+                        }
+                    },
+                    "expirationDate": {
+                        "type": "integer",
+                        "format": "int64",
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "A webhook."
+            }
+        }
+    }
+}

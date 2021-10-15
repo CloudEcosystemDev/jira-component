@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "projectKeyOrId": {
+            "required": true,
+            "type": "string"
+        },
+        "expand": {
+            "type": "string"
+        }
+    }
+}

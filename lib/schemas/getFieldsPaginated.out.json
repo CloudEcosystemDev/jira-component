@@ -1,0 +1,160 @@
+{
+    "type": "object",
+    "properties": {
+        "self": {
+            "type": "string",
+            "description": "The URL of the page.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "nextPage": {
+            "type": "string",
+            "description": "If there is another page of results, the URL of the next page.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of items that could be returned.",
+            "format": "int32",
+            "readOnly": true
+        },
+        "startAt": {
+            "type": "integer",
+            "description": "The index of the first item returned.",
+            "format": "int64",
+            "readOnly": true
+        },
+        "total": {
+            "type": "integer",
+            "description": "The number of items returned.",
+            "format": "int64",
+            "readOnly": true
+        },
+        "isLast": {
+            "type": "boolean",
+            "description": "Whether this is the last page.",
+            "readOnly": true
+        },
+        "values": {
+            "type": "array",
+            "description": "The list of items.",
+            "readOnly": true,
+            "items": {
+                "required": [
+                    "id",
+                    "name",
+                    "schema"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the field."
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the field."
+                    },
+                    "schema": {
+                        "required": [
+                            "type"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "description": "The data type of the field.",
+                                "readOnly": true
+                            },
+                            "items": {
+                                "type": "string",
+                                "description": "When the data type is an array, the name of the field items within the array.",
+                                "readOnly": true
+                            },
+                            "system": {
+                                "type": "string",
+                                "description": "If the field is a system field, the name of the field.",
+                                "readOnly": true
+                            },
+                            "custom": {
+                                "type": "string",
+                                "description": "If the field is a custom field, the URI of the field.",
+                                "readOnly": true
+                            },
+                            "customId": {
+                                "type": "integer",
+                                "description": "If the field is a custom field, the custom ID of the field.",
+                                "format": "int64",
+                                "readOnly": true
+                            },
+                            "configuration": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "readOnly": true
+                                },
+                                "description": "If the field is a custom field, the configuration of the field.",
+                                "readOnly": true
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "The schema of a field."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the field."
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The key of the field."
+                    },
+                    "isLocked": {
+                        "type": "boolean",
+                        "description": "Whether the field is locked."
+                    },
+                    "isUnscreenable": {
+                        "type": "boolean",
+                        "description": "Whether the field is shown on screen or not."
+                    },
+                    "searcherKey": {
+                        "type": "string",
+                        "description": "The searcher key of the field. Returned for custom fields."
+                    },
+                    "screensCount": {
+                        "type": "integer",
+                        "description": "Number of screens where the field is used.",
+                        "format": "int64"
+                    },
+                    "contextsCount": {
+                        "type": "integer",
+                        "description": "Number of contexts where the field is used.",
+                        "format": "int64"
+                    },
+                    "lastUsed": {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "description": "Last used value type:\n\n *  *TRACKED*: field is tracked and a last used date is available.\n *  *NOT\\_TRACKED*: field is not tracked, last used date is not available.\n *  *NO\\_INFORMATION*: field is tracked, but no last used date is available.",
+                                "enum": [
+                                    "TRACKED",
+                                    "NOT_TRACKED",
+                                    "NO_INFORMATION"
+                                ]
+                            },
+                            "value": {
+                                "type": "string",
+                                "description": "The date when the value of the field last changed.",
+                                "format": "date-time"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "Information about the most recent use of a field."
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Details of a field."
+            }
+        }
+    }
+}

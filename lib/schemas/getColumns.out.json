@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "label": {
+            "type": "string",
+            "description": "The issue navigator column label."
+        },
+        "value": {
+            "type": "string",
+            "description": "The issue navigator column value."
+        }
+    }
+}

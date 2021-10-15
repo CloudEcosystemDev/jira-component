@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "issueIdOrKey": {
+            "required": true,
+            "type": "string",
+            "example": "10000"
+        },
+        "globalId": {
+            "required": true,
+            "type": "string",
+            "example": "system=http://www.mycompany.com/support&id=1"
+        }
+    }
+}

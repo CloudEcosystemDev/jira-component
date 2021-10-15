@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "type": "string"
+        },
+        "requestBody": {
+            "required": [
+                "ids"
+            ],
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "uniqueItems": true,
+                    "type": "array",
+                    "description": "The list of comment IDs. A maximum of 1000 IDs can be specified.",
+                    "items": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "required": [
+                "ruleIds",
+                "workflowEntityId"
+            ],
+            "type": "object",
+            "properties": {
+                "workflowEntityId": {
+                    "type": "string",
+                    "description": "The workflow ID.",
+                    "format": "uuid",
+                    "example": "a498d711-685d-428d-8c3e-bc03bb450ea7"
+                },
+                "ruleIds": {
+                    "maxItems": 10,
+                    "minItems": 1,
+                    "type": "array",
+                    "description": "The list of workflow rule IDs.",
+                    "items": {
+                        "type": "string",
+                        "description": "Workflow rule ID.",
+                        "format": "uuid",
+                        "example": "55d44f1d-c859-42e5-9c27-2c5ec3f340b1"
+                    }
+                },
+                "expand": {
+                    "type": "string",
+                    "description": "Use expand to include additional information in the response. This parameter accepts `transition` which, for each rule, returns information about the transition the rule is assigned to.",
+                    "example": "transition"
+                }
+            },
+            "description": "Details of the workflow and its transition rules."
+        },
+        "Atlassian_Transfer_Id": {
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+        }
+    }
+}

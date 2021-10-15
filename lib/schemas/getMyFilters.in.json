@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "type": "string"
+        },
+        "includeFavourites": {
+            "type": "boolean",
+            "default": false
+        }
+    }
+}

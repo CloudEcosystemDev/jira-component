@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "fieldIdOrKey": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "required": [
+                "configurations"
+            ],
+            "type": "object",
+            "properties": {
+                "configurations": {
+                    "maxItems": 1000,
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "type": "array",
+                    "description": "The list of custom field configuration details.",
+                    "items": {
+                        "required": [
+                            "contextId"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "contextId": {
+                                "type": "integer",
+                                "description": "The ID of the context the configuration is associated with.",
+                                "format": "int64"
+                            },
+                            "configuration": {
+                                "description": "The configuration associated with the context."
+                            },
+                            "schema": {
+                                "description": "The schema associated with the context."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "Details of the contextual configuration for a custom field."
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "Details of configurations for a custom field.",
+            "writeOnly": true
+        }
+    }
+}

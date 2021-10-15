@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "workingHoursPerDay": {
+            "type": "number",
+            "description": "The number of hours in a working day.",
+            "format": "double"
+        },
+        "workingDaysPerWeek": {
+            "type": "number",
+            "description": "The number of days in a working week.",
+            "format": "double"
+        },
+        "timeFormat": {
+            "type": "string",
+            "description": "The format that will appear on an issue's *Time Spent* field.",
+            "enum": [
+                "pretty",
+                "days",
+                "hours"
+            ]
+        },
+        "defaultUnit": {
+            "type": "string",
+            "description": "The default unit of time applied to logged time.",
+            "enum": [
+                "minute",
+                "hour",
+                "day",
+                "week"
+            ]
+        }
+    }
+}

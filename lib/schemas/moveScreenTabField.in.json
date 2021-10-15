@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "screenId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "tabId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "after": {
+                    "type": "string",
+                    "description": "The ID of the screen tab field after which to place the moved screen tab field. Required if `position` isn't provided.",
+                    "format": "uri"
+                },
+                "position": {
+                    "type": "string",
+                    "description": "The named position to which the screen tab field should be moved. Required if `after` isn't provided.",
+                    "enum": [
+                        "Earlier",
+                        "Later",
+                        "First",
+                        "Last"
+                    ]
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

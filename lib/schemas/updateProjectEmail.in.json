@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "projectId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "emailAddress": {
+                    "type": "string",
+                    "description": "The email address."
+                }
+            },
+            "additionalProperties": false,
+            "description": "A project's sender email address."
+        }
+    }
+}

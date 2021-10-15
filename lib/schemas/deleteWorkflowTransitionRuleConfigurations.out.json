@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "updateResults": {
+            "type": "array",
+            "description": "A list of workflows.",
+            "items": {
+                "required": [
+                    "ruleUpdateErrors",
+                    "updateErrors",
+                    "workflowId"
+                ],
+                "type": "object",
+                "properties": {
+                    "workflowId": {
+                        "required": [
+                            "draft",
+                            "name"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "The name of the workflow."
+                            },
+                            "draft": {
+                                "type": "boolean",
+                                "description": "Whether the workflow is in the draft state."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "Properties that identify a workflow."
+                    },
+                    "ruleUpdateErrors": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "uniqueItems": true,
+                            "type": "array",
+                            "description": "A list of transition rule update errors, indexed by the transition rule ID. Any transition rule that appears here wasn't updated.",
+                            "items": {
+                                "type": "string",
+                                "description": "A list of transition rule update errors, indexed by the transition rule ID. Any transition rule that appears here wasn't updated."
+                            }
+                        },
+                        "description": "A list of transition rule update errors, indexed by the transition rule ID. Any transition rule that appears here wasn't updated."
+                    },
+                    "updateErrors": {
+                        "uniqueItems": true,
+                        "type": "array",
+                        "description": "The list of errors that specify why the workflow update failed. The workflow was not updated if the list contains any entries.",
+                        "items": {
+                            "type": "string",
+                            "description": "An error specifying why the workflow update failed."
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Details of any errors encountered while updating workflow transition rules for a workflow."
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "expand": {
+            "type": "string",
+            "default": ""
+        },
+        "requestBody": {
+            "required": [
+                "ids"
+            ],
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "uniqueItems": true,
+                    "type": "array",
+                    "description": "A list of worklog IDs.",
+                    "items": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

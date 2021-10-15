@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "startAt": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 10
+        },
+        "username": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "key": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

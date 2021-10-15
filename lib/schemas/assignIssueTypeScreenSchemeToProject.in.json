@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "issueTypeScreenSchemeId": {
+                    "type": "string",
+                    "description": "The ID of the issue type screen scheme.",
+                    "writeOnly": true
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project.",
+                    "writeOnly": true
+                }
+            },
+            "additionalProperties": false,
+            "description": "Associated issue type screen scheme and project."
+        }
+    }
+}

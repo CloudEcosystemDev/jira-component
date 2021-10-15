@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "type": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "issuetype",
+                "project"
+            ]
+        },
+        "entityId": {
+            "required": true,
+            "type": "string"
+        },
+        "size": {
+            "type": "string",
+            "enum": [
+                "xsmall",
+                "small",
+                "medium",
+                "large",
+                "xlarge"
+            ]
+        },
+        "format": {
+            "type": "string",
+            "enum": [
+                "png"
+            ]
+        }
+    }
+}

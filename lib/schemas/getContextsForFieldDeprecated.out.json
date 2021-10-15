@@ -1,0 +1,196 @@
+{
+    "type": "object",
+    "properties": {
+        "self": {
+            "type": "string",
+            "description": "The URL of the page.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "nextPage": {
+            "type": "string",
+            "description": "If there is another page of results, the URL of the next page.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of items that could be returned.",
+            "format": "int32",
+            "readOnly": true
+        },
+        "startAt": {
+            "type": "integer",
+            "description": "The index of the first item returned.",
+            "format": "int64",
+            "readOnly": true
+        },
+        "total": {
+            "type": "integer",
+            "description": "The number of items returned.",
+            "format": "int64",
+            "readOnly": true
+        },
+        "isLast": {
+            "type": "boolean",
+            "description": "Whether this is the last page.",
+            "readOnly": true
+        },
+        "values": {
+            "type": "array",
+            "description": "The list of items.",
+            "readOnly": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "The ID of the context.",
+                        "format": "int64",
+                        "readOnly": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the context.",
+                        "readOnly": true
+                    },
+                    "scope": {
+                        "description": "The scope of the context.",
+                        "allOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "description": "The type of scope.",
+                                        "readOnly": true,
+                                        "enum": [
+                                            "PROJECT",
+                                            "TEMPLATE"
+                                        ]
+                                    },
+                                    "project": {
+                                        "description": "The project the item has scope in.",
+                                        "readOnly": true,
+                                        "allOf": [
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "self": {
+                                                        "type": "string",
+                                                        "description": "The URL of the project details.",
+                                                        "readOnly": true
+                                                    },
+                                                    "id": {
+                                                        "type": "string",
+                                                        "description": "The ID of the project."
+                                                    },
+                                                    "key": {
+                                                        "type": "string",
+                                                        "description": "The key of the project.",
+                                                        "readOnly": true
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "description": "The name of the project.",
+                                                        "readOnly": true
+                                                    },
+                                                    "projectTypeKey": {
+                                                        "type": "string",
+                                                        "description": "The [project type](https://confluence.atlassian.com/x/GwiiLQ#Jiraapplicationsoverview-Productfeaturesandprojecttypes) of the project.",
+                                                        "readOnly": true,
+                                                        "enum": [
+                                                            "software",
+                                                            "service_desk",
+                                                            "business"
+                                                        ]
+                                                    },
+                                                    "simplified": {
+                                                        "type": "boolean",
+                                                        "description": "Whether or not the project is simplified.",
+                                                        "readOnly": true
+                                                    },
+                                                    "avatarUrls": {
+                                                        "description": "The URLs of the project's avatars.",
+                                                        "readOnly": true,
+                                                        "allOf": [
+                                                            {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "16x16": {
+                                                                        "type": "string",
+                                                                        "description": "The URL of the item's 16x16 pixel avatar.",
+                                                                        "format": "uri"
+                                                                    },
+                                                                    "24x24": {
+                                                                        "type": "string",
+                                                                        "description": "The URL of the item's 24x24 pixel avatar.",
+                                                                        "format": "uri"
+                                                                    },
+                                                                    "32x32": {
+                                                                        "type": "string",
+                                                                        "description": "The URL of the item's 32x32 pixel avatar.",
+                                                                        "format": "uri"
+                                                                    },
+                                                                    "48x48": {
+                                                                        "type": "string",
+                                                                        "description": "The URL of the item's 48x48 pixel avatar.",
+                                                                        "format": "uri"
+                                                                    }
+                                                                },
+                                                                "additionalProperties": false
+                                                            }
+                                                        ]
+                                                    },
+                                                    "projectCategory": {
+                                                        "description": "The category the project belongs to.",
+                                                        "readOnly": true,
+                                                        "allOf": [
+                                                            {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "self": {
+                                                                        "type": "string",
+                                                                        "description": "The URL of the project category.",
+                                                                        "readOnly": true
+                                                                    },
+                                                                    "id": {
+                                                                        "type": "string",
+                                                                        "description": "The ID of the project category.",
+                                                                        "readOnly": true
+                                                                    },
+                                                                    "description": {
+                                                                        "type": "string",
+                                                                        "description": "The name of the project category.",
+                                                                        "readOnly": true
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string",
+                                                                        "description": "The description of the project category.",
+                                                                        "readOnly": true
+                                                                    }
+                                                                },
+                                                                "additionalProperties": false,
+                                                                "description": "A project category."
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "additionalProperties": false,
+                                                "description": "Details about a project."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": true,
+                                "description": "The projects the item is associated with. Indicated for items associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO)."
+                            }
+                        ]
+                    }
+                },
+                "additionalProperties": false,
+                "description": "A context."
+            }
+        }
+    }
+}

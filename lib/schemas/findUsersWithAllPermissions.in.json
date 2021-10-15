@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "query": {
+            "type": "string",
+            "example": "query"
+        },
+        "username": {
+            "type": "string"
+        },
+        "accountId": {
+            "maxLength": 128,
+            "type": "string"
+        },
+        "permissions": {
+            "required": true,
+            "type": "string"
+        },
+        "issueKey": {
+            "type": "string"
+        },
+        "projectKey": {
+            "type": "string"
+        },
+        "startAt": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 50
+        }
+    }
+}

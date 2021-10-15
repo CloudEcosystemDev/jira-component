@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "issueTypeScreenSchemeId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the issue type screen scheme. The name must be unique. The maximum length is 255 characters.",
+                    "writeOnly": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the issue type screen scheme. The maximum length is 255 characters.",
+                    "writeOnly": true
+                }
+            },
+            "additionalProperties": false,
+            "description": "Details of an issue type screen scheme."
+        }
+    }
+}

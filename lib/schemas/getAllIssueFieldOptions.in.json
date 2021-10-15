@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "startAt": {
+            "type": "integer",
+            "format": "int64",
+            "default": 0
+        },
+        "maxResults": {
+            "type": "integer",
+            "format": "int32",
+            "default": 50
+        },
+        "fieldKey": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

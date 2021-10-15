@@ -1,0 +1,95 @@
+{
+    "type": "object",
+    "properties": {
+        "self": {
+            "type": "string",
+            "description": "The URL of the page.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "nextPage": {
+            "type": "string",
+            "description": "If there is another page of results, the URL of the next page.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "maxResults": {
+            "type": "integer",
+            "description": "The maximum number of items that could be returned.",
+            "format": "int32",
+            "readOnly": true
+        },
+        "startAt": {
+            "type": "integer",
+            "description": "The index of the first item returned.",
+            "format": "int64",
+            "readOnly": true
+        },
+        "total": {
+            "type": "integer",
+            "description": "The number of items returned.",
+            "format": "int64",
+            "readOnly": true
+        },
+        "isLast": {
+            "type": "boolean",
+            "description": "Whether this is the last page.",
+            "readOnly": true
+        },
+        "values": {
+            "type": "array",
+            "description": "The list of items.",
+            "readOnly": true,
+            "items": {
+                "required": [
+                    "holder",
+                    "id",
+                    "issueSecurityLevelId"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "The ID of the issue security level member.",
+                        "format": "int64"
+                    },
+                    "issueSecurityLevelId": {
+                        "type": "integer",
+                        "description": "The ID of the issue security level.",
+                        "format": "int64"
+                    },
+                    "holder": {
+                        "description": "The user or group being granted the permission. It consists of a `type` and a type-dependent `parameter`. See [Holder object](../api-group-permission-schemes/#holder-object) in *Get all permission schemes* for more information.",
+                        "allOf": [
+                            {
+                                "required": [
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "description": "The type of permission holder."
+                                    },
+                                    "parameter": {
+                                        "type": "string",
+                                        "description": "The identifier of permission holder."
+                                    },
+                                    "expand": {
+                                        "type": "string",
+                                        "description": "Expand options that include additional permission holder details in the response.",
+                                        "readOnly": true
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "description": "Details of a user, group, field, or project role that holds a permission. See [Holder object](../api-group-permission-schemes/#holder-object) in *Get all permission schemes* for more information."
+                            }
+                        ]
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Issue security level member."
+            }
+        }
+    }
+}

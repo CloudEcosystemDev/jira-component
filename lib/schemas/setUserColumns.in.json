@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "maxLength": 128,
+            "type": "string",
+            "example": "5b10ac8d82e05b22cc7d4ef5"
+        },
+        "requestBody": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

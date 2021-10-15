@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "required": [
+                "projectId"
+            ],
+            "type": "object",
+            "properties": {
+                "workflowSchemeId": {
+                    "type": "string",
+                    "description": "The ID of the workflow scheme. If the workflow scheme ID is `null`, the operation assigns the default workflow scheme."
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project."
+                }
+            },
+            "additionalProperties": false,
+            "description": "An associated workflow scheme and project."
+        }
+    }
+}

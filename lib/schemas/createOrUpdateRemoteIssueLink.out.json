@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "The ID of the remote issue link, such as the ID of the item on the remote system.",
+            "format": "int64",
+            "readOnly": true,
+            "xml": {
+                "attribute": true
+            }
+        },
+        "self": {
+            "type": "string",
+            "description": "The URL of the remote issue link.",
+            "readOnly": true,
+            "xml": {
+                "attribute": true
+            }
+        }
+    }
+}

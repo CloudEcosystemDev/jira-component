@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "accountId": {
+            "required": true,
+            "maxLength": 128,
+            "type": "string"
+        }
+    }
+}
