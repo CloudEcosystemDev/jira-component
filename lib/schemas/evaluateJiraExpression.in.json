@@ -128,6 +128,11 @@
                                     "type": "integer",
                                     "description": "The ID of the customer request that is available under the `customerRequest` variable when evaluating the expression. This is the same as the ID of the underlying Jira issue, but the customer request context variable will have a different type.",
                                     "format": "int64"
+                                },
+                                "custom": {
+                                    "type": "object",
+                                    "additionalProperties": {},
+                                    "description": "Custom context"
                                 }
                             },
                             "additionalProperties": false

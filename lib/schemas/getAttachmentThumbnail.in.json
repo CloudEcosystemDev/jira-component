@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "redirect": {
+            "type": "boolean",
+            "default": true
+        },
+        "fallbackToDefault": {
+            "type": "boolean",
+            "default": true
+        },
+        "width": {
+            "type": "integer",
+            "format": "int32"
+        },
+        "height": {
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

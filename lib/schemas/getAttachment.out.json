@@ -327,6 +327,11 @@
             "type": "string",
             "description": "The URL of a thumbnail representing the attachment.",
             "readOnly": true
+        },
+        "mediaApiFileId": {
+            "type": "string",
+            "description": "File ID of the attachment in Media Store. See [ for more details on the Media API.](https://developer.atlassian.com/platform/media/)",
+            "readOnly": true
         }
     }
 }

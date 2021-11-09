@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "properties": {
+        "generateChangelog": {
+            "type": "boolean",
+            "default": true
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "updates": {
+                    "type": "array",
+                    "items": {
+                        "required": [
+                            "customField",
+                            "issueIds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "customField": {
+                                "type": "string",
+                                "description": "The ID or key of the custom field. For example, `customfield_10010`.",
+                                "writeOnly": true
+                            },
+                            "issueIds": {
+                                "type": "array",
+                                "description": "The list of issue IDs.",
+                                "writeOnly": true,
+                                "items": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "writeOnly": true
+                                }
+                            },
+                            "value": {
+                                "description": "The value for the custom field. The value must be compatible with the [custom field type](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-custom-field/#data-types) as follows:\n\n *  `string` the value must be a string.\n *  `number` the value must be a number.\n *  `datetime` the value must be a string that represents a date in the ISO format, for example `\"2021-01-18T12:00:00-03:00\"`.\n *  `user` the value must be an object that contains the `accountId` field.\n *  `group` the value must be an object that contains the group `name` field.\n\nA list of appropriate values must be provided if the field is of the `list` [collection type](https://developer.atlassian.com/platform/forge/manifest-reference/modules/jira-custom-field/#collection-types)."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "A custom field and its new value with a list of issue to update.",
+                        "writeOnly": true
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "List of updates for a custom fields.",
+            "writeOnly": true
+        }
+    }
+}

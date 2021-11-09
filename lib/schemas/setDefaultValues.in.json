@@ -24,7 +24,14 @@
                                 "grouppicker.single": "#/components/schemas/CustomFieldContextDefaultValueSingleGroupPicker",
                                 "grouppicker.multiple": "#/components/schemas/CustomFieldContextDefaultValueMultipleGroupPicker",
                                 "datepicker": "#/components/schemas/CustomFieldContextDefaultValueDate",
-                                "datetimepicker": "#/components/schemas/CustomFieldContextDefaultValueDateTime"
+                                "datetimepicker": "#/components/schemas/CustomFieldContextDefaultValueDateTime",
+                                "url": "#/components/schemas/CustomFieldContextDefaultValueURL",
+                                "project": "#/components/schemas/CustomFieldContextDefaultValueProject",
+                                "float": "#/components/schemas/CustomFieldContextDefaultValueFloat",
+                                "labels": "#/components/schemas/CustomFieldContextDefaultValueLabels",
+                                "textfield": "#/components/schemas/CustomFieldContextDefaultValueTextField",
+                                "textarea": "#/components/schemas/CustomFieldContextDefaultValueTextArea",
+                                "readonly": "#/components/schemas/CustomFieldContextDefaultValueReadOnly"
                             }
                         },
                         "oneOf": [
@@ -52,7 +59,7 @@
                                         "type": "string"
                                     }
                                 },
-                                "description": "Default value for a cascading select custom field."
+                                "description": "The default value for a cascading select custom field."
                             },
                             {
                                 "required": [
@@ -78,7 +85,7 @@
                                         "type": "string"
                                     }
                                 },
-                                "description": "Default value for a multi-select custom field."
+                                "description": "The default value for a multi-select custom field."
                             },
                             {
                                 "required": [
@@ -100,7 +107,7 @@
                                         "type": "string"
                                     }
                                 },
-                                "description": "Default value for a single select custom field."
+                                "description": "The default value for a single select custom field."
                             },
                             {
                                 "required": [
@@ -203,7 +210,7 @@
                                         "type": "string"
                                     }
                                 },
-                                "description": "Default value for a group picker custom field."
+                                "description": "The default value for a group picker custom field."
                             },
                             {
                                 "required": [
@@ -230,7 +237,7 @@
                                         "type": "string"
                                     }
                                 },
-                                "description": "Default value for a multiple group picker custom field."
+                                "description": "The default value for a multiple group picker custom field."
                             },
                             {
                                 "required": [
@@ -273,6 +280,137 @@
                                     }
                                 },
                                 "description": "The default value for a date time custom field."
+                            },
+                            {
+                                "required": [
+                                    "contextId",
+                                    "type",
+                                    "url"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "contextId": {
+                                        "type": "string",
+                                        "description": "The ID of the context."
+                                    },
+                                    "url": {
+                                        "type": "string",
+                                        "description": "The default URL."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "The default value for a URL custom field."
+                            },
+                            {
+                                "required": [
+                                    "contextId",
+                                    "projectId",
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "contextId": {
+                                        "type": "string",
+                                        "description": "The ID of the context."
+                                    },
+                                    "projectId": {
+                                        "type": "string",
+                                        "description": "The ID of the default project."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "The default value for a project custom field."
+                            },
+                            {
+                                "required": [
+                                    "number",
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "number": {
+                                        "type": "number",
+                                        "description": "The default floating-point number.",
+                                        "format": "double"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "Default value for a float (number) custom field."
+                            },
+                            {
+                                "required": [
+                                    "labels",
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "labels": {
+                                        "type": "array",
+                                        "description": "The default labels value.",
+                                        "items": {
+                                            "type": "string",
+                                            "description": "The default labels value."
+                                        }
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "Default value for a labels custom field."
+                            },
+                            {
+                                "required": [
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "text": {
+                                        "type": "string",
+                                        "description": "The default text. The maximum length is 254 characters."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "The default text for a text custom field."
+                            },
+                            {
+                                "required": [
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "text": {
+                                        "type": "string",
+                                        "description": "The default text. The maximum length is 32767 characters."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "The default text for a text area custom field."
+                            },
+                            {
+                                "required": [
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "text": {
+                                        "type": "string",
+                                        "description": "The default text. The maximum length is 255 characters."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "The default text for a read only custom field."
                             }
                         ]
                     }

@@ -24,31 +24,19 @@
                         "minProperties": 1,
                         "type": "object",
                         "properties": {
-                            "floatingPointNumber": {
-                                "type": "boolean"
-                            },
                             "elements": {
                                 "type": "object"
                             },
                             "pojo": {
                                 "type": "boolean"
                             },
-                            "containerNode": {
-                                "type": "boolean"
-                            },
-                            "missingNode": {
-                                "type": "boolean"
-                            },
-                            "object": {
-                                "type": "boolean"
-                            },
-                            "valueNode": {
-                                "type": "boolean"
-                            },
                             "number": {
                                 "type": "boolean"
                             },
                             "integralNumber": {
+                                "type": "boolean"
+                            },
+                            "floatingPointNumber": {
                                 "type": "boolean"
                             },
                             "int": {
@@ -73,6 +61,18 @@
                                 "type": "boolean"
                             },
                             "binary": {
+                                "type": "boolean"
+                            },
+                            "containerNode": {
+                                "type": "boolean"
+                            },
+                            "missingNode": {
+                                "type": "boolean"
+                            },
+                            "object": {
+                                "type": "boolean"
+                            },
+                            "valueNode": {
                                 "type": "boolean"
                             },
                             "numberValue": {
