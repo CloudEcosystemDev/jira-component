@@ -46,7 +46,7 @@
                 "discriminator": {
                     "propertyName": "type",
                     "mapping": {
-                        "option.cascading": "#/components/schemas/CustomFieldContextDefaultValueCascadingOption",
+                        // "option.cascading": "#/components/schemas/CustomFieldContextDefaultValueCascadingOption",
                         "option.multiple": "#/components/schemas/CustomFieldContextDefaultValueMultipleOption",
                         "option.single": "#/components/schemas/CustomFieldContextDefaultValueSingleOption",
                         "single.user.select": "#/components/schemas/CustomFieldContextSingleUserPickerDefaults",
