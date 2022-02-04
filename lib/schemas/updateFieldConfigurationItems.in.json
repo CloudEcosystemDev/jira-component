@@ -1,0 +1,55 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "requestBody": {
+            "required": [
+                "fieldConfigurationItems"
+            ],
+            "type": "object",
+            "properties": {
+                "fieldConfigurationItems": {
+                    "type": "array",
+                    "description": "Details of fields in a field configuration.",
+                    "writeOnly": true,
+                    "items": {
+                        "required": [
+                            "id"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "The ID of the field within the field configuration."
+                            },
+                            "description": {
+                                "type": "string",
+                                "description": "The description of the field within the field configuration."
+                            },
+                            "isHidden": {
+                                "type": "boolean",
+                                "description": "Whether the field is hidden in the field configuration."
+                            },
+                            "isRequired": {
+                                "type": "boolean",
+                                "description": "Whether the field is required in the field configuration."
+                            },
+                            "renderer": {
+                                "type": "string",
+                                "description": "The renderer type for the field within the field configuration."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "A field within a field configuration."
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "Details of field configuration items."
+        }
+    }
+}

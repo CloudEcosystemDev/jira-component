@@ -1,16 +1,1 @@
-{
-    "type": "object",
-    "properties": {
-        "self": {
-            "type": "string",
-            "description": "The URL of these custom field option details.",
-            "format": "uri",
-            "readOnly": true
-        },
-        "value": {
-            "type": "string",
-            "description": "The value of the custom field option.",
-            "readOnly": true
-        }
-    }
-}
+{}

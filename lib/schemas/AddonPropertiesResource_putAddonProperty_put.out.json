@@ -1,13 +1,1 @@
-{
-    "type": "object",
-    "properties": {
-        "message": {
-            "type": "string",
-            "description": "The human-readable message that describes the result."
-        },
-        "statusCode": {
-            "type": "integer",
-            "description": "The status code of the response."
-        }
-    }
-}
+{}

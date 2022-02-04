@@ -2753,14 +2753,14 @@
                                                 "type": "boolean",
                                                 "description": "Whether the calling user is part of this role."
                                             },
-                                            "roleConfigurable": {
-                                                "type": "boolean",
-                                                "description": "Whether the roles are configurable for this project.",
-                                                "readOnly": true
-                                            },
                                             "admin": {
                                                 "type": "boolean",
                                                 "description": "Whether this role is the admin role for the project.",
+                                                "readOnly": true
+                                            },
+                                            "roleConfigurable": {
+                                                "type": "boolean",
+                                                "description": "Whether the roles are configurable for this project.",
                                                 "readOnly": true
                                             },
                                             "default": {
@@ -2839,11 +2839,6 @@
                                                                 "description": "The URL of the user's 16x16 pixel avatar.",
                                                                 "format": "uri"
                                                             },
-                                                            "24x24": {
-                                                                "type": "string",
-                                                                "description": "The URL of the user's 24x24 pixel avatar.",
-                                                                "format": "uri"
-                                                            },
                                                             "32x32": {
                                                                 "type": "string",
                                                                 "description": "The URL of the user's 32x32 pixel avatar.",
@@ -2852,6 +2847,11 @@
                                                             "48x48": {
                                                                 "type": "string",
                                                                 "description": "The URL of the user's 48x48 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "24x24": {
+                                                                "type": "string",
+                                                                "description": "The URL of the user's 24x24 pixel avatar.",
                                                                 "format": "uri"
                                                             }
                                                         },
@@ -5605,14 +5605,14 @@
                                                 "type": "boolean",
                                                 "description": "Whether the calling user is part of this role."
                                             },
-                                            "roleConfigurable": {
-                                                "type": "boolean",
-                                                "description": "Whether the roles are configurable for this project.",
-                                                "readOnly": true
-                                            },
                                             "admin": {
                                                 "type": "boolean",
                                                 "description": "Whether this role is the admin role for the project.",
+                                                "readOnly": true
+                                            },
+                                            "roleConfigurable": {
+                                                "type": "boolean",
+                                                "description": "Whether the roles are configurable for this project.",
                                                 "readOnly": true
                                             },
                                             "default": {
@@ -5691,11 +5691,6 @@
                                                                 "description": "The URL of the user's 16x16 pixel avatar.",
                                                                 "format": "uri"
                                                             },
-                                                            "24x24": {
-                                                                "type": "string",
-                                                                "description": "The URL of the user's 24x24 pixel avatar.",
-                                                                "format": "uri"
-                                                            },
                                                             "32x32": {
                                                                 "type": "string",
                                                                 "description": "The URL of the user's 32x32 pixel avatar.",
@@ -5704,6 +5699,11 @@
                                                             "48x48": {
                                                                 "type": "string",
                                                                 "description": "The URL of the user's 48x48 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "24x24": {
+                                                                "type": "string",
+                                                                "description": "The URL of the user's 24x24 pixel avatar.",
                                                                 "format": "uri"
                                                             }
                                                         },

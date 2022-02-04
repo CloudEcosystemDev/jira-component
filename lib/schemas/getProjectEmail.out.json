@@ -1,9 +1,1 @@
-{
-    "type": "object",
-    "properties": {
-        "emailAddress": {
-            "type": "string",
-            "description": "The email address."
-        }
-    }
-}
+{}

@@ -16,6 +16,7 @@
                         "discriminator": {
                             "propertyName": "type",
                             "mapping": {
+                                "option.cascading": "#/components/schemas/CustomFieldContextDefaultValueCascadingOption",
                                 "option.multiple": "#/components/schemas/CustomFieldContextDefaultValueMultipleOption",
                                 "option.single": "#/components/schemas/CustomFieldContextDefaultValueSingleOption",
                                 "single.user.select": "#/components/schemas/CustomFieldContextSingleUserPickerDefaults",
@@ -30,7 +31,9 @@
                                 "labels": "#/components/schemas/CustomFieldContextDefaultValueLabels",
                                 "textfield": "#/components/schemas/CustomFieldContextDefaultValueTextField",
                                 "textarea": "#/components/schemas/CustomFieldContextDefaultValueTextArea",
-                                "readonly": "#/components/schemas/CustomFieldContextDefaultValueReadOnly"
+                                "readonly": "#/components/schemas/CustomFieldContextDefaultValueReadOnly",
+                                "version.single": "#/components/schemas/CustomFieldContextDefaultValueSingleVersionPicker",
+                                "version.multiple": "#/components/schemas/CustomFieldContextDefaultValueMultipleVersionPicker"
                             }
                         },
                         "oneOf": [
@@ -246,7 +249,7 @@
                                 "properties": {
                                     "date": {
                                         "type": "string",
-                                        "description": "The default date. Ignored if `useCurrent` is true."
+                                        "description": "The default date in ISO format. Ignored if `useCurrent` is true."
                                     },
                                     "useCurrent": {
                                         "type": "boolean",
@@ -267,7 +270,7 @@
                                 "properties": {
                                     "dateTime": {
                                         "type": "string",
-                                        "description": "The default date-time. Ignored if `useCurrent` is true."
+                                        "description": "The default date-time in ISO format. Ignored if `useCurrent` is true."
                                     },
                                     "useCurrent": {
                                         "type": "boolean",
@@ -410,6 +413,53 @@
                                     }
                                 },
                                 "description": "The default text for a read only custom field."
+                            },
+                            {
+                                "required": [
+                                    "type",
+                                    "versionId"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "versionId": {
+                                        "type": "string",
+                                        "description": "The ID of the default version."
+                                    },
+                                    "versionOrder": {
+                                        "type": "string",
+                                        "description": "The order the pickable versions are displayed in. If not provided, the released-first order is used. Available version orders are `\"releasedFirst\"` and `\"unreleasedFirst\"`."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "The default value for a version picker custom field."
+                            },
+                            {
+                                "required": [
+                                    "type",
+                                    "versionIds"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "versionIds": {
+                                        "uniqueItems": true,
+                                        "type": "array",
+                                        "description": "The IDs of the default versions.",
+                                        "items": {
+                                            "type": "string",
+                                            "description": "The IDs of the default versions."
+                                        }
+                                    },
+                                    "versionOrder": {
+                                        "type": "string",
+                                        "description": "The order the pickable versions are displayed in. If not provided, the released-first order is used. Available version orders are `\"releasedFirst\"` and `\"unreleasedFirst\"`."
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                },
+                                "description": "The default value for a multiple version picker custom field."
                             }
                         ]
                     }

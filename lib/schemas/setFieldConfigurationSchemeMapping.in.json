@@ -1,0 +1,48 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "requestBody": {
+            "required": [
+                "mappings"
+            ],
+            "type": "object",
+            "properties": {
+                "mappings": {
+                    "uniqueItems": true,
+                    "type": "array",
+                    "description": "Field configuration to issue type mappings.",
+                    "writeOnly": true,
+                    "items": {
+                        "required": [
+                            "fieldConfigurationId",
+                            "issueTypeId"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "issueTypeId": {
+                                "type": "string",
+                                "description": "The ID of the issue type or *default*. When set to *default* this field configuration issue type item applies to all issue types without a field configuration. An issue type can be included only once in a request.",
+                                "writeOnly": true
+                            },
+                            "fieldConfigurationId": {
+                                "type": "string",
+                                "description": "The ID of the field configuration.",
+                                "writeOnly": true
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "The field configuration to issue type mapping.",
+                        "writeOnly": true
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "Details of a field configuration to issue type mappings."
+        }
+    }
+}

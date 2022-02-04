@@ -1,16 +1,1 @@
-{
-    "type": "object",
-    "properties": {
-        "enabled": {
-            "type": "boolean",
-            "description": "Whether the ability to add attachments is enabled.",
-            "readOnly": true
-        },
-        "uploadLimit": {
-            "type": "integer",
-            "description": "The maximum size of attachments permitted, in bytes.",
-            "format": "int64",
-            "readOnly": true
-        }
-    }
-}
+{}
