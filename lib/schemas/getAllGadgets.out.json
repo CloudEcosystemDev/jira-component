@@ -1,0 +1,90 @@
+{
+    "required": [
+        "gadgets"
+    ],
+    "type": "object",
+    "properties": {
+        "gadgets": {
+            "type": "array",
+            "description": "The list of gadgets.",
+            "readOnly": true,
+            "items": {
+                "required": [
+                    "color",
+                    "id",
+                    "position",
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "The ID of the gadget instance.",
+                        "format": "int64",
+                        "readOnly": true
+                    },
+                    "moduleKey": {
+                        "type": "string",
+                        "description": "The module key of the gadget type.",
+                        "readOnly": true
+                    },
+                    "uri": {
+                        "type": "string",
+                        "description": "The URI of the gadget type.",
+                        "readOnly": true
+                    },
+                    "color": {
+                        "type": "string",
+                        "description": "The color of the gadget. Should be one of `blue`, `red`, `yellow`, `green`, `cyan`, `purple`, `gray`, or `white`.",
+                        "readOnly": true,
+                        "enum": [
+                            "blue",
+                            "red",
+                            "yellow",
+                            "green",
+                            "cyan",
+                            "purple",
+                            "gray",
+                            "white"
+                        ]
+                    },
+                    "position": {
+                        "description": "The position of the gadget.",
+                        "readOnly": true,
+                        "allOf": [
+                            {
+                                "required": [
+                                    "The column position of the gadget.",
+                                    "The row position of the gadget."
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "The row position of the gadget.": {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    },
+                                    "The column position of the gadget.": {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "description": "Details of a gadget position.",
+                                "writeOnly": true
+                            }
+                        ]
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "The title of the gadget.",
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Details of a gadget."
+            }
+        }
+    },
+    "additionalProperties": false,
+    "description": "The list of gadgets on the dashboard."
+}

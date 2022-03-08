@@ -82,5 +82,7 @@
                 "description": "Project list with assigned field configuration schema."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

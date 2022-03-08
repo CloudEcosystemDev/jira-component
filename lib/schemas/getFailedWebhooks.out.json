@@ -1,4 +1,8 @@
 {
+    "required": [
+        "maxResults",
+        "values"
+    ],
     "type": "object",
     "properties": {
         "values": {
@@ -44,5 +48,7 @@
             "description": "The URL to the next page of results. Present only if the request returned at least one result.The next page may be empty at the time of receiving the response, but new failed webhooks may appear in time. You can save the URL to the next page and query for new results periodically (for example, every hour).",
             "format": "uri"
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of failed webhooks."
 }

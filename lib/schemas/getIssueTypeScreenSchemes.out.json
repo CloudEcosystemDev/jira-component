@@ -64,5 +64,7 @@
                 "description": "Details of an issue type screen scheme."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

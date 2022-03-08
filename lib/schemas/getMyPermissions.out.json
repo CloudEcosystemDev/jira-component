@@ -45,5 +45,7 @@
             "description": "List of permissions.",
             "readOnly": true
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about permissions."
 }

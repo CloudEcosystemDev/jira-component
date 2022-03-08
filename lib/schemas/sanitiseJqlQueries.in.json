@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "required": [
+                "queries"
+            ],
+            "type": "object",
+            "properties": {
+                "queries": {
+                    "type": "array",
+                    "description": "The list of JQL queries to sanitize. Must contain unique values. Maximum of 20 queries.",
+                    "items": {
+                        "required": [
+                            "query"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "accountId": {
+                                "maxLength": 128,
+                                "type": "string",
+                                "description": "The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*.",
+                                "nullable": true
+                            },
+                            "query": {
+                                "type": "string",
+                                "description": "The query to sanitize."
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "The JQL query to sanitize for the account ID. If the account ID is null, sanitizing is performed for an anonymous user.",
+                        "writeOnly": true
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "The list of JQL queries to sanitize for the given account IDs.",
+            "writeOnly": true
+        }
+    }
+}

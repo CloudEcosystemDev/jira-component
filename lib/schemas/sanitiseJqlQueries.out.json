@@ -1,0 +1,63 @@
+{
+    "type": "object",
+    "properties": {
+        "queries": {
+            "type": "array",
+            "description": "The list of sanitized JQL queries.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "initialQuery": {
+                        "type": "string",
+                        "description": "The initial query."
+                    },
+                    "sanitizedQuery": {
+                        "type": "string",
+                        "description": "The sanitized query, if there were no errors.",
+                        "nullable": true
+                    },
+                    "errors": {
+                        "description": "The list of errors.",
+                        "allOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "errorMessages": {
+                                        "type": "array",
+                                        "description": "The list of error messages produced by this operation. For example, \"input parameter 'key' must be provided\"",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "errors": {
+                                        "type": "object",
+                                        "additionalProperties": {
+                                            "type": "string"
+                                        },
+                                        "description": "The list of errors by parameter returned by the operation. For example,\"projectKey\": \"Project keys must start with an uppercase letter, followed by one or more uppercase alphanumeric characters.\""
+                                    },
+                                    "status": {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "description": "Error messages from an operation."
+                            }
+                        ]
+                    },
+                    "accountId": {
+                        "maxLength": 128,
+                        "type": "string",
+                        "description": "The account ID of the user for whom sanitization was performed.",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Details of the sanitized JQL query."
+            }
+        }
+    },
+    "additionalProperties": false,
+    "description": "The sanitized JQL queries for the given account IDs."
+}

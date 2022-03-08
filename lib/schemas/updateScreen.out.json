@@ -150,5 +150,7 @@
                 }
             ]
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A screen."
 }

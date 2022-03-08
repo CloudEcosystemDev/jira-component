@@ -71,5 +71,7 @@
         "lastPage": {
             "type": "boolean"
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "List of changed worklogs."
 }

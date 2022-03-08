@@ -20,5 +20,7 @@
             "type": "string",
             "description": "The description of the project category."
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A project category."
 }

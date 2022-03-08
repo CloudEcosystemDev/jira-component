@@ -380,6 +380,14 @@
                                             "defaultValue": {
                                                 "description": "The default value of the field.",
                                                 "readOnly": true
+                                            },
+                                            "configuration": {
+                                                "type": "object",
+                                                "additionalProperties": {
+                                                    "readOnly": true
+                                                },
+                                                "description": "The configuration properties.",
+                                                "readOnly": true
                                             }
                                         },
                                         "additionalProperties": false,
@@ -401,5 +409,7 @@
                 "description": "Details of the issue creation metadata for a project."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "The wrapper for the issue creation metadata for a list of projects."
 }

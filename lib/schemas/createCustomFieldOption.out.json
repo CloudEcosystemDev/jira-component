@@ -33,5 +33,7 @@
                 "description": "Details of the custom field options for a context."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A list of custom field options for a context."
 }

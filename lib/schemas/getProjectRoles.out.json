@@ -1,4 +1,7 @@
 {
     "type": "object",
-    "properties": {}
+    "additionalProperties": {
+        "type": "string",
+        "format": "uri"
+    }
 }

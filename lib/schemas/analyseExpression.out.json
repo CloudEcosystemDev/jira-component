@@ -1,4 +1,7 @@
 {
+    "required": [
+        "results"
+    ],
     "type": "object",
     "properties": {
         "results": {
@@ -93,5 +96,7 @@
                 "description": "Details about the analysed Jira expression."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about the analysed Jira expression."
 }

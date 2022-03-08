@@ -22,7 +22,8 @@
         "format": {
             "type": "string",
             "enum": [
-                "png"
+                "png",
+                "svg"
             ]
         }
     }

@@ -234,6 +234,14 @@
                                 "defaultValue": {
                                     "description": "The default value of the field.",
                                     "readOnly": true
+                                },
+                                "configuration": {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "readOnly": true
+                                    },
+                                    "description": "The configuration properties.",
+                                    "readOnly": true
                                 }
                             },
                             "additionalProperties": false,
@@ -258,5 +266,7 @@
                 "description": "Details of an issue transition."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "List of issue transitions."
 }

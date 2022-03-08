@@ -67,5 +67,7 @@
                 "description": "Jira instance health check results. Deprecated and no longer returned."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about the Jira instance."
 }

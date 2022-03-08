@@ -156,5 +156,7 @@
                 "description": "Details of a field."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

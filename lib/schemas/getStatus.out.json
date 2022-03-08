@@ -65,5 +65,7 @@
                 }
             ]
         }
-    }
+    },
+    "additionalProperties": true,
+    "description": "A status."
 }

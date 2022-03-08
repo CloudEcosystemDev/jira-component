@@ -1,6 +1,11 @@
 {
     "type": "object",
     "properties": {
+        "Atlassian-Transfer-Id": {
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+        },
         "requestBody": {
             "required": [
                 "ruleIds",
@@ -33,11 +38,6 @@
                 }
             },
             "description": "Details of the workflow and its transition rules."
-        },
-        "Atlassian_Transfer_Id": {
-            "required": true,
-            "type": "string",
-            "format": "uuid"
         }
     }
 }

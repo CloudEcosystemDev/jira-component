@@ -1,4 +1,16 @@
 {
+    "required": [
+        "id"
+    ],
     "type": "object",
-    "properties": {}
+    "properties": {
+        "id": {
+            "type": "integer",
+            "description": "The ID of the screen scheme.",
+            "format": "int64",
+            "readOnly": true
+        }
+    },
+    "additionalProperties": false,
+    "description": "The ID of a screen scheme."
 }

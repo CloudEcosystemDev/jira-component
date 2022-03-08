@@ -19,5 +19,10 @@
             "format": "int64",
             "readOnly": true
         }
+    },
+    "additionalProperties": false,
+    "description": "Count of a version's unresolved issues.",
+    "xml": {
+        "name": "version"
     }
 }

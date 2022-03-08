@@ -2,10 +2,15 @@
     "type": "object",
     "properties": {
         "groupname": {
-            "required": true,
+            "type": "string"
+        },
+        "groupId": {
             "type": "string"
         },
         "swapGroup": {
+            "type": "string"
+        },
+        "swapGroupId": {
             "type": "string"
         }
     }

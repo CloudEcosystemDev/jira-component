@@ -1,4 +1,7 @@
 {
+    "required": [
+        "updateResults"
+    ],
     "type": "object",
     "properties": {
         "updateResults": {
@@ -58,5 +61,7 @@
                 "description": "Details of any errors encountered while updating workflow transition rules for a workflow."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details of any errors encountered while updating workflow transition rules."
 }

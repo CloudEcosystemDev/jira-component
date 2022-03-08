@@ -1,4 +1,31 @@
 {
     "type": "object",
-    "properties": {}
+    "properties": {
+        "webhookRegistrationResult": {
+            "type": "array",
+            "description": "A list of registered webhooks.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "createdWebhookId": {
+                        "type": "integer",
+                        "description": "The ID of the webhook. Returned if the webhook is created.",
+                        "format": "int64"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "description": "Error messages specifying why the webhook creation failed.",
+                        "items": {
+                            "type": "string",
+                            "description": "Error messages specifying why the webhook creation failed."
+                        }
+                    }
+                },
+                "additionalProperties": false,
+                "description": "ID of a registered webhook or error messages explaining why a webhook wasn't registered."
+            }
+        }
+    },
+    "additionalProperties": false,
+    "description": "Container for a list of registered webhooks. Webhook details are returned in the same order as the request."
 }

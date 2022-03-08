@@ -18,5 +18,10 @@
             "type": "string",
             "description": "The name of the issue resolution."
         }
+    },
+    "additionalProperties": false,
+    "description": "Details of an issue resolution.",
+    "xml": {
+        "name": "resolution"
     }
 }

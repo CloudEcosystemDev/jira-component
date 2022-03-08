@@ -87,5 +87,7 @@
                 "description": "Issue type screen scheme with a list of the projects that use it."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

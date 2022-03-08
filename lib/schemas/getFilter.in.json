@@ -8,6 +8,10 @@
         },
         "expand": {
             "type": "string"
+        },
+        "overrideSharePermissions": {
+            "type": "boolean",
+            "default": false
         }
     }
 }

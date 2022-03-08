@@ -1,4 +1,119 @@
 {
     "type": "object",
-    "properties": {}
+    "properties": {
+        "issues": {
+            "type": "array",
+            "description": "Details of the issues created.",
+            "readOnly": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The ID of the created issue or subtask.",
+                        "readOnly": true
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "The key of the created issue or subtask.",
+                        "readOnly": true
+                    },
+                    "self": {
+                        "type": "string",
+                        "description": "The URL of the created issue or subtask.",
+                        "readOnly": true
+                    },
+                    "transition": {
+                        "description": "The response code and messages related to any requested transition.",
+                        "readOnly": true,
+                        "allOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "status": {
+                                        "type": "integer",
+                                        "format": "int32"
+                                    },
+                                    "errorCollection": {
+                                        "type": "object",
+                                        "properties": {
+                                            "errorMessages": {
+                                                "type": "array",
+                                                "description": "The list of error messages produced by this operation. For example, \"input parameter 'key' must be provided\"",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "errors": {
+                                                "type": "object",
+                                                "additionalProperties": {
+                                                    "type": "string"
+                                                },
+                                                "description": "The list of errors by parameter returned by the operation. For example,\"projectKey\": \"Project keys must start with an uppercase letter, followed by one or more uppercase alphanumeric characters.\""
+                                            },
+                                            "status": {
+                                                "type": "integer",
+                                                "format": "int32"
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "description": "Error messages from an operation."
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        ]
+                    }
+                },
+                "additionalProperties": false,
+                "description": "Details about a created issue or subtask."
+            }
+        },
+        "errors": {
+            "type": "array",
+            "description": "Error details for failed issue creation requests.",
+            "readOnly": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "elementErrors": {
+                        "type": "object",
+                        "properties": {
+                            "errorMessages": {
+                                "type": "array",
+                                "description": "The list of error messages produced by this operation. For example, \"input parameter 'key' must be provided\"",
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "errors": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "string"
+                                },
+                                "description": "The list of errors by parameter returned by the operation. For example,\"projectKey\": \"Project keys must start with an uppercase letter, followed by one or more uppercase alphanumeric characters.\""
+                            },
+                            "status": {
+                                "type": "integer",
+                                "format": "int32"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "Error messages from an operation."
+                    },
+                    "failedElementNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                },
+                "additionalProperties": false
+            }
+        }
+    },
+    "additionalProperties": false,
+    "description": "Details about the issues created and the errors for requests that failed."
 }

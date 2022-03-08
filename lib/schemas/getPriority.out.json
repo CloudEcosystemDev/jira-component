@@ -25,5 +25,7 @@
             "type": "string",
             "description": "The ID of the issue priority."
         }
-    }
+    },
+    "additionalProperties": true,
+    "description": "An issue priority."
 }

@@ -65,5 +65,7 @@
                 "description": "The project and issue type mapping with a matching custom field context."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

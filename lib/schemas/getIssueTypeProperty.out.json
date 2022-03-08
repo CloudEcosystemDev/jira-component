@@ -8,5 +8,7 @@
         "value": {
             "description": "The value of the property. Required on create and update."
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "An entity property, for more information see [Entity properties](https://developer.atlassian.com/cloud/jira/platform/jira-entity-properties/)."
 }

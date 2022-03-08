@@ -24,5 +24,7 @@
                 "description": "The identifiers for a project."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A list of projects in which a user is granted permissions."
 }

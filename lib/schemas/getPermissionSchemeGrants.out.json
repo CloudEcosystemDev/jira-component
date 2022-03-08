@@ -62,5 +62,7 @@
             "description": "Expand options that include additional permission grant details in the response.",
             "readOnly": true
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "List of permission grants."
 }

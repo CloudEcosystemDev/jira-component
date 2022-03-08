@@ -10,5 +10,7 @@
             "type": "string",
             "description": "The name of the screen tab field. Required on create and update. The maximum length is 255 characters."
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A screen tab field."
 }

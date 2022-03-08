@@ -1,4 +1,9 @@
 {
+    "required": [
+        "inwardIssue",
+        "outwardIssue",
+        "type"
+    ],
     "type": "object",
     "properties": {
         "id": {
@@ -329,7 +334,6 @@
                                             ]
                                         },
                                         "issuetype": {
-                                            "description": "The type of the linked issue.",
                                             "type": "object",
                                             "properties": {
                                                 "self": {
@@ -515,7 +519,8 @@
                                                     ]
                                                 }
                                             },
-                                            "additionalProperties": false
+                                            "additionalProperties": false,
+                                            "description": "Details about an issue type."
                                         },
                                         "issueType": {
                                             "description": "The type of the linked issue.",
@@ -1007,7 +1012,6 @@
                                             ]
                                         },
                                         "issuetype": {
-                                            "description": "The type of the linked issue.",
                                             "type": "object",
                                             "properties": {
                                                 "self": {
@@ -1193,7 +1197,8 @@
                                                     ]
                                                 }
                                             },
-                                            "additionalProperties": false
+                                            "additionalProperties": false,
+                                            "description": "Details about an issue type."
                                         },
                                         "issueType": {
                                             "description": "The type of the linked issue.",
@@ -1402,5 +1407,10 @@
                 }
             ]
         }
+    },
+    "additionalProperties": false,
+    "description": "Details of a link between issues.",
+    "xml": {
+        "name": "issueLinks"
     }
 }

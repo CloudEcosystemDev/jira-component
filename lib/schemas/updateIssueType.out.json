@@ -183,5 +183,7 @@
                 }
             ]
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about an issue type."
 }

@@ -1,4 +1,7 @@
 {
+    "required": [
+        "workflow"
+    ],
     "type": "object",
     "properties": {
         "workflow": {
@@ -9,5 +12,7 @@
             "type": "boolean",
             "description": "Whether a draft workflow scheme is created or updated when updating an active workflow scheme. The draft is updated with the new default workflow. Defaults to `false`."
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about the default workflow."
 }

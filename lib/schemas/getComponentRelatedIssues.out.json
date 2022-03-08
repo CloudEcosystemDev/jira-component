@@ -13,5 +13,10 @@
             "format": "int64",
             "readOnly": true
         }
+    },
+    "additionalProperties": false,
+    "description": "Count of issues assigned to a component.",
+    "xml": {
+        "name": "component"
     }
 }

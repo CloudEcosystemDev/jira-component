@@ -12,5 +12,10 @@
             "description": "The value of the custom field option.",
             "readOnly": true
         }
+    },
+    "additionalProperties": false,
+    "description": "Details of a custom option for a field.",
+    "xml": {
+        "name": "customFieldOption"
     }
 }

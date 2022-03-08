@@ -229,5 +229,7 @@
                 "description": "Details of a permission scheme."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "List of all permission schemes."
 }

@@ -22,9 +22,6 @@
             "description": "List of valid workflow transition rules.",
             "items": {
                 "required": [
-                    "conditions",
-                    "postFunctions",
-                    "validators",
                     "workflowId"
                 ],
                 "type": "object",
@@ -275,5 +272,6 @@
                 "description": "A workflow with transition rules."
             }
         }
-    }
+    },
+    "description": "Details of workflow transition rules."
 }

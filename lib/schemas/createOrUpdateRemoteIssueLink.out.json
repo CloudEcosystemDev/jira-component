@@ -18,5 +18,7 @@
                 "attribute": true
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details of the identifiers for a created or updated remote issue link."
 }

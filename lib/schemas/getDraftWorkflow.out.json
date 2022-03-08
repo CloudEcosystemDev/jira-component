@@ -20,5 +20,7 @@
             "type": "boolean",
             "description": "Whether a draft workflow scheme is created or updated when updating an active workflow scheme. The draft is updated with the new workflow-issue types mapping. Defaults to `false`."
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about the mapping between issue types and a workflow."
 }

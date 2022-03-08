@@ -1,267 +1,272 @@
 {
-    "type": "object",
-    "properties": {
-        "self": {
-            "type": "string",
-            "description": "The URL the project role details.",
-            "format": "uri",
-            "readOnly": true
-        },
-        "name": {
-            "type": "string",
-            "description": "The name of the project role."
-        },
-        "id": {
-            "type": "integer",
-            "description": "The ID of the project role.",
-            "format": "int64",
-            "readOnly": true
-        },
-        "description": {
-            "type": "string",
-            "description": "The description of the project role.",
-            "readOnly": true
-        },
-        "actors": {
-            "type": "array",
-            "description": "The list of users who act in this role.",
-            "readOnly": true,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "integer",
-                        "description": "The ID of the role actor.",
-                        "format": "int64",
-                        "readOnly": true
-                    },
-                    "displayName": {
-                        "type": "string",
-                        "description": "The display name of the role actor. For users, depending on the user’s privacy setting, this may return an alternative value for the user's name.",
-                        "readOnly": true
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "The type of role actor.",
-                        "readOnly": true,
-                        "enum": [
-                            "atlassian-group-role-actor",
-                            "atlassian-user-role-actor"
-                        ]
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
-                        "readOnly": true
-                    },
-                    "avatarUrl": {
-                        "type": "string",
-                        "description": "The avatar of the role actor.",
-                        "format": "uri",
-                        "readOnly": true
-                    },
-                    "actorUser": {
-                        "readOnly": true,
-                        "allOf": [
-                            {
-                                "type": "object",
-                                "properties": {
-                                    "accountId": {
-                                        "maxLength": 128,
-                                        "type": "string",
-                                        "description": "The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*. Returns *unknown* if the record is deleted and corrupted, for example, as the result of a server import.",
-                                        "readOnly": true
-                                    }
-                                },
-                                "additionalProperties": false,
-                                "description": "Details of the user associated with the role."
-                            }
-                        ]
-                    },
-                    "actorGroup": {
-                        "readOnly": true,
-                        "allOf": [
-                            {
-                                "type": "object",
-                                "properties": {
-                                    "displayName": {
-                                        "type": "string",
-                                        "description": "The display name of the group."
-                                    },
-                                    "name": {
-                                        "type": "string",
-                                        "description": "The name of the group"
-                                    }
-                                },
-                                "additionalProperties": false,
-                                "description": "Details of the group associated with the role."
-                            }
-                        ]
-                    }
-                },
-                "additionalProperties": false,
-                "description": "Details about a user assigned to a project role.",
-                "xml": {
-                    "name": "projectRoleActor"
-                }
-            }
-        },
-        "scope": {
-            "description": "The scope of the role. Indicated for roles associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO).",
-            "readOnly": true,
-            "allOf": [
-                {
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "self": {
+                "type": "string",
+                "description": "The URL the project role details.",
+                "format": "uri",
+                "readOnly": true
+            },
+            "name": {
+                "type": "string",
+                "description": "The name of the project role."
+            },
+            "id": {
+                "type": "integer",
+                "description": "The ID of the project role.",
+                "format": "int64",
+                "readOnly": true
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the project role.",
+                "readOnly": true
+            },
+            "actors": {
+                "type": "array",
+                "description": "The list of users who act in this role.",
+                "readOnly": true,
+                "items": {
                     "type": "object",
                     "properties": {
+                        "id": {
+                            "type": "integer",
+                            "description": "The ID of the role actor.",
+                            "format": "int64",
+                            "readOnly": true
+                        },
+                        "displayName": {
+                            "type": "string",
+                            "description": "The display name of the role actor. For users, depending on the user’s privacy setting, this may return an alternative value for the user's name.",
+                            "readOnly": true
+                        },
                         "type": {
                             "type": "string",
-                            "description": "The type of scope.",
+                            "description": "The type of role actor.",
                             "readOnly": true,
                             "enum": [
-                                "PROJECT",
-                                "TEMPLATE"
+                                "atlassian-group-role-actor",
+                                "atlassian-user-role-actor"
                             ]
                         },
-                        "project": {
-                            "description": "The project the item has scope in.",
+                        "name": {
+                            "type": "string",
+                            "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+                            "readOnly": true
+                        },
+                        "avatarUrl": {
+                            "type": "string",
+                            "description": "The avatar of the role actor.",
+                            "format": "uri",
+                            "readOnly": true
+                        },
+                        "actorUser": {
                             "readOnly": true,
                             "allOf": [
                                 {
                                     "type": "object",
                                     "properties": {
-                                        "self": {
+                                        "accountId": {
+                                            "maxLength": 128,
                                             "type": "string",
-                                            "description": "The URL of the project details.",
+                                            "description": "The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*. Returns *unknown* if the record is deleted and corrupted, for example, as the result of a server import.",
                                             "readOnly": true
-                                        },
-                                        "id": {
-                                            "type": "string",
-                                            "description": "The ID of the project."
-                                        },
-                                        "key": {
-                                            "type": "string",
-                                            "description": "The key of the project.",
-                                            "readOnly": true
-                                        },
-                                        "name": {
-                                            "type": "string",
-                                            "description": "The name of the project.",
-                                            "readOnly": true
-                                        },
-                                        "projectTypeKey": {
-                                            "type": "string",
-                                            "description": "The [project type](https://confluence.atlassian.com/x/GwiiLQ#Jiraapplicationsoverview-Productfeaturesandprojecttypes) of the project.",
-                                            "readOnly": true,
-                                            "enum": [
-                                                "software",
-                                                "service_desk",
-                                                "business"
-                                            ]
-                                        },
-                                        "simplified": {
-                                            "type": "boolean",
-                                            "description": "Whether or not the project is simplified.",
-                                            "readOnly": true
-                                        },
-                                        "avatarUrls": {
-                                            "description": "The URLs of the project's avatars.",
-                                            "readOnly": true,
-                                            "allOf": [
-                                                {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "16x16": {
-                                                            "type": "string",
-                                                            "description": "The URL of the item's 16x16 pixel avatar.",
-                                                            "format": "uri"
-                                                        },
-                                                        "24x24": {
-                                                            "type": "string",
-                                                            "description": "The URL of the item's 24x24 pixel avatar.",
-                                                            "format": "uri"
-                                                        },
-                                                        "32x32": {
-                                                            "type": "string",
-                                                            "description": "The URL of the item's 32x32 pixel avatar.",
-                                                            "format": "uri"
-                                                        },
-                                                        "48x48": {
-                                                            "type": "string",
-                                                            "description": "The URL of the item's 48x48 pixel avatar.",
-                                                            "format": "uri"
-                                                        }
-                                                    },
-                                                    "additionalProperties": false
-                                                }
-                                            ]
-                                        },
-                                        "projectCategory": {
-                                            "description": "The category the project belongs to.",
-                                            "readOnly": true,
-                                            "allOf": [
-                                                {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "self": {
-                                                            "type": "string",
-                                                            "description": "The URL of the project category.",
-                                                            "readOnly": true
-                                                        },
-                                                        "id": {
-                                                            "type": "string",
-                                                            "description": "The ID of the project category.",
-                                                            "readOnly": true
-                                                        },
-                                                        "description": {
-                                                            "type": "string",
-                                                            "description": "The name of the project category.",
-                                                            "readOnly": true
-                                                        },
-                                                        "name": {
-                                                            "type": "string",
-                                                            "description": "The description of the project category.",
-                                                            "readOnly": true
-                                                        }
-                                                    },
-                                                    "additionalProperties": false,
-                                                    "description": "A project category."
-                                                }
-                                            ]
                                         }
                                     },
                                     "additionalProperties": false,
-                                    "description": "Details about a project."
+                                    "description": "Details of the user associated with the role."
+                                }
+                            ]
+                        },
+                        "actorGroup": {
+                            "readOnly": true,
+                            "allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "displayName": {
+                                            "type": "string",
+                                            "description": "The display name of the group."
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "description": "The name of the group"
+                                        }
+                                    },
+                                    "additionalProperties": false,
+                                    "description": "Details of the group associated with the role."
                                 }
                             ]
                         }
                     },
-                    "additionalProperties": true,
-                    "description": "The projects the item is associated with. Indicated for items associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO)."
+                    "additionalProperties": false,
+                    "description": "Details about a user assigned to a project role.",
+                    "xml": {
+                        "name": "projectRoleActor"
+                    }
                 }
-            ]
+            },
+            "scope": {
+                "description": "The scope of the role. Indicated for roles associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO).",
+                "readOnly": true,
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "description": "The type of scope.",
+                                "readOnly": true,
+                                "enum": [
+                                    "PROJECT",
+                                    "TEMPLATE"
+                                ]
+                            },
+                            "project": {
+                                "description": "The project the item has scope in.",
+                                "readOnly": true,
+                                "allOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "self": {
+                                                "type": "string",
+                                                "description": "The URL of the project details.",
+                                                "readOnly": true
+                                            },
+                                            "id": {
+                                                "type": "string",
+                                                "description": "The ID of the project."
+                                            },
+                                            "key": {
+                                                "type": "string",
+                                                "description": "The key of the project.",
+                                                "readOnly": true
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "description": "The name of the project.",
+                                                "readOnly": true
+                                            },
+                                            "projectTypeKey": {
+                                                "type": "string",
+                                                "description": "The [project type](https://confluence.atlassian.com/x/GwiiLQ#Jiraapplicationsoverview-Productfeaturesandprojecttypes) of the project.",
+                                                "readOnly": true,
+                                                "enum": [
+                                                    "software",
+                                                    "service_desk",
+                                                    "business"
+                                                ]
+                                            },
+                                            "simplified": {
+                                                "type": "boolean",
+                                                "description": "Whether or not the project is simplified.",
+                                                "readOnly": true
+                                            },
+                                            "avatarUrls": {
+                                                "description": "The URLs of the project's avatars.",
+                                                "readOnly": true,
+                                                "allOf": [
+                                                    {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "16x16": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 16x16 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "24x24": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 24x24 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "32x32": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 32x32 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "48x48": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 48x48 pixel avatar.",
+                                                                "format": "uri"
+                                                            }
+                                                        },
+                                                        "additionalProperties": false
+                                                    }
+                                                ]
+                                            },
+                                            "projectCategory": {
+                                                "description": "The category the project belongs to.",
+                                                "readOnly": true,
+                                                "allOf": [
+                                                    {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "self": {
+                                                                "type": "string",
+                                                                "description": "The URL of the project category.",
+                                                                "readOnly": true
+                                                            },
+                                                            "id": {
+                                                                "type": "string",
+                                                                "description": "The ID of the project category.",
+                                                                "readOnly": true
+                                                            },
+                                                            "description": {
+                                                                "type": "string",
+                                                                "description": "The name of the project category.",
+                                                                "readOnly": true
+                                                            },
+                                                            "name": {
+                                                                "type": "string",
+                                                                "description": "The description of the project category.",
+                                                                "readOnly": true
+                                                            }
+                                                        },
+                                                        "additionalProperties": false,
+                                                        "description": "A project category."
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "description": "Details about a project."
+                                    }
+                                ]
+                            }
+                        },
+                        "additionalProperties": true,
+                        "description": "The projects the item is associated with. Indicated for items associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO)."
+                    }
+                ]
+            },
+            "translatedName": {
+                "type": "string",
+                "description": "The translated name of the project role."
+            },
+            "currentUserRole": {
+                "type": "boolean",
+                "description": "Whether the calling user is part of this role."
+            },
+            "admin": {
+                "type": "boolean",
+                "description": "Whether this role is the admin role for the project.",
+                "readOnly": true
+            },
+            "roleConfigurable": {
+                "type": "boolean",
+                "description": "Whether the roles are configurable for this project.",
+                "readOnly": true
+            },
+            "default": {
+                "type": "boolean",
+                "description": "Whether this role is the default role for the project",
+                "readOnly": true
+            }
         },
-        "translatedName": {
-            "type": "string",
-            "description": "The translated name of the project role."
-        },
-        "currentUserRole": {
-            "type": "boolean",
-            "description": "Whether the calling user is part of this role."
-        },
-        "roleConfigurable": {
-            "type": "boolean",
-            "description": "Whether the roles are configurable for this project.",
-            "readOnly": true
-        },
-        "admin": {
-            "type": "boolean",
-            "description": "Whether this role is the admin role for the project.",
-            "readOnly": true
-        },
-        "default": {
-            "type": "boolean",
-            "description": "Whether this role is the default role for the project",
-            "readOnly": true
-        }
+        "additionalProperties": false,
+        "description": "Details about the roles in a project."
     }
 }

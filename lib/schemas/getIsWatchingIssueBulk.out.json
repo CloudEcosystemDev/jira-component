@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "issuesIsWatching": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "boolean",
+                "readOnly": true
+            },
+            "description": "The map of issue ID to boolean watch status.",
+            "readOnly": true
+        }
+    },
+    "additionalProperties": false,
+    "description": "A container for the watch status of a list of issues."
+}

@@ -1,4 +1,7 @@
 {
+    "required": [
+        "name"
+    ],
     "type": "object",
     "properties": {
         "expand": {
@@ -214,5 +217,7 @@
                 "description": "Details about a permission granted to a user or group."
             }
         }
-    }
+    },
+    "additionalProperties": true,
+    "description": "Details of a permission scheme."
 }

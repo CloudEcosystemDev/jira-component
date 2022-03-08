@@ -335,5 +335,7 @@
                 "description": "A changelog."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of changelogs."
 }

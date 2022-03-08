@@ -1,4 +1,7 @@
 {
+    "required": [
+        "scope"
+    ],
     "type": "object",
     "properties": {
         "scope": {
@@ -10,5 +13,10 @@
                 "PRIVATE"
             ]
         }
+    },
+    "additionalProperties": false,
+    "description": "Details of the scope of the default sharing for new filters and dashboards.",
+    "xml": {
+        "name": "defaultShareScope"
     }
 }

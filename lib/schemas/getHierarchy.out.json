@@ -65,5 +65,7 @@
                 "description": "Details of an issue type hierarchy level."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "The hierarchy of issue types within a project."
 }

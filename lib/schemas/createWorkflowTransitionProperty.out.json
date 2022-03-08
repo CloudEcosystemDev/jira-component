@@ -1,4 +1,7 @@
 {
+    "required": [
+        "value"
+    ],
     "type": "object",
     "properties": {
         "key": {
@@ -15,5 +18,7 @@
             "description": "The ID of the transition property.",
             "readOnly": true
         }
-    }
+    },
+    "additionalProperties": true,
+    "description": "Details about the server Jira is running on."
 }

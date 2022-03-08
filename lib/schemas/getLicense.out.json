@@ -1,4 +1,7 @@
 {
+    "required": [
+        "applications"
+    ],
     "type": "object",
     "properties": {
         "applications": {
@@ -32,5 +35,7 @@
                 "description": "Details about a licensed Jira application."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about a license for the Jira instance."
 }

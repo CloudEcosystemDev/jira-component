@@ -1,4 +1,7 @@
 {
+    "required": [
+        "levels"
+    ],
     "type": "object",
     "properties": {
         "levels": {
@@ -33,5 +36,7 @@
                 "description": "Details of an issue level security item."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "List of issue level security items in a project."
 }

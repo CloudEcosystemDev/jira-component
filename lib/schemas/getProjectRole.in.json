@@ -9,6 +9,10 @@
             "required": true,
             "type": "integer",
             "format": "int64"
+        },
+        "excludeInactiveUsers": {
+            "type": "boolean",
+            "default": false
         }
     }
 }
