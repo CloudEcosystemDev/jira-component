@@ -148,5 +148,10 @@
                 }
             ]
         }
+    },
+    "additionalProperties": false,
+    "description": "Details about a project version.",
+    "xml": {
+        "name": "version"
     }
 }

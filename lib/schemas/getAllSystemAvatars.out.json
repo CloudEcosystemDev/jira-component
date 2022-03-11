@@ -51,9 +51,11 @@
                         "readOnly": true
                     }
                 },
-                "additionalProperties": false,
+                "additionalProperties": true,
                 "description": "Details of an avatar."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "List of system avatars."
 }

@@ -1,4 +1,22 @@
 {
+    "required": [
+        "message",
+        "statusCode"
+    ],
     "type": "object",
-    "properties": {}
+    "properties": {
+        "message": {
+            "type": "string",
+            "description": "The human-readable message that describes the result."
+        },
+        "statusCode": {
+            "type": "integer",
+            "description": "The status code of the response."
+        }
+    },
+    "additionalProperties": false,
+    "example": {
+        "message": "An example message.",
+        "statusCode": 200
+    }
 }

@@ -147,5 +147,7 @@
                 "description": "Details about a project."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

@@ -27,5 +27,7 @@
             "description": "The name of the status category.",
             "readOnly": true
         }
-    }
+    },
+    "additionalProperties": true,
+    "description": "A status category."
 }

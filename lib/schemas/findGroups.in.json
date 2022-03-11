@@ -14,6 +14,12 @@
                 "type": "string"
             }
         },
+        "excludeId": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
         "maxResults": {
             "type": "integer",
             "format": "int32"

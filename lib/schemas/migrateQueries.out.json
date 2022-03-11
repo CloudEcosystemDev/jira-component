@@ -27,5 +27,7 @@
                 "description": "JQL queries that contained users that could not be found"
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "The converted JQL queries."
 }

@@ -26,5 +26,7 @@
             "description": "The color of the project type.",
             "readOnly": true
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about a project type."
 }

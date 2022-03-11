@@ -1,4 +1,8 @@
 {
+    "required": [
+        "id",
+        "value"
+    ],
     "type": "object",
     "properties": {
         "id": {
@@ -105,5 +109,7 @@
             "additionalProperties": false,
             "description": "Details of the projects the option is available in."
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details of the options for a select list issue field."
 }

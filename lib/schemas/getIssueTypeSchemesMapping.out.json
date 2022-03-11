@@ -60,5 +60,7 @@
                 "description": "Issue type scheme item."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

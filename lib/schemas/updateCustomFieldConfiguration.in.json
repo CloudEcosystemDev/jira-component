@@ -19,20 +19,31 @@
                     "description": "The list of custom field configuration details.",
                     "items": {
                         "required": [
-                            "contextId"
+                            "fieldContextId",
+                            "id"
                         ],
                         "type": "object",
                         "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "The ID of the configuration."
+                            },
                             "contextId": {
                                 "type": "integer",
-                                "description": "The ID of the context the configuration is associated with.",
-                                "format": "int64"
+                                "description": "Deprecated, do not use.",
+                                "format": "int64",
+                                "deprecated": true
+                            },
+                            "fieldContextId": {
+                                "type": "string",
+                                "description": "The ID of the field context the configuration is associated with.",
+                                "readOnly": true
                             },
                             "configuration": {
-                                "description": "The configuration associated with the context."
+                                "description": "The field configuration."
                             },
                             "schema": {
-                                "description": "The schema associated with the context."
+                                "description": "The field value schema."
                             }
                         },
                         "additionalProperties": false,

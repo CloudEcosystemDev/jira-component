@@ -252,7 +252,12 @@
                                     },
                                     "value": {
                                         "type": "string",
-                                        "description": "The name of the group or role to which visibility of this item is restricted."
+                                        "description": "The name of the group or role that visibility of this item is restricted to. Please note that the name of a group is mutable, to reliably identify a group use `identifier`."
+                                    },
+                                    "identifier": {
+                                        "type": "string",
+                                        "description": "The ID of the group or role that visibility of this item is restricted to.",
+                                        "nullable": true
                                     }
                                 },
                                 "additionalProperties": true,
@@ -263,6 +268,11 @@
                     "jsdPublic": {
                         "type": "boolean",
                         "description": "Whether the comment is visible in Jira Service Desk. Defaults to true when comments are created in the Jira Cloud Platform. This includes when the site doesn't use Jira Service Desk or the project isn't a Jira Service Desk project and, therefore, there is no Jira Service Desk for the issue to be visible on. To create a comment with its visibility in Jira Service Desk set to false, use the Jira Service Desk REST API [Create request comment](https://developer.atlassian.com/cloud/jira/service-desk/rest/#api-rest-servicedeskapi-request-issueIdOrKey-comment-post) operation.",
+                        "readOnly": true
+                    },
+                    "jsdAuthorCanSeeRequest": {
+                        "type": "boolean",
+                        "description": "Whether the comment was added from an email sent by a person who is not part of the issue. See [Allow external emails to be added as comments on issues](https://support.atlassian.com/jira-service-management-cloud/docs/allow-external-emails-to-be-added-as-comments-on-issues/)for information on setting up this feature.",
                         "readOnly": true
                     },
                     "properties": {
@@ -288,5 +298,7 @@
                 "description": "A comment."
             }
         }
-    }
+    },
+    "additionalProperties": true,
+    "description": "A page of comments."
 }

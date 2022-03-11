@@ -172,5 +172,7 @@
                 "description": "A screen scheme."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

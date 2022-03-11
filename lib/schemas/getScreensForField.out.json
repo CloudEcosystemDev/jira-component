@@ -222,5 +222,7 @@
                 "description": "A screen with tab details."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

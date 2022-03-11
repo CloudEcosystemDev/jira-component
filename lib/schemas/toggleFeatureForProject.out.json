@@ -53,5 +53,7 @@
                 "description": "Details of a project feature."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "The list of features on a project."
 }

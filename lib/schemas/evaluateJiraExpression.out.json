@@ -1,4 +1,7 @@
 {
+    "required": [
+        "value"
+    ],
     "type": "object",
     "properties": {
         "value": {
@@ -184,5 +187,7 @@
                 }
             ]
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "The result of evaluating a Jira expression."
 }

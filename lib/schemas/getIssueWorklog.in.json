@@ -19,6 +19,10 @@
             "type": "integer",
             "format": "int64"
         },
+        "startedBefore": {
+            "type": "integer",
+            "format": "int64"
+        },
         "expand": {
             "type": "string",
             "default": ""

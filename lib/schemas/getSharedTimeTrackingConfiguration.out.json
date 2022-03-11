@@ -1,4 +1,10 @@
 {
+    "required": [
+        "defaultUnit",
+        "timeFormat",
+        "workingDaysPerWeek",
+        "workingHoursPerDay"
+    ],
     "type": "object",
     "properties": {
         "workingHoursPerDay": {
@@ -30,5 +36,7 @@
                 "week"
             ]
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details of the time tracking configuration."
 }

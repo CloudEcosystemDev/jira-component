@@ -23,5 +23,7 @@
                 "description": "Property key details."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "List of property keys."
 }

@@ -18,6 +18,25 @@
                 "type": "integer",
                 "format": "int64"
             }
+        },
+        "expand": {
+            "type": "string",
+            "default": ""
+        },
+        "queryString": {
+            "type": "string",
+            "default": ""
+        },
+        "orderBy": {
+            "type": "string",
+            "enum": [
+                "name",
+                "-name",
+                "+name",
+                "id",
+                "-id",
+                "+id"
+            ]
         }
     }
 }

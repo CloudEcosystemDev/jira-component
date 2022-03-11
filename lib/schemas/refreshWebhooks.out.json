@@ -1,10 +1,16 @@
 {
+    "required": [
+        "expirationDate"
+    ],
     "type": "object",
     "properties": {
         "expirationDate": {
             "type": "integer",
+            "description": "The expiration date of all the refreshed webhooks.",
             "format": "int64",
             "readOnly": true
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "The date the refreshed webhooks expire."
 }

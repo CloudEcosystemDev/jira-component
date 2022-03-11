@@ -9,5 +9,6 @@
             "type": "string",
             "description": "The email of the user"
         }
-    }
+    },
+    "additionalProperties": true
 }

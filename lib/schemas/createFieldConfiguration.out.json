@@ -1,4 +1,9 @@
 {
+    "required": [
+        "description",
+        "id",
+        "name"
+    ],
     "type": "object",
     "properties": {
         "id": {
@@ -18,5 +23,7 @@
             "type": "boolean",
             "description": "Whether the field configuration is the default."
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details of a field configuration."
 }

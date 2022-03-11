@@ -1,4 +1,15 @@
 {
+    "required": [
+        "id"
+    ],
     "type": "object",
-    "properties": {}
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The ID of the issue type screen scheme.",
+            "readOnly": true
+        }
+    },
+    "additionalProperties": false,
+    "description": "The ID of an issue type screen scheme."
 }

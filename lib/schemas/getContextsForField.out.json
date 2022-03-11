@@ -75,5 +75,7 @@
                 "description": "The details of a custom field context."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

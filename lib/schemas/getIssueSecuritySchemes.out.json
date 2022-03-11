@@ -70,5 +70,7 @@
                 "description": "Details about a security scheme."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "List of security schemes."
 }

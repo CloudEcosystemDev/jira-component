@@ -66,5 +66,7 @@
                 "description": "Details of a context to project association."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

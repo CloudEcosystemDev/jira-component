@@ -19,5 +19,7 @@
             "type": "integer",
             "format": "int32"
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Error messages from an operation."
 }

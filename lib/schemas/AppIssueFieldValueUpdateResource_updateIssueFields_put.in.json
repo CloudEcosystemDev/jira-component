@@ -1,6 +1,15 @@
 {
     "type": "object",
     "properties": {
+        "Atlassian-Transfer-Id": {
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+        },
+        "Atlassian-Account-Id": {
+            "required": true,
+            "type": "string"
+        },
         "requestBody": {
             "type": "object",
             "properties": {
@@ -67,15 +76,6 @@
             "additionalProperties": false,
             "description": "Details of updates for a custom field.",
             "writeOnly": true
-        },
-        "Atlassian_Transfer_Id": {
-            "required": true,
-            "type": "string",
-            "format": "uuid"
-        },
-        "Atlassian_Account_Id": {
-            "required": true,
-            "type": "string"
         }
     }
 }

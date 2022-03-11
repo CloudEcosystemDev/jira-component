@@ -20,6 +20,26 @@
         },
         "expand": {
             "type": "string"
+        },
+        "queryString": {
+            "type": "string"
+        },
+        "orderBy": {
+            "type": "string",
+            "enum": [
+                "name",
+                "-name",
+                "+name",
+                "created",
+                "-created",
+                "+created",
+                "updated",
+                "+updated",
+                "-updated"
+            ]
+        },
+        "isActive": {
+            "type": "boolean"
         }
     }
 }

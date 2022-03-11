@@ -1,4 +1,7 @@
 {
+    "required": [
+        "modules"
+    ],
     "type": "object",
     "properties": {
         "modules": {
@@ -26,5 +29,47 @@
                 }
             }
         }
+    },
+    "example": {
+        "jiraEntityProperties": [
+            {
+                "keyConfigurations": [
+                    {
+                        "extractions": [
+                            {
+                                "objectName": "extension",
+                                "type": "text",
+                                "alias": "attachmentExtension"
+                            }
+                        ],
+                        "propertyKey": "attachment"
+                    }
+                ],
+                "entityType": "issue",
+                "name": {
+                    "value": "Attachment Index Document"
+                },
+                "key": "dynamic-attachment-entity-property"
+            }
+        ],
+        "jiraIssueFields": [
+            {
+                "description": {
+                    "value": "A dynamically added single-select field"
+                },
+                "type": "single_select",
+                "extractions": [
+                    {
+                        "path": "category",
+                        "type": "text",
+                        "name": "categoryName"
+                    }
+                ],
+                "name": {
+                    "value": "Dynamic single select"
+                },
+                "key": "dynamic-select-field"
+            }
+        ]
     }
 }

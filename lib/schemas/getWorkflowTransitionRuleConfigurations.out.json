@@ -42,9 +42,6 @@
             "readOnly": true,
             "items": {
                 "required": [
-                    "conditions",
-                    "postFunctions",
-                    "validators",
                     "workflowId"
                 ],
                 "type": "object",
@@ -295,5 +292,7 @@
                 "description": "A workflow with transition rules."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

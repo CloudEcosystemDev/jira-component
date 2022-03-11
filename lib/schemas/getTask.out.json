@@ -1,4 +1,14 @@
 {
+    "required": [
+        "elapsedRuntime",
+        "id",
+        "lastUpdate",
+        "progress",
+        "self",
+        "status",
+        "submitted",
+        "submittedBy"
+    ],
     "type": "object",
     "properties": {
         "self": {
@@ -69,5 +79,7 @@
             "description": "A timestamp recording when the task progress was last updated.",
             "format": "int64"
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about a task."
 }

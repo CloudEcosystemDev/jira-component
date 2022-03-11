@@ -20,5 +20,7 @@
                 "description": "A field auto-complete suggestion."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "The results from a JQL query."
 }

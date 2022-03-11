@@ -58,5 +58,7 @@
                 "description": "Details of an issue level security item."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about a security scheme."
 }

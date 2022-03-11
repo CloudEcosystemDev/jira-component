@@ -1,4 +1,15 @@
 {
+    "required": [
+        "issueTypeSchemeId"
+    ],
     "type": "object",
-    "properties": {}
+    "properties": {
+        "issueTypeSchemeId": {
+            "type": "string",
+            "description": "The ID of the issue type scheme.",
+            "readOnly": true
+        }
+    },
+    "additionalProperties": false,
+    "description": "The ID of an issue type scheme."
 }

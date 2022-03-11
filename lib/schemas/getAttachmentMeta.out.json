@@ -12,5 +12,7 @@
             "format": "int64",
             "readOnly": true
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details of the instance's attachment settings."
 }

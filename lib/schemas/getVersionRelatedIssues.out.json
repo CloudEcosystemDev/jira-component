@@ -54,5 +54,10 @@
                 "description": "List of custom fields using the version."
             }
         }
+    },
+    "additionalProperties": false,
+    "description": "Various counts of issues within a version.",
+    "xml": {
+        "name": "version"
     }
 }

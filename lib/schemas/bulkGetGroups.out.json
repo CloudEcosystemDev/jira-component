@@ -49,12 +49,15 @@
                     },
                     "groupId": {
                         "type": "string",
-                        "description": "The ID of the group, if available, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*."
+                        "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                        "nullable": true
                     }
                 },
                 "additionalProperties": false,
                 "description": "Details about a group."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

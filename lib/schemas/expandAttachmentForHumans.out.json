@@ -61,5 +61,7 @@
             "description": "The MIME type of the attachment.",
             "readOnly": true
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Metadata for an archive (for example a zip) and its contents."
 }

@@ -38,5 +38,10 @@
                 "description": "This object is used as follows:\n\n *  In the [ issueLink](#api-rest-api-3-issueLink-post) resource it defines and reports on the type of link between the issues. Find a list of issue link types with [Get issue link types](#api-rest-api-3-issueLinkType-get).\n *  In the [ issueLinkType](#api-rest-api-3-issueLinkType-post) resource it defines and reports on issue link types."
             }
         }
+    },
+    "additionalProperties": false,
+    "description": "A list of issue link type beans.",
+    "xml": {
+        "name": "issueLinkTypes"
     }
 }

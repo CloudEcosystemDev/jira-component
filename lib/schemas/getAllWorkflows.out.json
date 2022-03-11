@@ -1,173 +1,178 @@
 {
-    "type": "object",
-    "properties": {
-        "name": {
-            "type": "string",
-            "description": "The name of the workflow.",
-            "readOnly": true
-        },
-        "description": {
-            "type": "string",
-            "description": "The description of the workflow.",
-            "readOnly": true
-        },
-        "lastModifiedDate": {
-            "type": "string",
-            "description": "The datetime the workflow was last modified.",
-            "readOnly": true
-        },
-        "lastModifiedUser": {
-            "type": "string",
-            "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
-            "readOnly": true
-        },
-        "lastModifiedUserAccountId": {
-            "type": "string",
-            "description": "The account ID of the user that last modified the workflow.",
-            "readOnly": true
-        },
-        "steps": {
-            "type": "integer",
-            "description": "The number of steps included in the workflow.",
-            "format": "int32",
-            "readOnly": true
-        },
-        "scope": {
-            "description": "The scope where this workflow applies",
-            "readOnly": true,
-            "allOf": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "type": {
-                            "type": "string",
-                            "description": "The type of scope.",
-                            "readOnly": true,
-                            "enum": [
-                                "PROJECT",
-                                "TEMPLATE"
-                            ]
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "The name of the workflow.",
+                "readOnly": true
+            },
+            "description": {
+                "type": "string",
+                "description": "The description of the workflow.",
+                "readOnly": true
+            },
+            "lastModifiedDate": {
+                "type": "string",
+                "description": "The datetime the workflow was last modified.",
+                "readOnly": true
+            },
+            "lastModifiedUser": {
+                "type": "string",
+                "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+                "readOnly": true
+            },
+            "lastModifiedUserAccountId": {
+                "type": "string",
+                "description": "The account ID of the user that last modified the workflow.",
+                "readOnly": true
+            },
+            "steps": {
+                "type": "integer",
+                "description": "The number of steps included in the workflow.",
+                "format": "int32",
+                "readOnly": true
+            },
+            "scope": {
+                "description": "The scope where this workflow applies",
+                "readOnly": true,
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "description": "The type of scope.",
+                                "readOnly": true,
+                                "enum": [
+                                    "PROJECT",
+                                    "TEMPLATE"
+                                ]
+                            },
+                            "project": {
+                                "description": "The project the item has scope in.",
+                                "readOnly": true,
+                                "allOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "self": {
+                                                "type": "string",
+                                                "description": "The URL of the project details.",
+                                                "readOnly": true
+                                            },
+                                            "id": {
+                                                "type": "string",
+                                                "description": "The ID of the project."
+                                            },
+                                            "key": {
+                                                "type": "string",
+                                                "description": "The key of the project.",
+                                                "readOnly": true
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "description": "The name of the project.",
+                                                "readOnly": true
+                                            },
+                                            "projectTypeKey": {
+                                                "type": "string",
+                                                "description": "The [project type](https://confluence.atlassian.com/x/GwiiLQ#Jiraapplicationsoverview-Productfeaturesandprojecttypes) of the project.",
+                                                "readOnly": true,
+                                                "enum": [
+                                                    "software",
+                                                    "service_desk",
+                                                    "business"
+                                                ]
+                                            },
+                                            "simplified": {
+                                                "type": "boolean",
+                                                "description": "Whether or not the project is simplified.",
+                                                "readOnly": true
+                                            },
+                                            "avatarUrls": {
+                                                "description": "The URLs of the project's avatars.",
+                                                "readOnly": true,
+                                                "allOf": [
+                                                    {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "16x16": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 16x16 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "24x24": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 24x24 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "32x32": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 32x32 pixel avatar.",
+                                                                "format": "uri"
+                                                            },
+                                                            "48x48": {
+                                                                "type": "string",
+                                                                "description": "The URL of the item's 48x48 pixel avatar.",
+                                                                "format": "uri"
+                                                            }
+                                                        },
+                                                        "additionalProperties": false
+                                                    }
+                                                ]
+                                            },
+                                            "projectCategory": {
+                                                "description": "The category the project belongs to.",
+                                                "readOnly": true,
+                                                "allOf": [
+                                                    {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "self": {
+                                                                "type": "string",
+                                                                "description": "The URL of the project category.",
+                                                                "readOnly": true
+                                                            },
+                                                            "id": {
+                                                                "type": "string",
+                                                                "description": "The ID of the project category.",
+                                                                "readOnly": true
+                                                            },
+                                                            "description": {
+                                                                "type": "string",
+                                                                "description": "The name of the project category.",
+                                                                "readOnly": true
+                                                            },
+                                                            "name": {
+                                                                "type": "string",
+                                                                "description": "The description of the project category.",
+                                                                "readOnly": true
+                                                            }
+                                                        },
+                                                        "additionalProperties": false,
+                                                        "description": "A project category."
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": false,
+                                        "description": "Details about a project."
+                                    }
+                                ]
+                            }
                         },
-                        "project": {
-                            "description": "The project the item has scope in.",
-                            "readOnly": true,
-                            "allOf": [
-                                {
-                                    "type": "object",
-                                    "properties": {
-                                        "self": {
-                                            "type": "string",
-                                            "description": "The URL of the project details.",
-                                            "readOnly": true
-                                        },
-                                        "id": {
-                                            "type": "string",
-                                            "description": "The ID of the project."
-                                        },
-                                        "key": {
-                                            "type": "string",
-                                            "description": "The key of the project.",
-                                            "readOnly": true
-                                        },
-                                        "name": {
-                                            "type": "string",
-                                            "description": "The name of the project.",
-                                            "readOnly": true
-                                        },
-                                        "projectTypeKey": {
-                                            "type": "string",
-                                            "description": "The [project type](https://confluence.atlassian.com/x/GwiiLQ#Jiraapplicationsoverview-Productfeaturesandprojecttypes) of the project.",
-                                            "readOnly": true,
-                                            "enum": [
-                                                "software",
-                                                "service_desk",
-                                                "business"
-                                            ]
-                                        },
-                                        "simplified": {
-                                            "type": "boolean",
-                                            "description": "Whether or not the project is simplified.",
-                                            "readOnly": true
-                                        },
-                                        "avatarUrls": {
-                                            "description": "The URLs of the project's avatars.",
-                                            "readOnly": true,
-                                            "allOf": [
-                                                {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "16x16": {
-                                                            "type": "string",
-                                                            "description": "The URL of the item's 16x16 pixel avatar.",
-                                                            "format": "uri"
-                                                        },
-                                                        "24x24": {
-                                                            "type": "string",
-                                                            "description": "The URL of the item's 24x24 pixel avatar.",
-                                                            "format": "uri"
-                                                        },
-                                                        "32x32": {
-                                                            "type": "string",
-                                                            "description": "The URL of the item's 32x32 pixel avatar.",
-                                                            "format": "uri"
-                                                        },
-                                                        "48x48": {
-                                                            "type": "string",
-                                                            "description": "The URL of the item's 48x48 pixel avatar.",
-                                                            "format": "uri"
-                                                        }
-                                                    },
-                                                    "additionalProperties": false
-                                                }
-                                            ]
-                                        },
-                                        "projectCategory": {
-                                            "description": "The category the project belongs to.",
-                                            "readOnly": true,
-                                            "allOf": [
-                                                {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "self": {
-                                                            "type": "string",
-                                                            "description": "The URL of the project category.",
-                                                            "readOnly": true
-                                                        },
-                                                        "id": {
-                                                            "type": "string",
-                                                            "description": "The ID of the project category.",
-                                                            "readOnly": true
-                                                        },
-                                                        "description": {
-                                                            "type": "string",
-                                                            "description": "The name of the project category.",
-                                                            "readOnly": true
-                                                        },
-                                                        "name": {
-                                                            "type": "string",
-                                                            "description": "The description of the project category.",
-                                                            "readOnly": true
-                                                        }
-                                                    },
-                                                    "additionalProperties": false,
-                                                    "description": "A project category."
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    "additionalProperties": false,
-                                    "description": "Details about a project."
-                                }
-                            ]
-                        }
-                    },
-                    "additionalProperties": true,
-                    "description": "The projects the item is associated with. Indicated for items associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO)."
-                }
-            ]
+                        "additionalProperties": true,
+                        "description": "The projects the item is associated with. Indicated for items associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO)."
+                    }
+                ]
+            },
+            "default": {
+                "type": "boolean"
+            }
         },
-        "default": {
-            "type": "boolean"
-        }
+        "additionalProperties": false,
+        "description": "Details about a workflow."
     }
 }

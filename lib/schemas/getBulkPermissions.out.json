@@ -1,4 +1,8 @@
 {
+    "required": [
+        "globalPermissions",
+        "projectPermissions"
+    ],
     "type": "object",
     "properties": {
         "projectPermissions": {
@@ -48,5 +52,7 @@
                 "type": "string"
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details of global and project permissions granted to the user."
 }

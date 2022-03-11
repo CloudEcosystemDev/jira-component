@@ -192,5 +192,7 @@
                 "description": "A context."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

@@ -1,4 +1,7 @@
 {
+    "required": [
+        "name"
+    ],
     "type": "object",
     "properties": {
         "id": {
@@ -11,5 +14,7 @@
             "type": "string",
             "description": "The name of the screen tab. The maximum length is 255 characters."
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A screen tab."
 }

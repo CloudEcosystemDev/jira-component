@@ -1,4 +1,7 @@
 {
+    "required": [
+        "type"
+    ],
     "type": "object",
     "properties": {
         "id": {
@@ -172,6 +175,12 @@
                                                                         "type": "string",
                                                                         "description": "The name of group."
                                                                     },
+                                                                    "groupId": {
+                                                                        "type": "string",
+                                                                        "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                        "nullable": true,
+                                                                        "readOnly": true
+                                                                    },
                                                                     "self": {
                                                                         "type": "string",
                                                                         "description": "The URL for these group details.",
@@ -233,9 +242,36 @@
                                                                     "groups": {
                                                                         "uniqueItems": true,
                                                                         "type": "array",
-                                                                        "description": "The groups associated with the application role.",
+                                                                        "description": "The groups associated with the application role. As a group's name can change, use of `groupDetails` is recommended to identify a groups.",
                                                                         "items": {
                                                                             "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "groupDetails": {
+                                                                        "type": "array",
+                                                                        "description": "The groups associated with the application role.",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "type": "string",
+                                                                                    "description": "The name of group."
+                                                                                },
+                                                                                "groupId": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                    "nullable": true,
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "self": {
+                                                                                    "type": "string",
+                                                                                    "description": "The URL for these group details.",
+                                                                                    "format": "uri",
+                                                                                    "readOnly": true
+                                                                                }
+                                                                            },
+                                                                            "additionalProperties": false,
+                                                                            "description": "Details about a group name."
                                                                         }
                                                                     },
                                                                     "name": {
@@ -245,9 +281,36 @@
                                                                     "defaultGroups": {
                                                                         "uniqueItems": true,
                                                                         "type": "array",
-                                                                        "description": "The groups that are granted default access for this application role.",
+                                                                        "description": "The groups that are granted default access for this application role. As a group's name can change, use of `defaultGroupsDetails` is recommended to identify a groups.",
                                                                         "items": {
                                                                             "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "defaultGroupsDetails": {
+                                                                        "type": "array",
+                                                                        "description": "The groups that are granted default access for this application role.",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "type": "string",
+                                                                                    "description": "The name of group."
+                                                                                },
+                                                                                "groupId": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                    "nullable": true,
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "self": {
+                                                                                    "type": "string",
+                                                                                    "description": "The URL for these group details.",
+                                                                                    "format": "uri",
+                                                                                    "readOnly": true
+                                                                                }
+                                                                            },
+                                                                            "additionalProperties": false,
+                                                                            "description": "Details about a group name."
                                                                         }
                                                                     },
                                                                     "selectedByDefault": {
@@ -473,6 +536,12 @@
                                                                                     "type": "string",
                                                                                     "description": "The name of group."
                                                                                 },
+                                                                                "groupId": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                    "nullable": true,
+                                                                                    "readOnly": true
+                                                                                },
                                                                                 "self": {
                                                                                     "type": "string",
                                                                                     "description": "The URL for these group details.",
@@ -534,9 +603,36 @@
                                                                                 "groups": {
                                                                                     "uniqueItems": true,
                                                                                     "type": "array",
-                                                                                    "description": "The groups associated with the application role.",
+                                                                                    "description": "The groups associated with the application role. As a group's name can change, use of `groupDetails` is recommended to identify a groups.",
                                                                                     "items": {
                                                                                         "type": "string"
+                                                                                    }
+                                                                                },
+                                                                                "groupDetails": {
+                                                                                    "type": "array",
+                                                                                    "description": "The groups associated with the application role.",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "name": {
+                                                                                                "type": "string",
+                                                                                                "description": "The name of group."
+                                                                                            },
+                                                                                            "groupId": {
+                                                                                                "type": "string",
+                                                                                                "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                                "nullable": true,
+                                                                                                "readOnly": true
+                                                                                            },
+                                                                                            "self": {
+                                                                                                "type": "string",
+                                                                                                "description": "The URL for these group details.",
+                                                                                                "format": "uri",
+                                                                                                "readOnly": true
+                                                                                            }
+                                                                                        },
+                                                                                        "additionalProperties": false,
+                                                                                        "description": "Details about a group name."
                                                                                     }
                                                                                 },
                                                                                 "name": {
@@ -546,9 +642,36 @@
                                                                                 "defaultGroups": {
                                                                                     "uniqueItems": true,
                                                                                     "type": "array",
-                                                                                    "description": "The groups that are granted default access for this application role.",
+                                                                                    "description": "The groups that are granted default access for this application role. As a group's name can change, use of `defaultGroupsDetails` is recommended to identify a groups.",
                                                                                     "items": {
                                                                                         "type": "string"
+                                                                                    }
+                                                                                },
+                                                                                "defaultGroupsDetails": {
+                                                                                    "type": "array",
+                                                                                    "description": "The groups that are granted default access for this application role.",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "name": {
+                                                                                                "type": "string",
+                                                                                                "description": "The name of group."
+                                                                                            },
+                                                                                            "groupId": {
+                                                                                                "type": "string",
+                                                                                                "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                                "nullable": true,
+                                                                                                "readOnly": true
+                                                                                            },
+                                                                                            "self": {
+                                                                                                "type": "string",
+                                                                                                "description": "The URL for these group details.",
+                                                                                                "format": "uri",
+                                                                                                "readOnly": true
+                                                                                            }
+                                                                                        },
+                                                                                        "additionalProperties": false,
+                                                                                        "description": "Details about a group name."
                                                                                     }
                                                                                 },
                                                                                 "selectedByDefault": {
@@ -768,6 +891,12 @@
                                                                                     "type": "string",
                                                                                     "description": "The name of group."
                                                                                 },
+                                                                                "groupId": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                    "nullable": true,
+                                                                                    "readOnly": true
+                                                                                },
                                                                                 "self": {
                                                                                     "type": "string",
                                                                                     "description": "The URL for these group details.",
@@ -829,9 +958,36 @@
                                                                                 "groups": {
                                                                                     "uniqueItems": true,
                                                                                     "type": "array",
-                                                                                    "description": "The groups associated with the application role.",
+                                                                                    "description": "The groups associated with the application role. As a group's name can change, use of `groupDetails` is recommended to identify a groups.",
                                                                                     "items": {
                                                                                         "type": "string"
+                                                                                    }
+                                                                                },
+                                                                                "groupDetails": {
+                                                                                    "type": "array",
+                                                                                    "description": "The groups associated with the application role.",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "name": {
+                                                                                                "type": "string",
+                                                                                                "description": "The name of group."
+                                                                                            },
+                                                                                            "groupId": {
+                                                                                                "type": "string",
+                                                                                                "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                                "nullable": true,
+                                                                                                "readOnly": true
+                                                                                            },
+                                                                                            "self": {
+                                                                                                "type": "string",
+                                                                                                "description": "The URL for these group details.",
+                                                                                                "format": "uri",
+                                                                                                "readOnly": true
+                                                                                            }
+                                                                                        },
+                                                                                        "additionalProperties": false,
+                                                                                        "description": "Details about a group name."
                                                                                     }
                                                                                 },
                                                                                 "name": {
@@ -841,9 +997,36 @@
                                                                                 "defaultGroups": {
                                                                                     "uniqueItems": true,
                                                                                     "type": "array",
-                                                                                    "description": "The groups that are granted default access for this application role.",
+                                                                                    "description": "The groups that are granted default access for this application role. As a group's name can change, use of `defaultGroupsDetails` is recommended to identify a groups.",
                                                                                     "items": {
                                                                                         "type": "string"
+                                                                                    }
+                                                                                },
+                                                                                "defaultGroupsDetails": {
+                                                                                    "type": "array",
+                                                                                    "description": "The groups that are granted default access for this application role.",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "name": {
+                                                                                                "type": "string",
+                                                                                                "description": "The name of group."
+                                                                                            },
+                                                                                            "groupId": {
+                                                                                                "type": "string",
+                                                                                                "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                                "nullable": true,
+                                                                                                "readOnly": true
+                                                                                            },
+                                                                                            "self": {
+                                                                                                "type": "string",
+                                                                                                "description": "The URL for these group details.",
+                                                                                                "format": "uri",
+                                                                                                "readOnly": true
+                                                                                            }
+                                                                                        },
+                                                                                        "additionalProperties": false,
+                                                                                        "description": "Details about a group name."
                                                                                     }
                                                                                 },
                                                                                 "selectedByDefault": {
@@ -1054,6 +1237,12 @@
                                                                                     "type": "string",
                                                                                     "description": "The name of group."
                                                                                 },
+                                                                                "groupId": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                    "nullable": true,
+                                                                                    "readOnly": true
+                                                                                },
                                                                                 "self": {
                                                                                     "type": "string",
                                                                                     "description": "The URL for these group details.",
@@ -1115,9 +1304,36 @@
                                                                                 "groups": {
                                                                                     "uniqueItems": true,
                                                                                     "type": "array",
-                                                                                    "description": "The groups associated with the application role.",
+                                                                                    "description": "The groups associated with the application role. As a group's name can change, use of `groupDetails` is recommended to identify a groups.",
                                                                                     "items": {
                                                                                         "type": "string"
+                                                                                    }
+                                                                                },
+                                                                                "groupDetails": {
+                                                                                    "type": "array",
+                                                                                    "description": "The groups associated with the application role.",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "name": {
+                                                                                                "type": "string",
+                                                                                                "description": "The name of group."
+                                                                                            },
+                                                                                            "groupId": {
+                                                                                                "type": "string",
+                                                                                                "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                                "nullable": true,
+                                                                                                "readOnly": true
+                                                                                            },
+                                                                                            "self": {
+                                                                                                "type": "string",
+                                                                                                "description": "The URL for these group details.",
+                                                                                                "format": "uri",
+                                                                                                "readOnly": true
+                                                                                            }
+                                                                                        },
+                                                                                        "additionalProperties": false,
+                                                                                        "description": "Details about a group name."
                                                                                     }
                                                                                 },
                                                                                 "name": {
@@ -1127,9 +1343,36 @@
                                                                                 "defaultGroups": {
                                                                                     "uniqueItems": true,
                                                                                     "type": "array",
-                                                                                    "description": "The groups that are granted default access for this application role.",
+                                                                                    "description": "The groups that are granted default access for this application role. As a group's name can change, use of `defaultGroupsDetails` is recommended to identify a groups.",
                                                                                     "items": {
                                                                                         "type": "string"
+                                                                                    }
+                                                                                },
+                                                                                "defaultGroupsDetails": {
+                                                                                    "type": "array",
+                                                                                    "description": "The groups that are granted default access for this application role.",
+                                                                                    "items": {
+                                                                                        "type": "object",
+                                                                                        "properties": {
+                                                                                            "name": {
+                                                                                                "type": "string",
+                                                                                                "description": "The name of group."
+                                                                                            },
+                                                                                            "groupId": {
+                                                                                                "type": "string",
+                                                                                                "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                                "nullable": true,
+                                                                                                "readOnly": true
+                                                                                            },
+                                                                                            "self": {
+                                                                                                "type": "string",
+                                                                                                "description": "The URL for these group details.",
+                                                                                                "format": "uri",
+                                                                                                "readOnly": true
+                                                                                            }
+                                                                                        },
+                                                                                        "additionalProperties": false,
+                                                                                        "description": "Details about a group name."
                                                                                     }
                                                                                 },
                                                                                 "selectedByDefault": {
@@ -1994,6 +2237,12 @@
                                                                         "type": "string",
                                                                         "description": "The name of group."
                                                                     },
+                                                                    "groupId": {
+                                                                        "type": "string",
+                                                                        "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                        "nullable": true,
+                                                                        "readOnly": true
+                                                                    },
                                                                     "self": {
                                                                         "type": "string",
                                                                         "description": "The URL for these group details.",
@@ -2055,9 +2304,36 @@
                                                                     "groups": {
                                                                         "uniqueItems": true,
                                                                         "type": "array",
-                                                                        "description": "The groups associated with the application role.",
+                                                                        "description": "The groups associated with the application role. As a group's name can change, use of `groupDetails` is recommended to identify a groups.",
                                                                         "items": {
                                                                             "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "groupDetails": {
+                                                                        "type": "array",
+                                                                        "description": "The groups associated with the application role.",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "type": "string",
+                                                                                    "description": "The name of group."
+                                                                                },
+                                                                                "groupId": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                    "nullable": true,
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "self": {
+                                                                                    "type": "string",
+                                                                                    "description": "The URL for these group details.",
+                                                                                    "format": "uri",
+                                                                                    "readOnly": true
+                                                                                }
+                                                                            },
+                                                                            "additionalProperties": false,
+                                                                            "description": "Details about a group name."
                                                                         }
                                                                     },
                                                                     "name": {
@@ -2067,9 +2343,36 @@
                                                                     "defaultGroups": {
                                                                         "uniqueItems": true,
                                                                         "type": "array",
-                                                                        "description": "The groups that are granted default access for this application role.",
+                                                                        "description": "The groups that are granted default access for this application role. As a group's name can change, use of `defaultGroupsDetails` is recommended to identify a groups.",
                                                                         "items": {
                                                                             "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "defaultGroupsDetails": {
+                                                                        "type": "array",
+                                                                        "description": "The groups that are granted default access for this application role.",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "type": "string",
+                                                                                    "description": "The name of group."
+                                                                                },
+                                                                                "groupId": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                    "nullable": true,
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "self": {
+                                                                                    "type": "string",
+                                                                                    "description": "The URL for these group details.",
+                                                                                    "format": "uri",
+                                                                                    "readOnly": true
+                                                                                }
+                                                                            },
+                                                                            "additionalProperties": false,
+                                                                            "description": "Details about a group name."
                                                                         }
                                                                     },
                                                                     "selectedByDefault": {
@@ -2280,6 +2583,12 @@
                                                                         "type": "string",
                                                                         "description": "The name of group."
                                                                     },
+                                                                    "groupId": {
+                                                                        "type": "string",
+                                                                        "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                        "nullable": true,
+                                                                        "readOnly": true
+                                                                    },
                                                                     "self": {
                                                                         "type": "string",
                                                                         "description": "The URL for these group details.",
@@ -2341,9 +2650,36 @@
                                                                     "groups": {
                                                                         "uniqueItems": true,
                                                                         "type": "array",
-                                                                        "description": "The groups associated with the application role.",
+                                                                        "description": "The groups associated with the application role. As a group's name can change, use of `groupDetails` is recommended to identify a groups.",
                                                                         "items": {
                                                                             "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "groupDetails": {
+                                                                        "type": "array",
+                                                                        "description": "The groups associated with the application role.",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "type": "string",
+                                                                                    "description": "The name of group."
+                                                                                },
+                                                                                "groupId": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                    "nullable": true,
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "self": {
+                                                                                    "type": "string",
+                                                                                    "description": "The URL for these group details.",
+                                                                                    "format": "uri",
+                                                                                    "readOnly": true
+                                                                                }
+                                                                            },
+                                                                            "additionalProperties": false,
+                                                                            "description": "Details about a group name."
                                                                         }
                                                                     },
                                                                     "name": {
@@ -2353,9 +2689,36 @@
                                                                     "defaultGroups": {
                                                                         "uniqueItems": true,
                                                                         "type": "array",
-                                                                        "description": "The groups that are granted default access for this application role.",
+                                                                        "description": "The groups that are granted default access for this application role. As a group's name can change, use of `defaultGroupsDetails` is recommended to identify a groups.",
                                                                         "items": {
                                                                             "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "defaultGroupsDetails": {
+                                                                        "type": "array",
+                                                                        "description": "The groups that are granted default access for this application role.",
+                                                                        "items": {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "name": {
+                                                                                    "type": "string",
+                                                                                    "description": "The name of group."
+                                                                                },
+                                                                                "groupId": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                                                                                    "nullable": true,
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "self": {
+                                                                                    "type": "string",
+                                                                                    "description": "The URL for these group details.",
+                                                                                    "format": "uri",
+                                                                                    "readOnly": true
+                                                                                }
+                                                                            },
+                                                                            "additionalProperties": false,
+                                                                            "description": "Details about a group name."
                                                                         }
                                                                     },
                                                                     "selectedByDefault": {
@@ -2728,14 +3091,14 @@
                             "type": "boolean",
                             "description": "Whether the calling user is part of this role."
                         },
-                        "roleConfigurable": {
-                            "type": "boolean",
-                            "description": "Whether the roles are configurable for this project.",
-                            "readOnly": true
-                        },
                         "admin": {
                             "type": "boolean",
                             "description": "Whether this role is the admin role for the project.",
+                            "readOnly": true
+                        },
+                        "roleConfigurable": {
+                            "type": "boolean",
+                            "description": "Whether the roles are configurable for this project.",
                             "readOnly": true
                         },
                         "default": {
@@ -2758,6 +3121,12 @@
                         "name": {
                             "type": "string",
                             "description": "The name of group."
+                        },
+                        "groupId": {
+                            "type": "string",
+                            "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
+                            "nullable": true,
+                            "readOnly": true
                         },
                         "self": {
                             "type": "string",
@@ -2839,5 +3208,7 @@
                 }
             ]
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details of a share permission for the filter."
 }

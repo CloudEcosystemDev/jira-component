@@ -92,6 +92,7 @@
                     },
                     "expirationDate": {
                         "type": "integer",
+                        "description": "The date after which the webhook is no longer sent. Use [Extend webhook life](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-webhooks/#api-rest-api-3-webhook-refresh-put) to extend the date.",
                         "format": "int64",
                         "readOnly": true
                     }
@@ -100,5 +101,7 @@
                 "description": "A webhook."
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "A page of items."
 }

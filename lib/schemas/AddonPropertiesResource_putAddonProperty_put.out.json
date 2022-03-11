@@ -1,4 +1,8 @@
 {
+    "required": [
+        "message",
+        "statusCode"
+    ],
     "type": "object",
     "properties": {
         "message": {
@@ -9,5 +13,10 @@
             "type": "integer",
             "description": "The status code of the response."
         }
+    },
+    "additionalProperties": false,
+    "example": {
+        "message": "An example message.",
+        "statusCode": 200
     }
 }

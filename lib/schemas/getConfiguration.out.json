@@ -84,5 +84,7 @@
                 }
             ]
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "Details about the configuration of Jira."
 }

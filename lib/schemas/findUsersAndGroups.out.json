@@ -71,7 +71,7 @@
                         "properties": {
                             "name": {
                                 "type": "string",
-                                "description": "The name of the group."
+                                "description": "The name of the group. The name of a group is mutable, to reliably identify a group use ``groupId`.`"
                             },
                             "html": {
                                 "type": "string",
@@ -109,7 +109,7 @@
                             },
                             "groupId": {
                                 "type": "string",
-                                "description": "The ID of the group, if available, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*."
+                                "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*."
                             }
                         },
                         "additionalProperties": false,
@@ -126,5 +126,7 @@
                 "name": "groupsuggestions"
             }
         }
-    }
+    },
+    "additionalProperties": false,
+    "description": "List of users and groups found in a search."
 }

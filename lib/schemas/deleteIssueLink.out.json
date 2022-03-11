@@ -1,4 +1,1416 @@
 {
+    "required": [
+        "inwardIssue",
+        "outwardIssue",
+        "type"
+    ],
     "type": "object",
-    "properties": {}
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The ID of the issue link.",
+            "readOnly": true
+        },
+        "self": {
+            "type": "string",
+            "description": "The URL of the issue link.",
+            "format": "uri",
+            "readOnly": true
+        },
+        "type": {
+            "description": "The type of link between the issues.",
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "The ID of the issue link type and is used as follows:\n\n *  In the [ issueLink](#api-rest-api-3-issueLink-post) resource it is the type of issue link. Required on create when `name` isn't provided. Otherwise, read only.\n *  In the [ issueLinkType](#api-rest-api-3-issueLinkType-post) resource it is read only."
+                        },
+                        "name": {
+                            "type": "string",
+                            "description": "The name of the issue link type and is used as follows:\n\n *  In the [ issueLink](#api-rest-api-3-issueLink-post) resource it is the type of issue link. Required on create when `id` isn't provided. Otherwise, read only.\n *  In the [ issueLinkType](#api-rest-api-3-issueLinkType-post) resource it is required on create and optional on update. Otherwise, read only."
+                        },
+                        "inward": {
+                            "type": "string",
+                            "description": "The description of the issue link type inward link and is used as follows:\n\n *  In the [ issueLink](#api-rest-api-3-issueLink-post) resource it is read only.\n *  In the [ issueLinkType](#api-rest-api-3-issueLinkType-post) resource it is required on create and optional on update. Otherwise, read only."
+                        },
+                        "outward": {
+                            "type": "string",
+                            "description": "The description of the issue link type outward link and is used as follows:\n\n *  In the [ issueLink](#api-rest-api-3-issueLink-post) resource it is read only.\n *  In the [ issueLinkType](#api-rest-api-3-issueLinkType-post) resource it is required on create and optional on update. Otherwise, read only."
+                        },
+                        "self": {
+                            "type": "string",
+                            "description": "The URL of the issue link type. Read only.",
+                            "format": "uri",
+                            "readOnly": true
+                        }
+                    },
+                    "additionalProperties": false,
+                    "description": "This object is used as follows:\n\n *  In the [ issueLink](#api-rest-api-3-issueLink-post) resource it defines and reports on the type of link between the issues. Find a list of issue link types with [Get issue link types](#api-rest-api-3-issueLinkType-get).\n *  In the [ issueLinkType](#api-rest-api-3-issueLinkType-post) resource it defines and reports on issue link types."
+                }
+            ]
+        },
+        "inwardIssue": {
+            "description": "The issue the link joins to.",
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "The ID of an issue. Required if `key` isn't provided."
+                        },
+                        "key": {
+                            "type": "string",
+                            "description": "The key of an issue. Required if `id` isn't provided."
+                        },
+                        "self": {
+                            "type": "string",
+                            "description": "The URL of the issue.",
+                            "format": "uri",
+                            "readOnly": true
+                        },
+                        "fields": {
+                            "description": "The fields associated with the issue.",
+                            "readOnly": true,
+                            "allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "summary": {
+                                            "type": "string",
+                                            "description": "The summary description of the linked issue.",
+                                            "readOnly": true
+                                        },
+                                        "status": {
+                                            "description": "The status of the linked issue.",
+                                            "readOnly": true,
+                                            "allOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "self": {
+                                                            "type": "string",
+                                                            "description": "The URL of the status.",
+                                                            "readOnly": true
+                                                        },
+                                                        "description": {
+                                                            "type": "string",
+                                                            "description": "The description of the status.",
+                                                            "readOnly": true
+                                                        },
+                                                        "iconUrl": {
+                                                            "type": "string",
+                                                            "description": "The URL of the icon used to represent the status.",
+                                                            "readOnly": true
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "description": "The name of the status.",
+                                                            "readOnly": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "description": "The ID of the status.",
+                                                            "readOnly": true
+                                                        },
+                                                        "statusCategory": {
+                                                            "description": "The category assigned to the status.",
+                                                            "readOnly": true,
+                                                            "allOf": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "self": {
+                                                                            "type": "string",
+                                                                            "description": "The URL of the status category.",
+                                                                            "readOnly": true
+                                                                        },
+                                                                        "id": {
+                                                                            "type": "integer",
+                                                                            "description": "The ID of the status category.",
+                                                                            "format": "int64",
+                                                                            "readOnly": true
+                                                                        },
+                                                                        "key": {
+                                                                            "type": "string",
+                                                                            "description": "The key of the status category.",
+                                                                            "readOnly": true
+                                                                        },
+                                                                        "colorName": {
+                                                                            "type": "string",
+                                                                            "description": "The name of the color used to represent the status category.",
+                                                                            "readOnly": true
+                                                                        },
+                                                                        "name": {
+                                                                            "type": "string",
+                                                                            "description": "The name of the status category.",
+                                                                            "readOnly": true
+                                                                        }
+                                                                    },
+                                                                    "additionalProperties": true,
+                                                                    "description": "A status category."
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": true,
+                                                    "description": "A status."
+                                                }
+                                            ]
+                                        },
+                                        "priority": {
+                                            "description": "The priority of the linked issue.",
+                                            "readOnly": true,
+                                            "allOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "self": {
+                                                            "type": "string",
+                                                            "description": "The URL of the issue priority."
+                                                        },
+                                                        "statusColor": {
+                                                            "type": "string",
+                                                            "description": "The color used to indicate the issue priority."
+                                                        },
+                                                        "description": {
+                                                            "type": "string",
+                                                            "description": "The description of the issue priority."
+                                                        },
+                                                        "iconUrl": {
+                                                            "type": "string",
+                                                            "description": "The URL of the icon for the issue priority."
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "description": "The name of the issue priority."
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "description": "The ID of the issue priority."
+                                                        }
+                                                    },
+                                                    "additionalProperties": true,
+                                                    "description": "An issue priority."
+                                                }
+                                            ]
+                                        },
+                                        "assignee": {
+                                            "description": "The assignee of the linked issue.",
+                                            "readOnly": true,
+                                            "allOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "self": {
+                                                            "type": "string",
+                                                            "description": "The URL of the user.",
+                                                            "readOnly": true
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+                                                            "readOnly": true
+                                                        },
+                                                        "key": {
+                                                            "type": "string",
+                                                            "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+                                                            "readOnly": true
+                                                        },
+                                                        "accountId": {
+                                                            "maxLength": 128,
+                                                            "type": "string",
+                                                            "description": "The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*."
+                                                        },
+                                                        "emailAddress": {
+                                                            "type": "string",
+                                                            "description": "The email address of the user. Depending on the user’s privacy settings, this may be returned as null.",
+                                                            "readOnly": true
+                                                        },
+                                                        "avatarUrls": {
+                                                            "description": "The avatars of the user.",
+                                                            "readOnly": true,
+                                                            "allOf": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "16x16": {
+                                                                            "type": "string",
+                                                                            "description": "The URL of the item's 16x16 pixel avatar.",
+                                                                            "format": "uri"
+                                                                        },
+                                                                        "24x24": {
+                                                                            "type": "string",
+                                                                            "description": "The URL of the item's 24x24 pixel avatar.",
+                                                                            "format": "uri"
+                                                                        },
+                                                                        "32x32": {
+                                                                            "type": "string",
+                                                                            "description": "The URL of the item's 32x32 pixel avatar.",
+                                                                            "format": "uri"
+                                                                        },
+                                                                        "48x48": {
+                                                                            "type": "string",
+                                                                            "description": "The URL of the item's 48x48 pixel avatar.",
+                                                                            "format": "uri"
+                                                                        }
+                                                                    },
+                                                                    "additionalProperties": false
+                                                                }
+                                                            ]
+                                                        },
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "description": "The display name of the user. Depending on the user’s privacy settings, this may return an alternative value.",
+                                                            "readOnly": true
+                                                        },
+                                                        "active": {
+                                                            "type": "boolean",
+                                                            "description": "Whether the user is active.",
+                                                            "readOnly": true
+                                                        },
+                                                        "timeZone": {
+                                                            "type": "string",
+                                                            "description": "The time zone specified in the user's profile. Depending on the user’s privacy settings, this may be returned as null.",
+                                                            "readOnly": true
+                                                        },
+                                                        "accountType": {
+                                                            "type": "string",
+                                                            "description": "The type of account represented by this user. This will be one of 'atlassian' (normal users), 'app' (application user) or 'customer' (Jira Service Desk customer user)",
+                                                            "readOnly": true
+                                                        }
+                                                    },
+                                                    "additionalProperties": false,
+                                                    "description": "User details permitted by the user's Atlassian Account privacy settings. However, be aware of these exceptions:\n\n *  User record deleted from Atlassian: This occurs as the result of a right to be forgotten request. In this case, `displayName` provides an indication and other parameters have default values or are blank (for example, email is blank).\n *  User record corrupted: This occurs as a results of events such as a server import and can only happen to deleted users. In this case, `accountId` returns *unknown* and all other parameters have fallback values.\n *  User record unavailable: This usually occurs due to an internal service outage. In this case, all parameters have fallback values."
+                                                }
+                                            ]
+                                        },
+                                        "timetracking": {
+                                            "description": "The time tracking of the linked issue.",
+                                            "readOnly": true,
+                                            "allOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "originalEstimate": {
+                                                            "type": "string",
+                                                            "description": "The original estimate of time needed for this issue in readable format.",
+                                                            "readOnly": true
+                                                        },
+                                                        "remainingEstimate": {
+                                                            "type": "string",
+                                                            "description": "The remaining estimate of time needed for this issue in readable format.",
+                                                            "readOnly": true
+                                                        },
+                                                        "timeSpent": {
+                                                            "type": "string",
+                                                            "description": "Time worked on this issue in readable format.",
+                                                            "readOnly": true
+                                                        },
+                                                        "originalEstimateSeconds": {
+                                                            "type": "integer",
+                                                            "description": "The original estimate of time needed for this issue in seconds.",
+                                                            "format": "int64",
+                                                            "readOnly": true
+                                                        },
+                                                        "remainingEstimateSeconds": {
+                                                            "type": "integer",
+                                                            "description": "The remaining estimate of time needed for this issue in seconds.",
+                                                            "format": "int64",
+                                                            "readOnly": true
+                                                        },
+                                                        "timeSpentSeconds": {
+                                                            "type": "integer",
+                                                            "description": "Time worked on this issue in seconds.",
+                                                            "format": "int64",
+                                                            "readOnly": true
+                                                        }
+                                                    },
+                                                    "additionalProperties": false,
+                                                    "description": "Time tracking details."
+                                                }
+                                            ]
+                                        },
+                                        "issuetype": {
+                                            "type": "object",
+                                            "properties": {
+                                                "self": {
+                                                    "type": "string",
+                                                    "description": "The URL of these issue type details.",
+                                                    "readOnly": true
+                                                },
+                                                "id": {
+                                                    "type": "string",
+                                                    "description": "The ID of the issue type.",
+                                                    "readOnly": true
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "description": "The description of the issue type.",
+                                                    "readOnly": true
+                                                },
+                                                "iconUrl": {
+                                                    "type": "string",
+                                                    "description": "The URL of the issue type's avatar.",
+                                                    "readOnly": true
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "description": "The name of the issue type.",
+                                                    "readOnly": true
+                                                },
+                                                "subtask": {
+                                                    "type": "boolean",
+                                                    "description": "Whether this issue type is used to create subtasks.",
+                                                    "readOnly": true
+                                                },
+                                                "avatarId": {
+                                                    "type": "integer",
+                                                    "description": "The ID of the issue type's avatar.",
+                                                    "format": "int64",
+                                                    "readOnly": true
+                                                },
+                                                "entityId": {
+                                                    "type": "string",
+                                                    "description": "Unique ID for next-gen projects.",
+                                                    "format": "uuid",
+                                                    "readOnly": true
+                                                },
+                                                "hierarchyLevel": {
+                                                    "type": "integer",
+                                                    "description": "Hierarchy level of the issue type.",
+                                                    "format": "int32",
+                                                    "readOnly": true
+                                                },
+                                                "scope": {
+                                                    "description": "Details of the next-gen projects the issue type is available in.",
+                                                    "readOnly": true,
+                                                    "allOf": [
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "type": {
+                                                                    "type": "string",
+                                                                    "description": "The type of scope.",
+                                                                    "readOnly": true,
+                                                                    "enum": [
+                                                                        "PROJECT",
+                                                                        "TEMPLATE"
+                                                                    ]
+                                                                },
+                                                                "project": {
+                                                                    "description": "The project the item has scope in.",
+                                                                    "readOnly": true,
+                                                                    "allOf": [
+                                                                        {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "self": {
+                                                                                    "type": "string",
+                                                                                    "description": "The URL of the project details.",
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "id": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the project."
+                                                                                },
+                                                                                "key": {
+                                                                                    "type": "string",
+                                                                                    "description": "The key of the project.",
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "name": {
+                                                                                    "type": "string",
+                                                                                    "description": "The name of the project.",
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "projectTypeKey": {
+                                                                                    "type": "string",
+                                                                                    "description": "The [project type](https://confluence.atlassian.com/x/GwiiLQ#Jiraapplicationsoverview-Productfeaturesandprojecttypes) of the project.",
+                                                                                    "readOnly": true,
+                                                                                    "enum": [
+                                                                                        "software",
+                                                                                        "service_desk",
+                                                                                        "business"
+                                                                                    ]
+                                                                                },
+                                                                                "simplified": {
+                                                                                    "type": "boolean",
+                                                                                    "description": "Whether or not the project is simplified.",
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "avatarUrls": {
+                                                                                    "description": "The URLs of the project's avatars.",
+                                                                                    "readOnly": true,
+                                                                                    "allOf": [
+                                                                                        {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "16x16": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The URL of the item's 16x16 pixel avatar.",
+                                                                                                    "format": "uri"
+                                                                                                },
+                                                                                                "24x24": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The URL of the item's 24x24 pixel avatar.",
+                                                                                                    "format": "uri"
+                                                                                                },
+                                                                                                "32x32": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The URL of the item's 32x32 pixel avatar.",
+                                                                                                    "format": "uri"
+                                                                                                },
+                                                                                                "48x48": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The URL of the item's 48x48 pixel avatar.",
+                                                                                                    "format": "uri"
+                                                                                                }
+                                                                                            },
+                                                                                            "additionalProperties": false
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "projectCategory": {
+                                                                                    "description": "The category the project belongs to.",
+                                                                                    "readOnly": true,
+                                                                                    "allOf": [
+                                                                                        {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "self": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The URL of the project category.",
+                                                                                                    "readOnly": true
+                                                                                                },
+                                                                                                "id": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The ID of the project category.",
+                                                                                                    "readOnly": true
+                                                                                                },
+                                                                                                "description": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The name of the project category.",
+                                                                                                    "readOnly": true
+                                                                                                },
+                                                                                                "name": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The description of the project category.",
+                                                                                                    "readOnly": true
+                                                                                                }
+                                                                                            },
+                                                                                            "additionalProperties": false,
+                                                                                            "description": "A project category."
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            },
+                                                                            "additionalProperties": false,
+                                                                            "description": "Details about a project."
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "additionalProperties": true,
+                                                            "description": "The projects the item is associated with. Indicated for items associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO)."
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "additionalProperties": false,
+                                            "description": "Details about an issue type."
+                                        },
+                                        "issueType": {
+                                            "description": "The type of the linked issue.",
+                                            "readOnly": true,
+                                            "allOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "self": {
+                                                            "type": "string",
+                                                            "description": "The URL of these issue type details.",
+                                                            "readOnly": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "description": "The ID of the issue type.",
+                                                            "readOnly": true
+                                                        },
+                                                        "description": {
+                                                            "type": "string",
+                                                            "description": "The description of the issue type.",
+                                                            "readOnly": true
+                                                        },
+                                                        "iconUrl": {
+                                                            "type": "string",
+                                                            "description": "The URL of the issue type's avatar.",
+                                                            "readOnly": true
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "description": "The name of the issue type.",
+                                                            "readOnly": true
+                                                        },
+                                                        "subtask": {
+                                                            "type": "boolean",
+                                                            "description": "Whether this issue type is used to create subtasks.",
+                                                            "readOnly": true
+                                                        },
+                                                        "avatarId": {
+                                                            "type": "integer",
+                                                            "description": "The ID of the issue type's avatar.",
+                                                            "format": "int64",
+                                                            "readOnly": true
+                                                        },
+                                                        "entityId": {
+                                                            "type": "string",
+                                                            "description": "Unique ID for next-gen projects.",
+                                                            "format": "uuid",
+                                                            "readOnly": true
+                                                        },
+                                                        "hierarchyLevel": {
+                                                            "type": "integer",
+                                                            "description": "Hierarchy level of the issue type.",
+                                                            "format": "int32",
+                                                            "readOnly": true
+                                                        },
+                                                        "scope": {
+                                                            "description": "Details of the next-gen projects the issue type is available in.",
+                                                            "readOnly": true,
+                                                            "allOf": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "type": "string",
+                                                                            "description": "The type of scope.",
+                                                                            "readOnly": true,
+                                                                            "enum": [
+                                                                                "PROJECT",
+                                                                                "TEMPLATE"
+                                                                            ]
+                                                                        },
+                                                                        "project": {
+                                                                            "description": "The project the item has scope in.",
+                                                                            "readOnly": true,
+                                                                            "allOf": [
+                                                                                {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "self": {
+                                                                                            "type": "string",
+                                                                                            "description": "The URL of the project details.",
+                                                                                            "readOnly": true
+                                                                                        },
+                                                                                        "id": {
+                                                                                            "type": "string",
+                                                                                            "description": "The ID of the project."
+                                                                                        },
+                                                                                        "key": {
+                                                                                            "type": "string",
+                                                                                            "description": "The key of the project.",
+                                                                                            "readOnly": true
+                                                                                        },
+                                                                                        "name": {
+                                                                                            "type": "string",
+                                                                                            "description": "The name of the project.",
+                                                                                            "readOnly": true
+                                                                                        },
+                                                                                        "projectTypeKey": {
+                                                                                            "type": "string",
+                                                                                            "description": "The [project type](https://confluence.atlassian.com/x/GwiiLQ#Jiraapplicationsoverview-Productfeaturesandprojecttypes) of the project.",
+                                                                                            "readOnly": true,
+                                                                                            "enum": [
+                                                                                                "software",
+                                                                                                "service_desk",
+                                                                                                "business"
+                                                                                            ]
+                                                                                        },
+                                                                                        "simplified": {
+                                                                                            "type": "boolean",
+                                                                                            "description": "Whether or not the project is simplified.",
+                                                                                            "readOnly": true
+                                                                                        },
+                                                                                        "avatarUrls": {
+                                                                                            "description": "The URLs of the project's avatars.",
+                                                                                            "readOnly": true,
+                                                                                            "allOf": [
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "16x16": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The URL of the item's 16x16 pixel avatar.",
+                                                                                                            "format": "uri"
+                                                                                                        },
+                                                                                                        "24x24": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The URL of the item's 24x24 pixel avatar.",
+                                                                                                            "format": "uri"
+                                                                                                        },
+                                                                                                        "32x32": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The URL of the item's 32x32 pixel avatar.",
+                                                                                                            "format": "uri"
+                                                                                                        },
+                                                                                                        "48x48": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The URL of the item's 48x48 pixel avatar.",
+                                                                                                            "format": "uri"
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "additionalProperties": false
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "projectCategory": {
+                                                                                            "description": "The category the project belongs to.",
+                                                                                            "readOnly": true,
+                                                                                            "allOf": [
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "self": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The URL of the project category.",
+                                                                                                            "readOnly": true
+                                                                                                        },
+                                                                                                        "id": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The ID of the project category.",
+                                                                                                            "readOnly": true
+                                                                                                        },
+                                                                                                        "description": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The name of the project category.",
+                                                                                                            "readOnly": true
+                                                                                                        },
+                                                                                                        "name": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The description of the project category.",
+                                                                                                            "readOnly": true
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "additionalProperties": false,
+                                                                                                    "description": "A project category."
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    "additionalProperties": false,
+                                                                                    "description": "Details about a project."
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "additionalProperties": true,
+                                                                    "description": "The projects the item is associated with. Indicated for items associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO)."
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false,
+                                                    "description": "Details about an issue type."
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false,
+                                    "description": "Key fields from the linked issue."
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "description": "The ID or key of a linked issue."
+                }
+            ]
+        },
+        "outwardIssue": {
+            "description": "The issue the link originates from.",
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "description": "The ID of an issue. Required if `key` isn't provided."
+                        },
+                        "key": {
+                            "type": "string",
+                            "description": "The key of an issue. Required if `id` isn't provided."
+                        },
+                        "self": {
+                            "type": "string",
+                            "description": "The URL of the issue.",
+                            "format": "uri",
+                            "readOnly": true
+                        },
+                        "fields": {
+                            "description": "The fields associated with the issue.",
+                            "readOnly": true,
+                            "allOf": [
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "summary": {
+                                            "type": "string",
+                                            "description": "The summary description of the linked issue.",
+                                            "readOnly": true
+                                        },
+                                        "status": {
+                                            "description": "The status of the linked issue.",
+                                            "readOnly": true,
+                                            "allOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "self": {
+                                                            "type": "string",
+                                                            "description": "The URL of the status.",
+                                                            "readOnly": true
+                                                        },
+                                                        "description": {
+                                                            "type": "string",
+                                                            "description": "The description of the status.",
+                                                            "readOnly": true
+                                                        },
+                                                        "iconUrl": {
+                                                            "type": "string",
+                                                            "description": "The URL of the icon used to represent the status.",
+                                                            "readOnly": true
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "description": "The name of the status.",
+                                                            "readOnly": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "description": "The ID of the status.",
+                                                            "readOnly": true
+                                                        },
+                                                        "statusCategory": {
+                                                            "description": "The category assigned to the status.",
+                                                            "readOnly": true,
+                                                            "allOf": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "self": {
+                                                                            "type": "string",
+                                                                            "description": "The URL of the status category.",
+                                                                            "readOnly": true
+                                                                        },
+                                                                        "id": {
+                                                                            "type": "integer",
+                                                                            "description": "The ID of the status category.",
+                                                                            "format": "int64",
+                                                                            "readOnly": true
+                                                                        },
+                                                                        "key": {
+                                                                            "type": "string",
+                                                                            "description": "The key of the status category.",
+                                                                            "readOnly": true
+                                                                        },
+                                                                        "colorName": {
+                                                                            "type": "string",
+                                                                            "description": "The name of the color used to represent the status category.",
+                                                                            "readOnly": true
+                                                                        },
+                                                                        "name": {
+                                                                            "type": "string",
+                                                                            "description": "The name of the status category.",
+                                                                            "readOnly": true
+                                                                        }
+                                                                    },
+                                                                    "additionalProperties": true,
+                                                                    "description": "A status category."
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": true,
+                                                    "description": "A status."
+                                                }
+                                            ]
+                                        },
+                                        "priority": {
+                                            "description": "The priority of the linked issue.",
+                                            "readOnly": true,
+                                            "allOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "self": {
+                                                            "type": "string",
+                                                            "description": "The URL of the issue priority."
+                                                        },
+                                                        "statusColor": {
+                                                            "type": "string",
+                                                            "description": "The color used to indicate the issue priority."
+                                                        },
+                                                        "description": {
+                                                            "type": "string",
+                                                            "description": "The description of the issue priority."
+                                                        },
+                                                        "iconUrl": {
+                                                            "type": "string",
+                                                            "description": "The URL of the icon for the issue priority."
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "description": "The name of the issue priority."
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "description": "The ID of the issue priority."
+                                                        }
+                                                    },
+                                                    "additionalProperties": true,
+                                                    "description": "An issue priority."
+                                                }
+                                            ]
+                                        },
+                                        "assignee": {
+                                            "description": "The assignee of the linked issue.",
+                                            "readOnly": true,
+                                            "allOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "self": {
+                                                            "type": "string",
+                                                            "description": "The URL of the user.",
+                                                            "readOnly": true
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+                                                            "readOnly": true
+                                                        },
+                                                        "key": {
+                                                            "type": "string",
+                                                            "description": "This property is no longer available and will be removed from the documentation soon. See the [deprecation notice](https://developer.atlassian.com/cloud/jira/platform/deprecation-notice-user-privacy-api-migration-guide/) for details.",
+                                                            "readOnly": true
+                                                        },
+                                                        "accountId": {
+                                                            "maxLength": 128,
+                                                            "type": "string",
+                                                            "description": "The account ID of the user, which uniquely identifies the user across all Atlassian products. For example, *5b10ac8d82e05b22cc7d4ef5*."
+                                                        },
+                                                        "emailAddress": {
+                                                            "type": "string",
+                                                            "description": "The email address of the user. Depending on the user’s privacy settings, this may be returned as null.",
+                                                            "readOnly": true
+                                                        },
+                                                        "avatarUrls": {
+                                                            "description": "The avatars of the user.",
+                                                            "readOnly": true,
+                                                            "allOf": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "16x16": {
+                                                                            "type": "string",
+                                                                            "description": "The URL of the item's 16x16 pixel avatar.",
+                                                                            "format": "uri"
+                                                                        },
+                                                                        "24x24": {
+                                                                            "type": "string",
+                                                                            "description": "The URL of the item's 24x24 pixel avatar.",
+                                                                            "format": "uri"
+                                                                        },
+                                                                        "32x32": {
+                                                                            "type": "string",
+                                                                            "description": "The URL of the item's 32x32 pixel avatar.",
+                                                                            "format": "uri"
+                                                                        },
+                                                                        "48x48": {
+                                                                            "type": "string",
+                                                                            "description": "The URL of the item's 48x48 pixel avatar.",
+                                                                            "format": "uri"
+                                                                        }
+                                                                    },
+                                                                    "additionalProperties": false
+                                                                }
+                                                            ]
+                                                        },
+                                                        "displayName": {
+                                                            "type": "string",
+                                                            "description": "The display name of the user. Depending on the user’s privacy settings, this may return an alternative value.",
+                                                            "readOnly": true
+                                                        },
+                                                        "active": {
+                                                            "type": "boolean",
+                                                            "description": "Whether the user is active.",
+                                                            "readOnly": true
+                                                        },
+                                                        "timeZone": {
+                                                            "type": "string",
+                                                            "description": "The time zone specified in the user's profile. Depending on the user’s privacy settings, this may be returned as null.",
+                                                            "readOnly": true
+                                                        },
+                                                        "accountType": {
+                                                            "type": "string",
+                                                            "description": "The type of account represented by this user. This will be one of 'atlassian' (normal users), 'app' (application user) or 'customer' (Jira Service Desk customer user)",
+                                                            "readOnly": true
+                                                        }
+                                                    },
+                                                    "additionalProperties": false,
+                                                    "description": "User details permitted by the user's Atlassian Account privacy settings. However, be aware of these exceptions:\n\n *  User record deleted from Atlassian: This occurs as the result of a right to be forgotten request. In this case, `displayName` provides an indication and other parameters have default values or are blank (for example, email is blank).\n *  User record corrupted: This occurs as a results of events such as a server import and can only happen to deleted users. In this case, `accountId` returns *unknown* and all other parameters have fallback values.\n *  User record unavailable: This usually occurs due to an internal service outage. In this case, all parameters have fallback values."
+                                                }
+                                            ]
+                                        },
+                                        "timetracking": {
+                                            "description": "The time tracking of the linked issue.",
+                                            "readOnly": true,
+                                            "allOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "originalEstimate": {
+                                                            "type": "string",
+                                                            "description": "The original estimate of time needed for this issue in readable format.",
+                                                            "readOnly": true
+                                                        },
+                                                        "remainingEstimate": {
+                                                            "type": "string",
+                                                            "description": "The remaining estimate of time needed for this issue in readable format.",
+                                                            "readOnly": true
+                                                        },
+                                                        "timeSpent": {
+                                                            "type": "string",
+                                                            "description": "Time worked on this issue in readable format.",
+                                                            "readOnly": true
+                                                        },
+                                                        "originalEstimateSeconds": {
+                                                            "type": "integer",
+                                                            "description": "The original estimate of time needed for this issue in seconds.",
+                                                            "format": "int64",
+                                                            "readOnly": true
+                                                        },
+                                                        "remainingEstimateSeconds": {
+                                                            "type": "integer",
+                                                            "description": "The remaining estimate of time needed for this issue in seconds.",
+                                                            "format": "int64",
+                                                            "readOnly": true
+                                                        },
+                                                        "timeSpentSeconds": {
+                                                            "type": "integer",
+                                                            "description": "Time worked on this issue in seconds.",
+                                                            "format": "int64",
+                                                            "readOnly": true
+                                                        }
+                                                    },
+                                                    "additionalProperties": false,
+                                                    "description": "Time tracking details."
+                                                }
+                                            ]
+                                        },
+                                        "issuetype": {
+                                            "type": "object",
+                                            "properties": {
+                                                "self": {
+                                                    "type": "string",
+                                                    "description": "The URL of these issue type details.",
+                                                    "readOnly": true
+                                                },
+                                                "id": {
+                                                    "type": "string",
+                                                    "description": "The ID of the issue type.",
+                                                    "readOnly": true
+                                                },
+                                                "description": {
+                                                    "type": "string",
+                                                    "description": "The description of the issue type.",
+                                                    "readOnly": true
+                                                },
+                                                "iconUrl": {
+                                                    "type": "string",
+                                                    "description": "The URL of the issue type's avatar.",
+                                                    "readOnly": true
+                                                },
+                                                "name": {
+                                                    "type": "string",
+                                                    "description": "The name of the issue type.",
+                                                    "readOnly": true
+                                                },
+                                                "subtask": {
+                                                    "type": "boolean",
+                                                    "description": "Whether this issue type is used to create subtasks.",
+                                                    "readOnly": true
+                                                },
+                                                "avatarId": {
+                                                    "type": "integer",
+                                                    "description": "The ID of the issue type's avatar.",
+                                                    "format": "int64",
+                                                    "readOnly": true
+                                                },
+                                                "entityId": {
+                                                    "type": "string",
+                                                    "description": "Unique ID for next-gen projects.",
+                                                    "format": "uuid",
+                                                    "readOnly": true
+                                                },
+                                                "hierarchyLevel": {
+                                                    "type": "integer",
+                                                    "description": "Hierarchy level of the issue type.",
+                                                    "format": "int32",
+                                                    "readOnly": true
+                                                },
+                                                "scope": {
+                                                    "description": "Details of the next-gen projects the issue type is available in.",
+                                                    "readOnly": true,
+                                                    "allOf": [
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "type": {
+                                                                    "type": "string",
+                                                                    "description": "The type of scope.",
+                                                                    "readOnly": true,
+                                                                    "enum": [
+                                                                        "PROJECT",
+                                                                        "TEMPLATE"
+                                                                    ]
+                                                                },
+                                                                "project": {
+                                                                    "description": "The project the item has scope in.",
+                                                                    "readOnly": true,
+                                                                    "allOf": [
+                                                                        {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "self": {
+                                                                                    "type": "string",
+                                                                                    "description": "The URL of the project details.",
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "id": {
+                                                                                    "type": "string",
+                                                                                    "description": "The ID of the project."
+                                                                                },
+                                                                                "key": {
+                                                                                    "type": "string",
+                                                                                    "description": "The key of the project.",
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "name": {
+                                                                                    "type": "string",
+                                                                                    "description": "The name of the project.",
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "projectTypeKey": {
+                                                                                    "type": "string",
+                                                                                    "description": "The [project type](https://confluence.atlassian.com/x/GwiiLQ#Jiraapplicationsoverview-Productfeaturesandprojecttypes) of the project.",
+                                                                                    "readOnly": true,
+                                                                                    "enum": [
+                                                                                        "software",
+                                                                                        "service_desk",
+                                                                                        "business"
+                                                                                    ]
+                                                                                },
+                                                                                "simplified": {
+                                                                                    "type": "boolean",
+                                                                                    "description": "Whether or not the project is simplified.",
+                                                                                    "readOnly": true
+                                                                                },
+                                                                                "avatarUrls": {
+                                                                                    "description": "The URLs of the project's avatars.",
+                                                                                    "readOnly": true,
+                                                                                    "allOf": [
+                                                                                        {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "16x16": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The URL of the item's 16x16 pixel avatar.",
+                                                                                                    "format": "uri"
+                                                                                                },
+                                                                                                "24x24": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The URL of the item's 24x24 pixel avatar.",
+                                                                                                    "format": "uri"
+                                                                                                },
+                                                                                                "32x32": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The URL of the item's 32x32 pixel avatar.",
+                                                                                                    "format": "uri"
+                                                                                                },
+                                                                                                "48x48": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The URL of the item's 48x48 pixel avatar.",
+                                                                                                    "format": "uri"
+                                                                                                }
+                                                                                            },
+                                                                                            "additionalProperties": false
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "projectCategory": {
+                                                                                    "description": "The category the project belongs to.",
+                                                                                    "readOnly": true,
+                                                                                    "allOf": [
+                                                                                        {
+                                                                                            "type": "object",
+                                                                                            "properties": {
+                                                                                                "self": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The URL of the project category.",
+                                                                                                    "readOnly": true
+                                                                                                },
+                                                                                                "id": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The ID of the project category.",
+                                                                                                    "readOnly": true
+                                                                                                },
+                                                                                                "description": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The name of the project category.",
+                                                                                                    "readOnly": true
+                                                                                                },
+                                                                                                "name": {
+                                                                                                    "type": "string",
+                                                                                                    "description": "The description of the project category.",
+                                                                                                    "readOnly": true
+                                                                                                }
+                                                                                            },
+                                                                                            "additionalProperties": false,
+                                                                                            "description": "A project category."
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            },
+                                                                            "additionalProperties": false,
+                                                                            "description": "Details about a project."
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "additionalProperties": true,
+                                                            "description": "The projects the item is associated with. Indicated for items associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO)."
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "additionalProperties": false,
+                                            "description": "Details about an issue type."
+                                        },
+                                        "issueType": {
+                                            "description": "The type of the linked issue.",
+                                            "readOnly": true,
+                                            "allOf": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "self": {
+                                                            "type": "string",
+                                                            "description": "The URL of these issue type details.",
+                                                            "readOnly": true
+                                                        },
+                                                        "id": {
+                                                            "type": "string",
+                                                            "description": "The ID of the issue type.",
+                                                            "readOnly": true
+                                                        },
+                                                        "description": {
+                                                            "type": "string",
+                                                            "description": "The description of the issue type.",
+                                                            "readOnly": true
+                                                        },
+                                                        "iconUrl": {
+                                                            "type": "string",
+                                                            "description": "The URL of the issue type's avatar.",
+                                                            "readOnly": true
+                                                        },
+                                                        "name": {
+                                                            "type": "string",
+                                                            "description": "The name of the issue type.",
+                                                            "readOnly": true
+                                                        },
+                                                        "subtask": {
+                                                            "type": "boolean",
+                                                            "description": "Whether this issue type is used to create subtasks.",
+                                                            "readOnly": true
+                                                        },
+                                                        "avatarId": {
+                                                            "type": "integer",
+                                                            "description": "The ID of the issue type's avatar.",
+                                                            "format": "int64",
+                                                            "readOnly": true
+                                                        },
+                                                        "entityId": {
+                                                            "type": "string",
+                                                            "description": "Unique ID for next-gen projects.",
+                                                            "format": "uuid",
+                                                            "readOnly": true
+                                                        },
+                                                        "hierarchyLevel": {
+                                                            "type": "integer",
+                                                            "description": "Hierarchy level of the issue type.",
+                                                            "format": "int32",
+                                                            "readOnly": true
+                                                        },
+                                                        "scope": {
+                                                            "description": "Details of the next-gen projects the issue type is available in.",
+                                                            "readOnly": true,
+                                                            "allOf": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "type": {
+                                                                            "type": "string",
+                                                                            "description": "The type of scope.",
+                                                                            "readOnly": true,
+                                                                            "enum": [
+                                                                                "PROJECT",
+                                                                                "TEMPLATE"
+                                                                            ]
+                                                                        },
+                                                                        "project": {
+                                                                            "description": "The project the item has scope in.",
+                                                                            "readOnly": true,
+                                                                            "allOf": [
+                                                                                {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                        "self": {
+                                                                                            "type": "string",
+                                                                                            "description": "The URL of the project details.",
+                                                                                            "readOnly": true
+                                                                                        },
+                                                                                        "id": {
+                                                                                            "type": "string",
+                                                                                            "description": "The ID of the project."
+                                                                                        },
+                                                                                        "key": {
+                                                                                            "type": "string",
+                                                                                            "description": "The key of the project.",
+                                                                                            "readOnly": true
+                                                                                        },
+                                                                                        "name": {
+                                                                                            "type": "string",
+                                                                                            "description": "The name of the project.",
+                                                                                            "readOnly": true
+                                                                                        },
+                                                                                        "projectTypeKey": {
+                                                                                            "type": "string",
+                                                                                            "description": "The [project type](https://confluence.atlassian.com/x/GwiiLQ#Jiraapplicationsoverview-Productfeaturesandprojecttypes) of the project.",
+                                                                                            "readOnly": true,
+                                                                                            "enum": [
+                                                                                                "software",
+                                                                                                "service_desk",
+                                                                                                "business"
+                                                                                            ]
+                                                                                        },
+                                                                                        "simplified": {
+                                                                                            "type": "boolean",
+                                                                                            "description": "Whether or not the project is simplified.",
+                                                                                            "readOnly": true
+                                                                                        },
+                                                                                        "avatarUrls": {
+                                                                                            "description": "The URLs of the project's avatars.",
+                                                                                            "readOnly": true,
+                                                                                            "allOf": [
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "16x16": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The URL of the item's 16x16 pixel avatar.",
+                                                                                                            "format": "uri"
+                                                                                                        },
+                                                                                                        "24x24": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The URL of the item's 24x24 pixel avatar.",
+                                                                                                            "format": "uri"
+                                                                                                        },
+                                                                                                        "32x32": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The URL of the item's 32x32 pixel avatar.",
+                                                                                                            "format": "uri"
+                                                                                                        },
+                                                                                                        "48x48": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The URL of the item's 48x48 pixel avatar.",
+                                                                                                            "format": "uri"
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "additionalProperties": false
+                                                                                                }
+                                                                                            ]
+                                                                                        },
+                                                                                        "projectCategory": {
+                                                                                            "description": "The category the project belongs to.",
+                                                                                            "readOnly": true,
+                                                                                            "allOf": [
+                                                                                                {
+                                                                                                    "type": "object",
+                                                                                                    "properties": {
+                                                                                                        "self": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The URL of the project category.",
+                                                                                                            "readOnly": true
+                                                                                                        },
+                                                                                                        "id": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The ID of the project category.",
+                                                                                                            "readOnly": true
+                                                                                                        },
+                                                                                                        "description": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The name of the project category.",
+                                                                                                            "readOnly": true
+                                                                                                        },
+                                                                                                        "name": {
+                                                                                                            "type": "string",
+                                                                                                            "description": "The description of the project category.",
+                                                                                                            "readOnly": true
+                                                                                                        }
+                                                                                                    },
+                                                                                                    "additionalProperties": false,
+                                                                                                    "description": "A project category."
+                                                                                                }
+                                                                                            ]
+                                                                                        }
+                                                                                    },
+                                                                                    "additionalProperties": false,
+                                                                                    "description": "Details about a project."
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "additionalProperties": true,
+                                                                    "description": "The projects the item is associated with. Indicated for items associated with [next-gen projects](https://confluence.atlassian.com/x/loMyO)."
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "additionalProperties": false,
+                                                    "description": "Details about an issue type."
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "additionalProperties": false,
+                                    "description": "Key fields from the linked issue."
+                                }
+                            ]
+                        }
+                    },
+                    "additionalProperties": false,
+                    "description": "The ID or key of a linked issue."
+                }
+            ]
+        }
+    },
+    "additionalProperties": false,
+    "description": "Details of a link between issues.",
+    "xml": {
+        "name": "issueLinks"
+    }
 }
