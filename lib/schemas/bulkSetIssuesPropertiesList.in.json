@@ -27,9 +27,6 @@
                             "elements": {
                                 "type": "object"
                             },
-                            "floatingPointNumber": {
-                                "type": "boolean"
-                            },
                             "pojo": {
                                 "type": "boolean"
                             },
@@ -37,6 +34,9 @@
                                 "type": "boolean"
                             },
                             "integralNumber": {
+                                "type": "boolean"
+                            },
+                            "floatingPointNumber": {
                                 "type": "boolean"
                             },
                             "int": {

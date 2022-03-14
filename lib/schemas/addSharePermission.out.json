@@ -2935,7 +2935,7 @@
                                                         },
                                                         "name": {
                                                             "type": "string",
-                                                            "description": "The name of the group"
+                                                            "description": "The name of the group. As a group's name can change, use of `groupId` is recommended to identify the group."
                                                         }
                                                     },
                                                     "additionalProperties": false,
@@ -3093,14 +3093,14 @@
                                 "type": "boolean",
                                 "description": "Whether the calling user is part of this role."
                             },
-                            "admin": {
-                                "type": "boolean",
-                                "description": "Whether this role is the admin role for the project.",
-                                "readOnly": true
-                            },
                             "roleConfigurable": {
                                 "type": "boolean",
                                 "description": "Whether the roles are configurable for this project.",
+                                "readOnly": true
+                            },
+                            "admin": {
+                                "type": "boolean",
+                                "description": "Whether this role is the admin role for the project.",
                                 "readOnly": true
                             },
                             "default": {
@@ -3180,14 +3180,14 @@
                                     {
                                         "type": "object",
                                         "properties": {
-                                            "16x16": {
-                                                "type": "string",
-                                                "description": "The URL of the user's 16x16 pixel avatar.",
-                                                "format": "uri"
-                                            },
                                             "24x24": {
                                                 "type": "string",
                                                 "description": "The URL of the user's 24x24 pixel avatar.",
+                                                "format": "uri"
+                                            },
+                                            "48x48": {
+                                                "type": "string",
+                                                "description": "The URL of the user's 48x48 pixel avatar.",
                                                 "format": "uri"
                                             },
                                             "32x32": {
@@ -3195,9 +3195,9 @@
                                                 "description": "The URL of the user's 32x32 pixel avatar.",
                                                 "format": "uri"
                                             },
-                                            "48x48": {
+                                            "16x16": {
                                                 "type": "string",
-                                                "description": "The URL of the user's 48x48 pixel avatar.",
+                                                "description": "The URL of the user's 16x16 pixel avatar.",
                                                 "format": "uri"
                                             }
                                         },

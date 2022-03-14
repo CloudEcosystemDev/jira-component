@@ -30,7 +30,7 @@
                 },
                 "groupname": {
                     "type": "string",
-                    "description": "The name of the group to share the filter with. Set `type` to `group`."
+                    "description": "The name of the group to share the filter with. Set `type` to `group`. Please note that the name of a group is mutable, to reliably identify a group use `groupId`."
                 },
                 "projectRoleId": {
                     "type": "string",
@@ -44,6 +44,10 @@
                     "type": "integer",
                     "description": "The rights for the share permission.",
                     "format": "int32"
+                },
+                "groupId": {
+                    "type": "string",
+                    "description": "The ID of the group, which uniquely identifies the group across all Atlassian products.For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*. Cannot be provided with `groupname`."
                 }
             },
             "additionalProperties": false
