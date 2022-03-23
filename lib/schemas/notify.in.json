@@ -156,6 +156,13 @@
                                         "additionalProperties": false,
                                         "description": "Details about a group name."
                                     }
+                                },
+                                "groupIds": {
+                                    "type": "array",
+                                    "description": "List of groupIds to receive the notification.",
+                                    "items": {
+                                        "type": "string"
+                                    }
                                 }
                             },
                             "additionalProperties": true,
@@ -194,6 +201,13 @@
                                         },
                                         "additionalProperties": false,
                                         "description": "Details about a group name."
+                                    }
+                                },
+                                "groupIds": {
+                                    "type": "array",
+                                    "description": "List of groupId memberships required to receive the notification.",
+                                    "items": {
+                                        "type": "string"
                                     }
                                 },
                                 "permissions": {

@@ -52,7 +52,7 @@
             ]
         },
         "inwardIssue": {
-            "description": "The issue the link joins to.",
+            "description": "Provides details about the linked issue. If presenting this link in a user interface, use the `inward` field of the issue link type to label the link.",
             "allOf": [
                 {
                     "type": "object",
@@ -190,6 +190,10 @@
                                                         "id": {
                                                             "type": "string",
                                                             "description": "The ID of the issue priority."
+                                                        },
+                                                        "isDefault": {
+                                                            "type": "boolean",
+                                                            "description": "Whether this priority is the default."
                                                         }
                                                     },
                                                     "additionalProperties": true,
@@ -730,7 +734,7 @@
             ]
         },
         "outwardIssue": {
-            "description": "The issue the link originates from.",
+            "description": "Provides details about the linked issue. If presenting this link in a user interface, use the `outward` field of the issue link type to label the link.",
             "allOf": [
                 {
                     "type": "object",
@@ -868,6 +872,10 @@
                                                         "id": {
                                                             "type": "string",
                                                             "description": "The ID of the issue priority."
+                                                        },
+                                                        "isDefault": {
+                                                            "type": "boolean",
+                                                            "description": "Whether this priority is the default."
                                                         }
                                                     },
                                                     "additionalProperties": true,
