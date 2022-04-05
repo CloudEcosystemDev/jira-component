@@ -1,9 +1,0 @@
-{
-    "type": "object",
-    "properties": {
-        "commentId": {
-            "required": true,
-            "type": "string"
-        }
-    }
-}

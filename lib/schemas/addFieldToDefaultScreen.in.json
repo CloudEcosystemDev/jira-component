@@ -1,9 +1,0 @@
-{
-    "type": "object",
-    "properties": {
-        "fieldId": {
-            "required": true,
-            "type": "string"
-        }
-    }
-}

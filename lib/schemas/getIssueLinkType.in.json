@@ -1,9 +1,0 @@
-{
-    "type": "object",
-    "properties": {
-        "issueLinkTypeId": {
-            "required": true,
-            "type": "string"
-        }
-    }
-}

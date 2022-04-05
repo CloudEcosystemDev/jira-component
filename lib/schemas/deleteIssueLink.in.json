@@ -1,9 +1,0 @@
-{
-    "type": "object",
-    "properties": {
-        "linkId": {
-            "required": true,
-            "type": "string"
-        }
-    }
-}

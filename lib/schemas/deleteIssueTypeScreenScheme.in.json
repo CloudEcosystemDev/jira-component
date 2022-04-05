@@ -1,9 +1,0 @@
-{
-    "type": "object",
-    "properties": {
-        "issueTypeScreenSchemeId": {
-            "required": true,
-            "type": "string"
-        }
-    }
-}

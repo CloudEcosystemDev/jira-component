@@ -1,9 +1,0 @@
-{
-    "type": "object",
-    "properties": {
-        "entityId": {
-            "required": true,
-            "type": "string"
-        }
-    }
-}

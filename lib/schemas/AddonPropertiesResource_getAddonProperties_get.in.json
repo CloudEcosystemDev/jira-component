@@ -1,9 +1,0 @@
-{
-    "type": "object",
-    "properties": {
-        "addonKey": {
-            "required": true,
-            "type": "string"
-        }
-    }
-}
