@@ -49,6 +49,44 @@
                         "format": "int64",
                         "readOnly": true
                     },
+                    "description": {
+                        "type": "string",
+                        "description": "The description for the component.",
+                        "readOnly": true
+                    },
+                    "self": {
+                        "type": "string",
+                        "description": "The URL for this count of the issues contained in the component.",
+                        "format": "uri",
+                        "readOnly": true
+                    },
+                    "project": {
+                        "type": "string",
+                        "description": "The key of the project to which the component is assigned.",
+                        "readOnly": true
+                    },
+                    "projectId": {
+                        "type": "integer",
+                        "description": "Not used.",
+                        "format": "int64",
+                        "readOnly": true
+                    },
+                    "isAssigneeTypeValid": {
+                        "type": "boolean",
+                        "description": "Whether a user is associated with `assigneeType`. For example, if the `assigneeType` is set to `COMPONENT_LEAD` but the component lead is not set, then `false` is returned.",
+                        "readOnly": true
+                    },
+                    "realAssigneeType": {
+                        "type": "string",
+                        "description": "The type of the assignee that is assigned to issues created with this component, when an assignee cannot be set from the `assigneeType`. For example, `assigneeType` is set to `COMPONENT_LEAD` but no component lead is set. This property is set to one of the following values:\n\n *  `PROJECT_LEAD` when `assigneeType` is `PROJECT_LEAD` and the project lead has permission to be assigned issues in the project that the component is in.\n *  `COMPONENT_LEAD` when `assignee`Type is `COMPONENT_LEAD` and the component lead has permission to be assigned issues in the project that the component is in.\n *  `UNASSIGNED` when `assigneeType` is `UNASSIGNED` and Jira is configured to allow unassigned issues.\n *  `PROJECT_DEFAULT` when none of the preceding cases are true.",
+                        "readOnly": true,
+                        "enum": [
+                            "PROJECT_DEFAULT",
+                            "COMPONENT_LEAD",
+                            "PROJECT_LEAD",
+                            "UNASSIGNED"
+                        ]
+                    },
                     "realAssignee": {
                         "description": "The user assigned to issues created with this component, when `assigneeType` does not identify a valid assignee.",
                         "allOf": [
@@ -168,8 +206,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -250,8 +287,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -289,8 +325,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -382,28 +417,6 @@
                                 }
                             }
                         ]
-                    },
-                    "isAssigneeTypeValid": {
-                        "type": "boolean",
-                        "description": "Whether a user is associated with `assigneeType`. For example, if the `assigneeType` is set to `COMPONENT_LEAD` but the component lead is not set, then `false` is returned.",
-                        "readOnly": true
-                    },
-                    "realAssigneeType": {
-                        "type": "string",
-                        "description": "The type of the assignee that is assigned to issues created with this component, when an assignee cannot be set from the `assigneeType`. For example, `assigneeType` is set to `COMPONENT_LEAD` but no component lead is set. This property is set to one of the following values:\n\n *  `PROJECT_LEAD` when `assigneeType` is `PROJECT_LEAD` and the project lead has permission to be assigned issues in the project that the component is in.\n *  `COMPONENT_LEAD` when `assignee`Type is `COMPONENT_LEAD` and the component lead has permission to be assigned issues in the project that the component is in.\n *  `UNASSIGNED` when `assigneeType` is `UNASSIGNED` and Jira is configured to allow unassigned issues.\n *  `PROJECT_DEFAULT` when none of the preceding cases are true.",
-                        "readOnly": true,
-                        "enum": [
-                            "PROJECT_DEFAULT",
-                            "COMPONENT_LEAD",
-                            "PROJECT_LEAD",
-                            "UNASSIGNED"
-                        ]
-                    },
-                    "self": {
-                        "type": "string",
-                        "description": "The URL for this count of the issues contained in the component.",
-                        "format": "uri",
-                        "readOnly": true
                     },
                     "assigneeType": {
                         "type": "string",
@@ -535,8 +548,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -617,8 +629,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -656,8 +667,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -749,17 +759,6 @@
                                 }
                             }
                         ]
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "The description for the component.",
-                        "readOnly": true
-                    },
-                    "projectId": {
-                        "type": "integer",
-                        "description": "Not used.",
-                        "format": "int64",
-                        "readOnly": true
                     },
                     "assignee": {
                         "description": "The details of the user associated with `assigneeType`, if any. See `realAssignee` for details of the user assigned to issues created with this component.",
@@ -880,8 +879,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -962,8 +960,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -1001,8 +998,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -1094,11 +1090,6 @@
                                 }
                             }
                         ]
-                    },
-                    "project": {
-                        "type": "string",
-                        "description": "The key of the project to which the component is assigned.",
-                        "readOnly": true
                     },
                     "name": {
                         "type": "string",

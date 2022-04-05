@@ -149,8 +149,7 @@
                                                     "groupId": {
                                                         "type": "string",
                                                         "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                        "nullable": true,
-                                                        "readOnly": true
+                                                        "nullable": true
                                                     },
                                                     "self": {
                                                         "type": "string",
@@ -231,8 +230,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -270,8 +268,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -510,8 +507,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -592,8 +588,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -631,8 +626,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -865,8 +859,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -947,8 +940,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -986,8 +978,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -1211,8 +1202,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -1293,8 +1283,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -1332,8 +1321,7 @@
                                                                             "groupId": {
                                                                                 "type": "string",
                                                                                 "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                                "nullable": true,
-                                                                                "readOnly": true
+                                                                                "nullable": true
                                                                             },
                                                                             "self": {
                                                                                 "type": "string",
@@ -2211,8 +2199,7 @@
                                                     "groupId": {
                                                         "type": "string",
                                                         "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                        "nullable": true,
-                                                        "readOnly": true
+                                                        "nullable": true
                                                     },
                                                     "self": {
                                                         "type": "string",
@@ -2293,8 +2280,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -2332,8 +2318,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -2557,8 +2542,7 @@
                                                     "groupId": {
                                                         "type": "string",
                                                         "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                        "nullable": true,
-                                                        "readOnly": true
+                                                        "nullable": true
                                                     },
                                                     "self": {
                                                         "type": "string",
@@ -2639,8 +2623,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",
@@ -2678,8 +2661,7 @@
                                                                 "groupId": {
                                                                     "type": "string",
                                                                     "description": "The ID of the group, which uniquely identifies the group across all Atlassian products. For example, *952d12c3-5b5b-4d04-bb32-44d383afc4b2*.",
-                                                                    "nullable": true,
-                                                                    "readOnly": true
+                                                                    "nullable": true
                                                                 },
                                                                 "self": {
                                                                     "type": "string",

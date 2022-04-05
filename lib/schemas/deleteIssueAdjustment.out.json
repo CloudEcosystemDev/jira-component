@@ -1,0 +1,21 @@
+{
+    "required": [
+        "id",
+        "self"
+    ],
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "The ID of the issue adjustment.",
+            "readOnly": true
+        },
+        "self": {
+            "type": "string",
+            "description": "The URL of the issue adjustment.",
+            "readOnly": true
+        }
+    },
+    "additionalProperties": false,
+    "description": "Identifiers for an issue adjustment."
+}

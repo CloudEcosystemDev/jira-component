@@ -31,6 +31,9 @@
                                         "elements": {
                                             "type": "object"
                                         },
+                                        "floatingPointNumber": {
+                                            "type": "boolean"
+                                        },
                                         "pojo": {
                                             "type": "boolean"
                                         },
@@ -38,9 +41,6 @@
                                             "type": "boolean"
                                         },
                                         "integralNumber": {
-                                            "type": "boolean"
-                                        },
-                                        "floatingPointNumber": {
                                             "type": "boolean"
                                         },
                                         "int": {
@@ -136,14 +136,14 @@
                                         "valueAsBoolean": {
                                             "type": "boolean"
                                         },
-                                        "fieldNames": {
-                                            "type": "object"
-                                        },
                                         "textValue": {
                                             "type": "string"
                                         },
                                         "valueAsText": {
                                             "type": "string"
+                                        },
+                                        "fieldNames": {
+                                            "type": "object"
                                         },
                                         "array": {
                                             "type": "boolean"

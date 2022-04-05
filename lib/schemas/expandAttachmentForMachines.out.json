@@ -7,14 +7,14 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "abbreviatedName": {
-                        "type": "string"
-                    },
                     "entryIndex": {
                         "type": "integer",
                         "format": "int64"
                     },
                     "mediaType": {
+                        "type": "string"
+                    },
+                    "abbreviatedName": {
                         "type": "string"
                     },
                     "name": {

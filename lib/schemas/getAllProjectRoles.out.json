@@ -250,14 +250,14 @@
                 "type": "boolean",
                 "description": "Whether the calling user is part of this role."
             },
-            "roleConfigurable": {
-                "type": "boolean",
-                "description": "Whether the roles are configurable for this project.",
-                "readOnly": true
-            },
             "admin": {
                 "type": "boolean",
                 "description": "Whether this role is the admin role for the project.",
+                "readOnly": true
+            },
+            "roleConfigurable": {
+                "type": "boolean",
+                "description": "Whether the roles are configurable for this project.",
                 "readOnly": true
             },
             "default": {

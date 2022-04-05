@@ -1,0 +1,71 @@
+{
+    "type": "object",
+    "properties": {
+        "issueAdjustmentId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the issue adjustment. The maximum length is 255 characters.",
+                    "writeOnly": true
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the issue adjustment. The maximum length is 255 characters.",
+                    "writeOnly": true
+                },
+                "data": {
+                    "type": "string",
+                    "description": "The data of the issue adjustment. The maximum size of the data is 50000 characters.",
+                    "writeOnly": true
+                },
+                "contexts": {
+                    "type": "array",
+                    "description": "List of contexts of the issue adjustment. The maximum number of contexts is 1000. If provided, replaces all existing contexts.",
+                    "writeOnly": true,
+                    "items": {
+                        "required": [
+                            "issueTypeId",
+                            "projectId",
+                            "viewType"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "The ID of the issue adjustment context.",
+                                "readOnly": true
+                            },
+                            "projectId": {
+                                "type": "string",
+                                "description": "The project ID of the context."
+                            },
+                            "issueTypeId": {
+                                "type": "string",
+                                "description": "The issue type ID of the context."
+                            },
+                            "viewType": {
+                                "type": "string",
+                                "description": "The view type of the context. Only `GIC` (Global Issue Create) is supported."
+                            },
+                            "isAvailable": {
+                                "type": "boolean",
+                                "description": "Whether a context is available. For example, when a project is deleted the context becomes unavailable.",
+                                "readOnly": true
+                            }
+                        },
+                        "additionalProperties": false,
+                        "description": "The details of an issue adjustment's context, which define where to activate the issue adjustment.",
+                        "writeOnly": true
+                    }
+                }
+            },
+            "additionalProperties": false,
+            "description": "The details of an issue adjustment."
+        }
+    }
+}
