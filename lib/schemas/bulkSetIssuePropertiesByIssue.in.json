@@ -136,14 +136,14 @@
                                         "valueAsBoolean": {
                                             "type": "boolean"
                                         },
-                                        "fieldNames": {
-                                            "type": "object"
-                                        },
                                         "textValue": {
                                             "type": "string"
                                         },
                                         "valueAsText": {
                                             "type": "string"
+                                        },
+                                        "fieldNames": {
+                                            "type": "object"
                                         },
                                         "array": {
                                             "type": "boolean"

@@ -181,7 +181,7 @@
                         "readOnly": true
                     },
                     "holder": {
-                        "description": "The user or group being granted the permission. It consists of a `type` and a type-dependent `parameter`. See [Holder object](../api-group-permission-schemes/#holder-object) in *Get all permission schemes* for more information.",
+                        "description": "The user or group being granted the permission. It consists of a `type`, a type-dependent `parameter` and a type-dependent `value`. See [Holder object](../api-group-permission-schemes/#holder-object) in *Get all permission schemes* for more information.",
                         "allOf": [
                             {
                                 "required": [
@@ -195,7 +195,11 @@
                                     },
                                     "parameter": {
                                         "type": "string",
-                                        "description": "The identifier of permission holder."
+                                        "description": "As a group's name can change, use of `value` is recommended. The identifier associated withthe `type` value that defines the holder of the permission."
+                                    },
+                                    "value": {
+                                        "type": "string",
+                                        "description": "The identifier associated with the `type` value that defines the holder of the permission."
                                     },
                                     "expand": {
                                         "type": "string",

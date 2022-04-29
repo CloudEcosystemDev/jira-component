@@ -13,14 +13,6 @@
                 "format": "int64"
             }
         },
-        "contextId": {
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-                "type": "integer",
-                "format": "int64"
-            }
-        },
         "fieldContextId": {
             "uniqueItems": true,
             "type": "array",

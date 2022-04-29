@@ -28,12 +28,6 @@
                                 "type": "string",
                                 "description": "The ID of the configuration."
                             },
-                            "contextId": {
-                                "type": "integer",
-                                "description": "Deprecated, do not use.",
-                                "format": "int64",
-                                "deprecated": true
-                            },
                             "fieldContextId": {
                                 "type": "string",
                                 "description": "The ID of the field context the configuration is associated with.",

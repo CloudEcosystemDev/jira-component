@@ -124,10 +124,8 @@
                     "name": "availableField"
                 }
             },
-            "description": "A list of editable field details.",
             "readOnly": true
         }
     },
-    "additionalProperties": false,
     "description": "A list of editable field details."
 }
